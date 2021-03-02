@@ -1,3 +1,12 @@
 {
-    
+    "HOME": {
+        "SUB_TITLE": "test tekst enzo weet je wel"
+    },
+    "SIDE_BAR": {
+        "LANGUAGE": "Taal",
+        "LANGUAGES": {
+            "NL": "Nederlands",
+            "EN": "Engels"
+        }
+    }
 }

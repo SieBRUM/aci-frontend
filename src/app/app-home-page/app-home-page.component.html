@@ -1,0 +1,25 @@
+<div class="main">
+<p>app-home-page works!</p>
+
+<p>{{ 'HOME.SUB_TITLE' | translate }}</p>
+
+<div>
+    <mat-form-field class="language-form-field">
+        <mat-label>{{ 'SIDE_BAR.LANGUAGE' | translate }}</mat-label>
+        <mat-select (selectionChange)="onChangeLanguage($event.value)" [value]="translate.currentLang">
+            <mat-select-trigger>
+                <div class="language-select-option">
+                    <!-- <img src="/assets/images/i18n_flags/{{translate.currentLang}}.png" class="country-flag"> -->
+                    <span class="country-name">{{ translateLanguage(translate.currentLang) }}</span>
+                </div>
+            </mat-select-trigger>
+            <mat-option *ngFor="let language of translate.getLangs()" [value]="language">
+                <div class="language-select-option">
+                    <!-- <img src="/assets/images/i18n_flags/{{language}}.png" class="country-flag"> -->
+                    <span class="country-name">{{ translateLanguage(language) }}</span>
+                </div>
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+</div>
