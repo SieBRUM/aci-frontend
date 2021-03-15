@@ -1,6 +1,21 @@
 import { Component } from '@angular/core';
+import { MatTableModule } from '@angular/material/table';
+import { MatChipsModule } from '@angular/material/chips';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+export interface ProductData {
+  name: string;
+  location: string;
+  isAvailable: boolean;
+}
+
+const TEST_DATA: ProductData[] = [
+  {name: 'CANON R5', location: 'Somewhere', isAvailable: false},
+  {name: 'CANON R5', location: 'Die ene plank', isAvailable: true},
+  {name: 'CANON R5', location: 'Somewhere', isAvailable: false},
+  {name: 'CANON R5', location: 'Somewhere', isAvailable: false},
+  {name: 'CANON R5', location: 'Somewhere', isAvailable: false},
+];
 
 @Component({
   selector: 'app-inventory',
@@ -8,26 +23,8 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
   styleUrls: ['./inventory.component.scss']
 })
 export class InventoryComponent {
-  /** Based on the screen size, switch from standard to one column per row */
-  cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-    map(({ matches }) => {
-      if (matches) {
-        return [
-          { title: 'Card 1', cols: 1, rows: 1 },
-          { title: 'Card 2', cols: 1, rows: 1 },
-          { title: 'Card 3', cols: 1, rows: 1 },
-          { title: 'Card 4', cols: 1, rows: 1 }
-        ];
-      }
-
-      return [
-        { title: 'Card 1', cols: 2, rows: 1 },
-        { title: 'Card 2', cols: 1, rows: 1 },
-        { title: 'Card 3', cols: 1, rows: 2 },
-        { title: 'Card 4', cols: 1, rows: 1 }
-      ];
-    })
-  );
+    displayedColumns: string[] = ['name', 'location', 'isAvailable'];
+    dataSource = TEST_DATA;
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 }

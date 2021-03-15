@@ -3,7 +3,8 @@
         "SUB_TITLE": "test tekst enzo weet je wel"
     },
     "INVENTORY" : {
-        "TITLE": "Inventaris"
+        "TITLE": "Inventaris",
+        "INVENTORY_EMPTY": "Geen producten gevonden"
     },   
     "SIDE_BAR": {
         "LANGUAGE": "Taal",
@@ -11,5 +12,8 @@
             "NL": "Nederlands",
             "EN": "Engels"
         }
-    }
+    },
+    "NAME": "Naam",
+    "LOCATION": "Locatie",
+    "IS_AVAILABLE": "Is beschikbaar"
 }

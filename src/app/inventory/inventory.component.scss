@@ -1,21 +1,19 @@
-.grid-container {
-  margin: 20px;
+table {
+  width: 100%;
 }
 
-.dashboard-card {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  right: 15px;
-  bottom: 15px;
+.reserved-status {
+  background-color: rgb(187, 134, 252);
 }
 
-.more-button {
-  position: absolute;
-  top: 5px;
-  right: 10px;
+.unavailable-status {
+  background-color: rgb(255, 162, 0);
 }
 
-.dashboard-card-content {
-  text-align: center;
+.awaits-approval-status {
+  background-color: rgb(32, 165, 161);
+}
+
+.available-status {
+  background-color: rgb(8, 148, 17);
 }

@@ -11,5 +11,8 @@
             "NL": "Dutch",
             "EN": "English"
         }
-    }
+    },
+    "NAME": "Name",
+    "LOCATION": "Location",
+    "IS_AVAILABLE": "Is available"
 }

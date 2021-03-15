@@ -17,6 +17,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatChipsModule } from '@angular/material/chips';
 import { LayoutModule } from '@angular/cdk/layout';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -49,7 +50,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
-    LayoutModule
+    LayoutModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
