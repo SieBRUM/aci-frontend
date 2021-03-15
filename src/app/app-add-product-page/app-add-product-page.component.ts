@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { AddProductObject } from '../models/add-product.model';
 
 @Component({
   selector: 'app-add-product-page',
@@ -7,6 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppAddProductPageComponent {
 
-  constructor() { }
+  /* Contains the values for the new product. */
+  product: AddProductObject;
 
+  constructor() {
+    this.product = {
+      categoryId: 0,
+      catalogNumber: 0,
+      description: '',
+      images: [],
+      location: '',
+      name: '',
+      requiresApproval: false
+    };
+  }
 }

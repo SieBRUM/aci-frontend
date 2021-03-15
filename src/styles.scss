@@ -2,7 +2,7 @@
 @include mat-core();
 
 $aci-app-primary: mat-palette($mat-purple);
-$aci-app-accent: mat-palette($mat-green);
+$aci-app-accent: mat-palette($mat-green, A200);
 
 $aci-app-warn: mat-palette($mat-red);
 
@@ -12,7 +12,6 @@ $aci-app-theme: mat-dark-theme((color: (primary: $aci-app-primary,
         )));
 
 @include angular-material-theme($aci-app-theme);
-@include mat-button-theme($aci-app-theme);
 
 html,
 body {
@@ -22,4 +21,9 @@ body {
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.success,
+.green {
+    color: #4caf50
 }

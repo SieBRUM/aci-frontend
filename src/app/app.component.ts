@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDrawerMode } from '@angular/material/sidenav';
 import { TranslateService } from '@ngx-translate/core';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +9,12 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
 
+  /* Contains the value whether the menu is opened yes or no */
   isMenuOpen = true;
+  /*
+    Contains the value whether the menu is pinned yes or no.
+    Value is received from the EventEmitter in the SideMenu component.
+  */
   isMenuPinned = false;
 
   constructor(
@@ -20,14 +24,27 @@ export class AppComponent {
     this.initMenuBar();
   }
 
+  /*
+    Opens or closes the side bar.
+  */
   onClickSideBar(): void {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
+  /*
+    Sets the correct menu state based on the pinned state.
+  */
   getMenuMode(): MatDrawerMode {
     return this.isMenuPinned ? 'side' : 'over';
   }
 
+  /*
+    Handles the changes when the pinned state changes.
+    Write the new value to localstorage and force-open the menu.
+
+    @param pinned: boolean
+    The new value of the pinned state
+  */
   onPinnedChange(pinned: boolean): void {
     if (this.isMenuPinned === pinned) {
       return;
@@ -38,6 +55,11 @@ export class AppComponent {
     localStorage.setItem('menu-pinned', this.isMenuPinned.toString());
   }
 
+  /*
+    Initialise the language services. Set all the supported languages and set default (fallback) language.
+    Check if the localstorage contains a language value and try and use this value.
+    If a non-existing value is stored, use the fallback language and override localstorage value.
+  */
   initLanguage(): void {
     this.translate.addLangs(['en', 'nl']);
     this.translate.setDefaultLang('en');
@@ -53,6 +75,11 @@ export class AppComponent {
     localStorage.setItem('language', this.translate.currentLang);
   }
 
+  /*
+    Initialise the sidebar state. 
+    Check if the localstorage contains previously saved menu values and use those.
+    If non-existing values are stored in the localstorage, use the default values and save to localstorage.
+  */
   initMenuBar(): void {
     const localStoragePinMenu = localStorage.getItem('menu-pinned');
     if (localStoragePinMenu === 'true') {

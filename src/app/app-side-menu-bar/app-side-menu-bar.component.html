@@ -19,7 +19,7 @@
             <!-- Dont place stuff in here!  -->
         </div>
         <div>
-            <mat-form-field class="language-form-field">
+            <mat-form-field class="language-form-field" appearance="fill">
                 <mat-label>{{ 'SIDE_BAR.LANGUAGE' | translate }}</mat-label>
                 <mat-select (selectionChange)="onChangeLanguage($event.value)" [value]="translate.currentLang">
                     <mat-select-trigger>

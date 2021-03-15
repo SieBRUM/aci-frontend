@@ -10,5 +10,21 @@
             "NL": "Dutch",
             "EN": "English"
         }
+    },
+    "PRODUCT": {
+        "ADD": {
+            "TITLE": "Add product",
+            "NAME": "Product name",
+            "CATALOG_NUMBER": "Catalog number",
+            "CATEGORY": "Category",
+            "LOCATION": "Location",
+            "DESCRIPTION": "Description",
+            "REQUIRES_APPROVAL": "Requires approval",
+            "SAVE": "Add product",
+            "LEFT": "Previous image",
+            "RIGHT": "Next image",
+            "ADD_IMAGE": "Add image",
+            "REMOVE_IMAGE": "Remove image"
+        }
     }
 }

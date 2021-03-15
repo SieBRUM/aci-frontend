@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home-page',
@@ -9,6 +8,5 @@ import { TranslateService } from '@ngx-translate/core';
 export class AppHomePageComponent {
 
   constructor(
-    public translate: TranslateService,
   ) { }
 }

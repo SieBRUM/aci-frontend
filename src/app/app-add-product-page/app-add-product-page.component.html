@@ -5,37 +5,61 @@
                 {{ 'PRODUCT.ADD.TITLE' | translate }}
             </mat-card-title>
         </mat-card-header>
+        <mat-divider></mat-divider>
         <mat-card-content class="card-content">
             <div class="card-left">
-                <mat-form-field appearance="fill">
+                <mat-form-field appearance="fill" class="input-field-full-width">
                     <mat-label>{{ 'PRODUCT.ADD.NAME' | translate }}</mat-label>
-                    <input matInput>
+                    <input matInput [(ngModel)]="product.name">
                 </mat-form-field>
-
-                <mat-form-field appearance="fill">
+                <mat-form-field appearance="fill" class="input-field-full-width">
+                    <mat-label>{{ 'PRODUCT.ADD.CATALOG_NUMBER' | translate }}</mat-label>
+                    <input matInput type="number" [(ngModel)]="product.catalogNumber">
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="input-field-full-width">
                     <mat-label>{{ 'PRODUCT.ADD.CATEGORY' | translate }}</mat-label>
-                    <mat-select>
+                    <mat-select [(ngModel)]="product.categoryId">
                         <mat-option value="option">Optie 1</mat-option>
                     </mat-select>
                 </mat-form-field>
 
-                <mat-form-field appearance="fill">
+                <mat-form-field appearance="fill" class="input-field-full-width">
                     <mat-label>{{ 'PRODUCT.ADD.LOCATION' | translate }}</mat-label>
-                    <input matInput>
+                    <input matInput [(ngModel)]="product.location">
                 </mat-form-field>
             </div>
             <div class="card-middle">
-                <mat-form-field appearance="fill" style="height: 100%;">
+                <mat-form-field appearance="fill" class="input-field-full-width">
                     <mat-label>{{ 'PRODUCT.ADD.DESCRIPTION' | translate }}</mat-label>
-                    <textarea matInput style="height: 100%;" matAutosizeMinRows=5 matAutosizeMaxRows=20></textarea>
+                    <textarea matInput style="height: 226px;" [(ngModel)]="product.description"></textarea>
                 </mat-form-field>
             </div>
             <div class="card-right">
-                c
+                <img src="aap.png" alt="" width="200vh" height="200vh"><br>
+                <button mat-icon-button [title]="'PRODUCT.ADD.LEFT' | translate" color="accent">
+                    <mat-icon>arrow_left</mat-icon>
+                </button>
+                1/5
+                <button mat-icon-button [title]="'PRODUCT.ADD.RIGHT' | translate" color="accent">
+                    <mat-icon>arrow_right</mat-icon>
+                </button>
+                |
+                <button mat-icon-button [title]="'PRODUCT.ADD.ADD_IMAGE' | translate" color="accent">
+                    <mat-icon>insert_photo</mat-icon>
+                </button>
+                <button mat-icon-button [title]="'PRODUCT.ADD.REMOVE_IMAGE' | translate" color="accent">
+                    <mat-icon>delete</mat-icon>
+                </button>
+                <br>
+                <mat-checkbox class="approval-checkbox" [(ngModel)]="product.requiresApproval">
+                    {{ 'PRODUCT.ADD.REQUIRES_APPROVAL' | translate }}
+                </mat-checkbox>
             </div>
         </mat-card-content>
         <mat-card-actions>
-            <button mat-stroked-button color='primary'>{{ 'PRODUCT.ADD.SAVE' | translate }}</button>
+            <button mat-stroked-button class="green" style="float:right;">
+                {{ 'PRODUCT.ADD.SAVE' | translate }}
+            </button>
         </mat-card-actions>
     </mat-card>
 </div>

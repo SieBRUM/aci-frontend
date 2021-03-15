@@ -23,6 +23,11 @@ import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTableModule } from '@angular/material/table';
 
+
+/*
+  Contains all 'default' material components.
+  See https://material.angular.io/components/categories
+*/
 @NgModule({
   declarations: [],
   imports: [
