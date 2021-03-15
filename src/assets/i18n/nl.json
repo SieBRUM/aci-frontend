@@ -1,6 +1,7 @@
 {
     "INVENTORY" : {
-        "TITLE": "Inventaris"
+        "TITLE": "Inventaris",
+        "INVENTORY_EMPTY": "Geen producten gevonden"
     },   
     "SIDE_BAR": {
         "LOGOUT": "Log uit",
@@ -44,5 +45,8 @@
             "NO_DATA": "Er is iets misgegaan met het opslaan van de gegevens. Probeer het later opnieuw of contacteer een administrator",
             "ADD_SUCCESSFUL": "Product is toegevoegd!"
         }
-    }
+    },
+    "NAME": "Naam",
+    "LOCATION": "Locatie",
+    "IS_AVAILABLE": "Is beschikbaar"
 }

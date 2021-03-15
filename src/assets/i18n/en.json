@@ -44,5 +44,8 @@
             "NO_DATA": "Something went wrong with saving your data. Please try again later or contact an administrator",
             "ADD_SUCCESSFUL": "Product has been added!"
         }
-    }
+    },
+    "NAME": "Name",
+    "LOCATION": "Location",
+    "IS_AVAILABLE": "Is available"
 }
