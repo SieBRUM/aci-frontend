@@ -1,8 +1,10 @@
 {
-    "HOME": {
-        "SUB_TITLE": "test tekst enzo weet je wel"
-    },
     "SIDE_BAR": {
+        "LOGOUT": "Log uit",
+        "UNPIN_MENU": "Ontgrendel menu",
+        "PIN_MENU": "Vergrendel menu",
+        "HOME": "Home",
+        "ADD_PRODUCT": "Product toevoegen",
         "LANGUAGE": "Taal",
         "LANGUAGES": {
             "NL": "Nederlands",

@@ -1,0 +1,41 @@
+<div class="container">
+    <mat-card class="main-content">
+        <mat-card-header>
+            <mat-card-title>
+                {{ 'PRODUCT.ADD.TITLE' | translate }}
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="card-content">
+            <div class="card-left">
+                <mat-form-field appearance="fill">
+                    <mat-label>{{ 'PRODUCT.ADD.NAME' | translate }}</mat-label>
+                    <input matInput>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>{{ 'PRODUCT.ADD.CATEGORY' | translate }}</mat-label>
+                    <mat-select>
+                        <mat-option value="option">Optie 1</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>{{ 'PRODUCT.ADD.LOCATION' | translate }}</mat-label>
+                    <input matInput>
+                </mat-form-field>
+            </div>
+            <div class="card-middle">
+                <mat-form-field appearance="fill" style="height: 100%;">
+                    <mat-label>{{ 'PRODUCT.ADD.DESCRIPTION' | translate }}</mat-label>
+                    <textarea matInput style="height: 100%;" matAutosizeMinRows=5 matAutosizeMaxRows=20></textarea>
+                </mat-form-field>
+            </div>
+            <div class="card-right">
+                c
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-stroked-button color='primary'>{{ 'PRODUCT.ADD.SAVE' | translate }}</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

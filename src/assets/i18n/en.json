@@ -1,8 +1,10 @@
 {
-    "HOME": {
-        "SUB_TITLE": "something in english or smth"
-    },
     "SIDE_BAR": {
+        "LOGOUT": "Log out",
+        "UNPIN_MENU": "Unpin menu",
+        "PIN_MENU": "Pin menu",
+        "HOME": "Home",
+        "ADD_PRODUCT": "Add product",
         "LANGUAGE": "Language",
         "LANGUAGES": {
             "NL": "Dutch",

@@ -1,4 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+@include mat-core();
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+$aci-app-primary: mat-palette($mat-purple);
+$aci-app-accent: mat-palette($mat-green);
+
+$aci-app-warn: mat-palette($mat-red);
+
+$aci-app-theme: mat-dark-theme((color: (primary: $aci-app-primary,
+            accent: $aci-app-accent,
+            warn: $aci-app-warn,
+        )));
+
+@include angular-material-theme($aci-app-theme);
+@include mat-button-theme($aci-app-theme);
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
