@@ -35,22 +35,41 @@
                 </mat-form-field>
             </div>
             <div class="card-right">
-                <img src="aap.png" alt="" width="200vh" height="200vh"><br>
-                <button mat-icon-button [title]="'PRODUCT.ADD.LEFT' | translate" color="accent">
-                    <mat-icon>arrow_left</mat-icon>
-                </button>
-                1/5
-                <button mat-icon-button [title]="'PRODUCT.ADD.RIGHT' | translate" color="accent">
-                    <mat-icon>arrow_right</mat-icon>
-                </button>
-                |
-                <button mat-icon-button [title]="'PRODUCT.ADD.ADD_IMAGE' | translate" color="accent">
-                    <mat-icon>insert_photo</mat-icon>
-                </button>
-                <button mat-icon-button [title]="'PRODUCT.ADD.REMOVE_IMAGE' | translate" color="accent">
-                    <mat-icon>delete</mat-icon>
-                </button>
-                <br>
+                <img src="aap.png" alt="" width="200vh" height="200vh" id="imagePreview"><br>
+                <div *ngIf='removingImageIndex === null'>
+                    <button mat-icon-button [title]="'PRODUCT.ADD.LEFT' | translate" color="accent"
+                        (click)="onClickPreviousImage()">
+                        <mat-icon>arrow_left</mat-icon>
+                    </button>
+                    {{ selectedImageIndex }} / {{ product.images?.length }}
+                    <button mat-icon-button [title]="'PRODUCT.ADD.RIGHT' | translate" color="accent"
+                        (click)="onClickNextImage()">
+                        <mat-icon>arrow_right</mat-icon>
+                    </button>
+                    |
+                    <input id="fileInput" type="file" (change)="onFileChanged($event)"
+                        accept="image/x-png,image/gif,image/jpeg" hidden='true' multiple>
+                    <button mat-icon-button [title]="'PRODUCT.ADD.ADD_IMAGE' | translate" color="accent"
+                        (click)="onClickAddImage()">
+                        <mat-icon>insert_photo</mat-icon>
+                    </button>
+                    <button mat-icon-button [title]="'PRODUCT.ADD.REMOVE_IMAGE' | translate" color="accent"
+                        (click)="removingImageIndex = selectedImageIndex">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    <br>
+                </div>
+                <div *ngIf='removingImageIndex !== null' style="margin-bottom: 4px;">
+                    <button mat-raised-button color='warn'>
+                        <mat-icon>delete</mat-icon>
+                        {{ 'PRODUCT.ADD.REMOVE_IMAGE' | translate }}
+                    </button>
+                    <button mat-raised-button (click)='removingImageIndex = null'>
+                        {{ 'PRODUCT.ADD.CANCEL' | translate }}
+                    </button>
+                </div>
+
+
                 <mat-checkbox class="approval-checkbox" [(ngModel)]="product.requiresApproval">
                     {{ 'PRODUCT.ADD.REQUIRES_APPROVAL' | translate }}
                 </mat-checkbox>

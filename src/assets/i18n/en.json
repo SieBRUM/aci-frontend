@@ -24,7 +24,8 @@
             "LEFT": "Previous image",
             "RIGHT": "Next image",
             "ADD_IMAGE": "Add image",
-            "REMOVE_IMAGE": "Remove image"
+            "REMOVE_IMAGE": "Remove image",
+            "CANCEL": "Cancel"
         }
     }
 }
