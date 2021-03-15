@@ -2,6 +2,9 @@
     "HOME": {
         "SUB_TITLE": "something in english or smth"
     },
+    "INVENTORY" : {
+        "TITLE": "Inventory"
+    },  
     "SIDE_BAR": {
         "LANGUAGE": "Language",
         "LANGUAGES": {

@@ -2,6 +2,9 @@
     "HOME": {
         "SUB_TITLE": "test tekst enzo weet je wel"
     },
+    "INVENTORY" : {
+        "TITLE": "Inventaris"
+    },   
     "SIDE_BAR": {
         "LANGUAGE": "Taal",
         "LANGUAGES": {
