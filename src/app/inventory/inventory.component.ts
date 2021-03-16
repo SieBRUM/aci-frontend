@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 
 /**
- * Data die wordt weergegeven in het inventory model
+ * Defines data that is used in the inventory table
  */
 export interface ProductData {
   name: string;
@@ -27,7 +27,10 @@ const TEST_DATA: ProductData[] = [
   styleUrls: ['./inventory.component.scss']
 })
 export class InventoryComponent {
+    // determined whch columns that are displayed in the inventory table and in which order.
     displayedColumns: string[] = ['name', 'location', 'status'];
+
+    // TODO: replace with API Call
     dataSource = TEST_DATA;
 
   constructor(private breakpointObserver: BreakpointObserver) {}
