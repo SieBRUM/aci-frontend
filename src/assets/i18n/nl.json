@@ -8,7 +8,8 @@
         "AVAILABLE": "Beschikbaar",
         "AWAITS_APPROVAL": "Goedkeuring Nodig",
         "RESERVED": "Gereserveerd",
-        "UNAVAILABLE": "Niet beschikbaar",
+        "LENT": "Uitgeleend",
+        "UNAVAILABLE": "Niet beschikbaar"
     },   
     "SIDE_BAR": {
         "LANGUAGE": "Taal",
@@ -20,5 +21,6 @@
     "NAME": "Naam",
     "STATUS": "Status",
     "LOCATION": "Locatie",
+    "RESERVER": "Reserveerder",
     "IS_AVAILABLE": "Is beschikbaar"
 }
