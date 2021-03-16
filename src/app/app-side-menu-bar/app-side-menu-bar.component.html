@@ -1,14 +1,14 @@
 <div class="menu-top-container">
     <div class="menu-lower-container">
         <div>
-            <div class="main-options">
+            <div class="main-options" name="menu-options-list">
                 <button mat-stroked-button class="menu-option-button" (click)="onClickNavigate('home')"
-                    [style]="isOnRoute('home')">
+                    [style]="isOnRoute('home')" name="menu-option-home">
                     <mat-icon>home</mat-icon>
                     {{ 'SIDE_BAR.HOME' | translate }}
                 </button>
                 <button mat-stroked-button class="menu-option-button" (click)="onClickNavigate('addproduct')"
-                    [style]="isOnRoute('products/add')">
+                    [style]="isOnRoute('products/add')" name="menu-option-add-product">
                     <mat-icon>add</mat-icon>
                     {{ 'SIDE_BAR.ADD_PRODUCT' | translate }}
                 </button>
@@ -21,7 +21,8 @@
         <div>
             <mat-form-field class="language-form-field" appearance="fill">
                 <mat-label>{{ 'SIDE_BAR.LANGUAGE' | translate }}</mat-label>
-                <mat-select (selectionChange)="onChangeLanguage($event.value)" [value]="translate.currentLang">
+                <mat-select (selectionChange)="onChangeLanguage($event.value)" [value]="translate.currentLang"
+                    name="language-select">
                     <mat-select-trigger>
                         <div class="language-select-option">
                             <img src="/assets/images/i18n_flags/{{translate.currentLang}}.png" class="country-flag">

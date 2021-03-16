@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { AddProductObject } from '../models/add-product.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { TranslateService } from '@ngx-translate/core';
+import { IAddProductImage } from '../models/add-product-image.model';
+import { IAddProductObject } from '../models/add-product.model';
 
 @Component({
   selector: 'app-add-product-page',
@@ -9,14 +12,28 @@ import { AddProductObject } from '../models/add-product.model';
 export class AppAddProductPageComponent {
 
   /* Contains the values for the new product. */
-  product: AddProductObject;
+  product: IAddProductObject;
+  /* Contains all (temp) image objects  */
+  images: Array<IAddProductImage> = [];
+
   /* Selected index of the image carousel. */
-  selectedImageIndex = 1;
+  selectedImageIndex = 0;
+  /* Selected image that has to be removed. Is null when confirm is not active. */
   removingImageIndex: number | null = null;
 
-  constructor() {
+  /*
+    Contains loading state.
+    Disables all form inputs/buttons when true. Loading spinner is visible when true  
+  */
+  isLoading = false;
+
+
+  constructor(
+    private translate: TranslateService,
+    private snackbarService: MatSnackBar
+  ) {
     this.product = {
-      categoryId: 0,
+      categoryId: -1,
       catalogNumber: 0,
       description: '',
       images: [],
@@ -31,12 +48,14 @@ export class AppAddProductPageComponent {
     Roll over to last image when on first image, and previous is clicked. 
   */
   onClickPreviousImage(): void {
-    if (this.product.images === null) {
+    if (this.images === null || this.images.length < 1) {
+      this.selectedImageIndex = 0;
+      this.onChangeSelectedImageIndex();
       return;
     }
 
     if (this.selectedImageIndex === 1) {
-      this.selectedImageIndex = this.product.images.length;
+      this.selectedImageIndex = this.images.length;
       this.onChangeSelectedImageIndex();
       return;
     }
@@ -49,11 +68,12 @@ export class AppAddProductPageComponent {
     Roll over to first image when on last image, and next is clicked.
   */
   onClickNextImage(): void {
-    if (this.product.images === null) {
+    if (this.images === null || this.images.length < 1) {
+      this.selectedImageIndex = 0;
       return;
     }
 
-    if (this.selectedImageIndex === this.product.images.length) {
+    if (this.selectedImageIndex === this.images.length) {
       this.selectedImageIndex = 1;
       this.onChangeSelectedImageIndex();
       return;
@@ -62,19 +82,19 @@ export class AppAddProductPageComponent {
     this.onChangeSelectedImageIndex();
   }
 
+  /*
+    Set the image source to the correct image. Use default image when unable to retreive image
+  */
   onChangeSelectedImageIndex(): void {
-    if (this.product.images === null) {
+    const element = document.getElementById('imagePreview') as HTMLImageElement;
+
+    if (this.images === null || this.images.length < 1) {
+      element.src = '/assets/images/no_image_found.png';
+      this.selectedImageIndex = 0;
       return;
     }
-    const reader = new FileReader();
 
-    reader.onload = (e) => {
-      const element = document.getElementById('imagePreview') as HTMLImageElement;
-      element.src = e.target?.result as string;
-      console.log(e.target?.result);
-    };
-
-    reader.readAsDataURL(this.product.images[this.selectedImageIndex - 1]);
+    element.src = this.images[this.selectedImageIndex - 1].base64;
   }
 
   /*
@@ -86,22 +106,86 @@ export class AppAddProductPageComponent {
     element.click();
   }
 
-  onFileChanged(event: any): void {
+  onConfirmRemoveImage(): void {
+    if (this.removingImageIndex === null || this.removingImageIndex < 0) {
+      return;
+    }
+    this.images.splice(this.removingImageIndex, 1);
+    this.removingImageIndex = null;
+    this.onClickPreviousImage();
+  }
+
+  /*
+    Handle file changes. Loop through all added files and convert them to IAddProductImages.
+    Compare base64 strings to block duplicate images.
+  */
+  async onFileChanged(event: Event): Promise<void> {
     const element = document.getElementById('fileInput') as HTMLInputElement;
     if (element.files == null) {
       return;
     }
 
     for (let i = 0; i < element.files?.length; i++) {
-      console.log(element.files.item(i) as File);
-      console.log(this.product.images[0]);
-      if (this.product.images.includes(element.files.item(i) as File)) {
+      const newImage: IAddProductImage = {
+        base64: await this.imageToBase64(element.files.item(i)).then(x => x) as string,
+        file: element.files.item(i) as File
+      };
+
+      if (this.images.findIndex(x => x.base64 === newImage.base64) > -1) {
         continue;
       }
-      this.product.images.push(element.files.item(i) as File);
+
+      this.images.push(newImage);
     }
-    this.selectedImageIndex = this.product.images.length;
+    this.selectedImageIndex = this.images.length;
     this.onChangeSelectedImageIndex();
     return;
+  }
+
+  /*
+    Checks all product values. Shows error if incorrect or saves data if correct.
+  */
+  onClickAddProduct(): void {
+    if (this.product.name == null || this.product.name.trim() === '') {
+      this.showErrorNotification('PRODUCT.ADD.NO_NAME');
+      return;
+    }
+
+    if (this.product.catalogNumber < 0) {
+      this.showErrorNotification('PRODUCT.ADD.NO_NEGATIVE_CATALOG');
+      return;
+    }
+
+    if (this.product.categoryId < 1) {
+      this.showErrorNotification('PRODUCT.ADD.NO_CATEGORY');
+      return;
+    }
+
+    this.isLoading = true;
+  }
+
+  /*
+    Return base64 string of the given file
+  */
+  private imageToBase64(image: File | null): Promise<any> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(image as File);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = error => reject(error);
+    });
+  }
+
+  /*
+    Show error notification
+
+    @param translateableMessage: string
+    String that has to be presented in the error notification (gets translated)
+  */
+  private showErrorNotification(translateableMessage: string): void {
+    this.snackbarService.open(this.translate.instant(translateableMessage), undefined, {
+      panelClass: 'error-snack',
+      duration: 2500
+    });
   }
 }

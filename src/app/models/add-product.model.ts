@@ -1,5 +1,5 @@
 /* Model used for the Add product page */
-export interface AddProductObject {
+export interface IAddProductObject {
     /* Name of the product */
     name: string;
     /* categoryId of the product. Foreign key in the backend / database */

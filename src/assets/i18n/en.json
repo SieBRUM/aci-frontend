@@ -11,6 +11,9 @@
             "EN": "English"
         }
     },
+    "HOME": {
+        "TITLE": "Welcome home"
+    },
     "PRODUCT": {
         "ADD": {
             "TITLE": "Add product",
@@ -23,9 +26,12 @@
             "SAVE": "Add product",
             "LEFT": "Previous image",
             "RIGHT": "Next image",
-            "ADD_IMAGE": "Add image",
+            "ADD_IMAGE": "Add image(s)",
             "REMOVE_IMAGE": "Remove image",
-            "CANCEL": "Cancel"
+            "CANCEL": "Cancel",
+            "NO_NAME": "Product name is required",
+            "NO_NEGATIVE_CATALOG": "Catalog cannot be negative",
+            "NO_CATEGORY": "Product category is required"
         }
     }
 }

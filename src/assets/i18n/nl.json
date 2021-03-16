@@ -11,6 +11,9 @@
             "EN": "Engels"
         }
     },
+    "HOME": {
+        "TITLE": "Welkom thuis"
+    },
     "PRODUCT": {
         "ADD": {
             "TITLE": "Product toevoegen",
@@ -23,8 +26,11 @@
             "SAVE": "Product toevoegen",
             "LEFT": "Vorige foto",
             "RIGHT": "Volgende foto",
-            "ADD_IMAGE": "Foto toevoegen",
-            "REMOVE_IMAGE": "Foto verwijderen"
+            "ADD_IMAGE": "Foto(s) toevoegen",
+            "REMOVE_IMAGE": "Foto verwijderen",
+            "NO_NAME": "Productnaam is verplicht",
+            "NO_NEGATIVE_CATALOG": "Catalogus nummer kan niet negatief zijn",
+            "NO_CATEGORY": "Product category is verplicht"
         }
     }
 }

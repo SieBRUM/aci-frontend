@@ -94,7 +94,6 @@ export class AppComponent {
       return;
     }
 
-    this.isMenuPinned = true;
     localStorage.setItem('menu-pinned', this.isMenuPinned.toString());
   }
 }
