@@ -1,7 +1,11 @@
 {
     "INVENTORY" : {
         "TITLE": "Inventaris",
-        "INVENTORY_EMPTY": "Geen producten gevonden"
+        "INVENTORY_EMPTY": "Geen producten gevonden",
+        "AVAILABLE": "Beschikbaar",
+        "AWAITS_APPROVAL": "Goedkeuring Nodig",
+        "RESERVED": "Gereserveerd",
+        "UNAVAILABLE": "Niet beschikbaar",
     },   
     "SIDE_BAR": {
         "LOGOUT": "Log uit",
@@ -47,6 +51,7 @@
         }
     },
     "NAME": "Naam",
+    "STATUS": "Status",
     "LOCATION": "Locatie",
     "IS_AVAILABLE": "Is beschikbaar"
 }
