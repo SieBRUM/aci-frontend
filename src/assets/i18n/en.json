@@ -2,8 +2,9 @@
     "INVENTORY" : {
         "TITLE": "Inventory",
         "INVENTORY_EMPTY": "No products found",
-        "AVAILABLE": "Unavailable",
+        "AVAILABLE": "Available",
         "AWAITS_APPROVAL": "Awaits Approval",
+        "LENT": "Lent out",
         "RESERVED": "Reserved",
         "UNAVAILABLE": "Unavailable"
     },  
@@ -50,8 +51,11 @@
             "ADD_SUCCESSFUL": "Product has been added!"
         }
     },
-    "NAME": "Name",
-    "STATUS": "Status",
-    "LOCATION": "Location",
-    "IS_AVAILABLE": "Is available"
+    "ATTRIBUTES": {
+        "NAME": "Name",
+        "STATUS": "Status",
+        "LOCATION": "Location",
+        "RESERVER": "Reserver",
+        "IS_AVAILABLE": "Is available"
+    }
 }

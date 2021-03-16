@@ -10,15 +10,17 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 export interface ProductData {
   name: string;
   location: string;
+  reserver: string;
   status: string;
   status_class: string;
 }
 
 const TEST_DATA: ProductData[] = [
-  {name: 'CANON R5', location: 'Somewhere', status: 'INVENTORY.AWAITS_APPROVAL', status_class: 'awaits-approval-status'},
-  {name: 'CANON R5', location: 'Die ene plank', status: 'INVENTORY.RESERVED', status_class: 'reserved-status'},
-  {name: 'CANON R5', location: 'Somewhere', status: 'INVENTORY.AVAILABLE', status_class: 'available-status'},
-  {name: 'CANON R5', location: 'Somewhere', status: 'INVENTORY.UNAVAILABLE', status_class: 'unavailable-status'},
+  {name: 'DJ set', location: 'A3.3', status: 'INVENTORY.AWAITS_APPROVAL', reserver: 'Bob Bieb', status_class: 'awaits-approval-status'},
+  {name: 'CANON R5', location: 'Die ene plank', status: 'INVENTORY.RESERVED', reserver: 'Renée François', status_class: 'reserved-status'},
+  {name: 'CANON R5', location: 'Balie', status: 'INVENTORY.LENT', reserver: 'John-Paul Sørina', status_class: 'lent-status'},
+  {name: 'CANON R5', location: 'Kamer A, bovenste plank', status: 'INVENTORY.AVAILABLE', reserver: '-', status_class: 'available-status'},
+  {name: 'CANON R5', location: 'A5', status: 'INVENTORY.UNAVAILABLE', reserver: '-', status_class: 'unavailable-status'},
 ];
 
 @Component({
@@ -28,7 +30,7 @@ const TEST_DATA: ProductData[] = [
 })
 export class InventoryComponent {
     // determined whch columns that are displayed in the inventory table and in which order.
-    displayedColumns: string[] = ['name', 'location', 'status'];
+    displayedColumns: string[] = ['name', 'location', 'reserver', 'status'];
 
     // TODO: replace with API Call
     dataSource = TEST_DATA;

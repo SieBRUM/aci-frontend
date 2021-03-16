@@ -5,7 +5,8 @@
         "AVAILABLE": "Beschikbaar",
         "AWAITS_APPROVAL": "Goedkeuring Nodig",
         "RESERVED": "Gereserveerd",
-        "UNAVAILABLE": "Niet beschikbaar",
+        "LENT": "Uitgeleend",
+        "UNAVAILABLE": "Niet beschikbaar"
     },   
     "SIDE_BAR": {
         "LOGOUT": "Log uit",
@@ -50,8 +51,11 @@
             "ADD_SUCCESSFUL": "Product is toegevoegd!"
         }
     },
-    "NAME": "Naam",
-    "STATUS": "Status",
-    "LOCATION": "Locatie",
-    "IS_AVAILABLE": "Is beschikbaar"
+    "ATTRIBUTES": {
+        "NAME": "Naam",
+        "STATUS": "Status",
+        "LOCATION": "Locatie",
+        "RESERVER": "Reserveerder",
+        "IS_AVAILABLE": "Is beschikbaar"
+    }
 }
