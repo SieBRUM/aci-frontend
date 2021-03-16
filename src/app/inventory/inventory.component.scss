@@ -2,18 +2,18 @@ table {
   width: 100%;
 }
 
-.reserved-status {
-  background-color: rgb(187, 134, 252);
-}
-
-.unavailable-status {
-  background-color: rgb(255, 162, 0);
+.available-status {
+  background-color: rgb(8, 148, 17);
 }
 
 .awaits-approval-status {
   background-color: rgb(32, 165, 161);
 }
 
-.available-status {
-  background-color: rgb(8, 148, 17);
+.reserved-status {
+  background-color: rgb(187, 134, 252);
+}
+
+.unavailable-status {
+  background-color: rgb(255, 162, 0);
 }

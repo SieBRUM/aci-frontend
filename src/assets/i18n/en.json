@@ -3,7 +3,12 @@
         "SUB_TITLE": "something in english or smth"
     },
     "INVENTORY" : {
-        "TITLE": "Inventory"
+        "TITLE": "Inventory",
+        "INVENTORY_EMPTY": "No products found",
+        "AVAILABLE": "Unavailable",
+        "AWAITS_APPROVAL": "Awaits Approval",
+        "RESERVED": "Reserved",
+        "UNAVAILABLE": "Unavailable"
     },  
     "SIDE_BAR": {
         "LANGUAGE": "Language",
@@ -13,6 +18,7 @@
         }
     },
     "NAME": "Name",
+    "STATUS": "Status",
     "LOCATION": "Location",
     "IS_AVAILABLE": "Is available"
 }
