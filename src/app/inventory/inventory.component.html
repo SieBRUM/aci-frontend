@@ -10,7 +10,7 @@
       <th mat-header-cell *matHeaderCellDef>{{ 'ATTRIBUTES.STATUS' | translate }}</th>
       <td mat-cell *matCellDef="let element">
         <mat-chip-list aria-label="product status">
-          <mat-chip [ngClass]="element.status_class">{{element.status | translate}}</mat-chip>
+          <mat-chip [ngClass]="element.status | statusNameClass">{{element.status | statusNameKey | translate}}</mat-chip>
         </mat-chip-list>
       </td>
     </ng-container>

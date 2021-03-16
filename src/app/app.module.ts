@@ -19,6 +19,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
 import { LayoutModule } from '@angular/cdk/layout';
+import { StatusNameKeyPipe } from './status-name-key.pipe';
+import { StatusNameClassPipe } from './status-name-class.pipe';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -28,7 +30,9 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   declarations: [
     AppComponent,
     AppHomePageComponent,
-    InventoryComponent
+    InventoryComponent,
+    StatusNameKeyPipe,
+    StatusNameClassPipe
   ],
   imports: [
     BrowserModule,
