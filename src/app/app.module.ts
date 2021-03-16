@@ -15,6 +15,8 @@ import { AppSideMenuBarComponent } from './app-side-menu-bar/app-side-menu-bar.c
 import { AppAddProductPageComponent } from './app-add-product-page/app-add-product-page.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { StatusNameKeyPipe } from './status-name-key.pipe';
+import { StatusNameClassPipe } from './status-name-class.pipe';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -26,7 +28,9 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AppHomePageComponent,
     AppSideMenuBarComponent,
     AppAddProductPageComponent,
-    InventoryComponent
+    InventoryComponent,
+    StatusNameKeyPipe,
+    StatusNameClassPipe
   ],
   imports: [
     BrowserModule,
