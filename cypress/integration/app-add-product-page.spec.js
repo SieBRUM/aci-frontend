@@ -154,7 +154,7 @@ describe('Add product menu tests', () => {
     });
 
 
-    it('Should show error {catalog error} in English', () => {
+    it('Should show error {category error} in English', () => {
         cy.intercept('GET', '/api/product/lastcatalog', '9');
         cy.intercept('GET', '/api/category', [{ id: 1, name: 'TestCategory' }]);
         cy.visit('http://localhost:4200/products/add')
@@ -166,7 +166,7 @@ describe('Add product menu tests', () => {
         cy.get("snack-bar-container").contains('Product category is required');
     });
 
-    it('Should show error {catalog error} in Dutch', () => {
+    it('Should show error {category error} in Dutch', () => {
         cy.intercept('GET', '/api/product/lastcatalog', '9');
         cy.intercept('GET', '/api/category', [{ id: 1, name: 'TestCategory' }]);
         cy.visit('http://localhost:4200/products/add')
