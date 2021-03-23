@@ -184,6 +184,11 @@ export class AppAddProductPageComponent implements OnInit {
       return;
     }
 
+    if (this.product.catalogNumber == null || this.product.catalogNumber < 0 || this.product.catalogNumber > this.maxCatalogNumber) {
+      this.showErrorNotification('PRODUCT.ADD.CATALOG_NUMBER_INCORRECT');
+      return;
+    }
+
     if (this.product.categoryId < 1) {
       this.showErrorNotification('PRODUCT.ADD.NO_CATEGORY');
       return;
@@ -191,11 +196,6 @@ export class AppAddProductPageComponent implements OnInit {
 
     if (this.product.description == null || this.product.description.trim() === '') {
       this.showErrorNotification('PRODUCT.ADD.NO_DESCRIPTION');
-      return;
-    }
-
-    if (this.product.catalogNumber == null || this.product.catalogNumber < 0 || this.product.catalogNumber > this.maxCatalogNumber) {
-      this.showErrorNotification('PRODUCT.ADD.CATALOG_NUMBER_INCORRECT');
       return;
     }
 
