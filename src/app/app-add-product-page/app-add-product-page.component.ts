@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { ApiService } from '../api.service';
 import { IAddProductImage } from '../models/add-product-image.model';
 import { IAddProductObject } from '../models/add-product.model';
+import { ICategory } from '../models/category.model';
 
 @Component({
   selector: 'app-add-product-page',
@@ -15,22 +18,26 @@ export class AppAddProductPageComponent {
   product: IAddProductObject;
   /* Contains all (temp) image objects  */
   images: Array<IAddProductImage> = [];
-
   /* Selected index of the image carousel. */
   selectedImageIndex = 0;
   /* Selected image that has to be removed. Is null when confirm is not active. */
   removingImageIndex: number | null = null;
-
+  /* All categories received from the backend */
+  categories: Array<ICategory> | null = null;
+  /* Contains last catalog number plus 1 */
+  maxCatalogNumber = 0;
   /*
     Contains loading state.
-    Disables all form inputs/buttons when true. Loading spinner is visible when true  
+    Disables all form inputs/buttons when true. Loading spinner is visible when true
   */
   isLoading = false;
 
 
   constructor(
     private translate: TranslateService,
-    private snackbarService: MatSnackBar
+    private snackbarService: MatSnackBar,
+    private apiService: ApiService,
+    private router: Router
   ) {
     this.product = {
       categoryId: -1,
@@ -41,11 +48,30 @@ export class AppAddProductPageComponent {
       name: '',
       requiresApproval: false
     };
+
+    this.apiService.getAllCategories().subscribe({
+      next: (resp) => {
+        this.categories = resp.body;
+      },
+      error: (err) => {
+        this.showErrorNotification('PRODUCT.ADD.NO_CATEGORIES_RESPONSE');
+      }
+    });
+
+    this.apiService.getLastCatalogNumber().subscribe({
+      next: (resp) => {
+        this.maxCatalogNumber = (resp.body as number) + 1;
+        this.product.catalogNumber = (resp.body as number) + 1;
+      },
+      error: (err) => {
+        this.showErrorNotification('PRODUCT.ADD.NO_CATALOG_NUMBER_RESPONSE');
+      }
+    });
   }
 
   /*
     Handles the functionality when the 'previous image' button is clicked.
-    Roll over to last image when on first image, and previous is clicked. 
+    Roll over to last image when on first image, and previous is clicked.
   */
   onClickPreviousImage(): void {
     if (this.images === null || this.images.length < 1) {
@@ -106,6 +132,9 @@ export class AppAddProductPageComponent {
     element.click();
   }
 
+  /*
+    Remove image when confirm is clicked
+  */
   onConfirmRemoveImage(): void {
     if (this.removingImageIndex === null || this.removingImageIndex < 0) {
       return;
@@ -151,17 +180,38 @@ export class AppAddProductPageComponent {
       return;
     }
 
-    if (this.product.catalogNumber < 0) {
-      this.showErrorNotification('PRODUCT.ADD.NO_NEGATIVE_CATALOG');
-      return;
-    }
-
     if (this.product.categoryId < 1) {
       this.showErrorNotification('PRODUCT.ADD.NO_CATEGORY');
       return;
     }
 
+    if (this.product.description == null || this.product.description.trim() === '') {
+      this.showErrorNotification('PRODUCT.ADD.NO_DESCRIPTION');
+      return;
+    }
+
+    if (this.product.catalogNumber == null || this.product.catalogNumber < 0 || this.product.catalogNumber > this.maxCatalogNumber) {
+      this.showErrorNotification('PRODUCT.ADD.CATALOG_NUMBER_INCORRECT');
+      return;
+    }
+
     this.isLoading = true;
+
+    this.product.images = this.images.map(x => x.base64);
+
+    this.apiService.addProduct(this.product).subscribe({
+      next: (resp) => {
+        this.isLoading = false;
+        this.snackbarService.open(this.translate.instant('PRODUCT.ADD.ADD_SUCCESSFUL'), undefined, {
+          duration: 2500
+        });
+        this.router.navigate(['products']);
+      },
+      error: (err) => {
+        this.isLoading = false;
+        this.showErrorNotification(err.error);
+      }
+    });
   }
 
   /*

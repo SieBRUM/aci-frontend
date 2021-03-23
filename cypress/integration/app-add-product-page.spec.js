@@ -105,14 +105,14 @@ describe('Side menu bar tests', () => {
         cy.get('mat-spinner[name=save-product-loading-spinner]').should('not.exist');
     });
 
-    it('Should show error {no product name} error in English', () => {
+    it('Should show error {no product name} in English', () => {
         cy.changeLanguage('en');
         cy.get("button[name=save-product-button]").click();
 
         cy.get("snack-bar-container").contains('Product name is required');
     });
 
-    it('Should show error {no product name} error in Dutch', () => {
+    it('Should show error {no product name} in Dutch', () => {
         cy.changeLanguage('nl');
         cy.get("button[name=save-product-button]").click();
 

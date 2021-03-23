@@ -24,6 +24,13 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+/*
+    Command to change the language of the app very quickly
+
+    usage: cy.changeLanguage('nl')
+    params: language: string
+    Short-hand name of the language. ex: nl
+*/
 Cypress.Commands.add('changeLanguage', (language) => {
     cy.get('mat-drawer[name=side-menu-drawer]').then(element => {
         if (element.attr('ng-reflect-opened') === 'false') {
@@ -38,6 +45,12 @@ Cypress.Commands.add('changeLanguage', (language) => {
     })
 });
 
+/*
+    Command to open or close the side menu
+
+    cy.changeIsMenuOpened(true);
+    params: shouldOpen: boolean
+*/
 Cypress.Commands.add('changeIsMenuOpened', (shouldOpen) => {
     cy.get('mat-drawer[name=side-menu-drawer]').then(element => {
         if (shouldOpen) {

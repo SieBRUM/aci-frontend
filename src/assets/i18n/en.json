@@ -30,8 +30,14 @@
             "REMOVE_IMAGE": "Remove image",
             "CANCEL": "Cancel",
             "NO_NAME": "Product name is required",
-            "NO_NEGATIVE_CATALOG": "Catalog cannot be negative",
-            "NO_CATEGORY": "Product category is required"
+            "NO_CATEGORY": "Product category is required",
+            "NO_DESCRIPTION": "Description is required",
+            "CATALOG_NUMBER_INCORRECT": "Incorrect catalog number",
+            "CATALOG_BETWEEN": "Catalog should be between 0 and ",
+            "NO_CATEGORIES_RESPONSE": "Did not receive a response from the API. Please try again",
+            "NO_CATALOG_NUMBER_RESPONSE": "Did not receive a response from the API. Please try again",
+            "NO_DATA": "API did not receive any data. Please contact an administrator.",
+            "ADD_SUCCESSFUL": "Product has been added!"
         }
     }
 }

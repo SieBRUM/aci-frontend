@@ -28,9 +28,16 @@
             "RIGHT": "Volgende foto",
             "ADD_IMAGE": "Foto(s) toevoegen",
             "REMOVE_IMAGE": "Foto verwijderen",
+            "CANCEL": "Annuleren",
+            "NO_DESCRIPTION": "Beschrijving is verplicht",
+            "CATALOG_NUMBER_INCORRECT": "Incorrect catalog nummer",
+            "NO_CATEGORIES_RESPONSE": "De API heeft geen reactie verstuurd. Probeer het later opnieuw of contacteer een administrator",
+            "NO_CATALOG_NUMBER_RESPONSE": "De API heeft geen reactie verstuurd. Probeer het later opnieuw of contacteer een administrator",
+            "NO_DATA": "De API heeft geen data ontvangen. Probeer het later opnieuw of contacteer een administrator",
             "NO_NAME": "Productnaam is verplicht",
-            "NO_NEGATIVE_CATALOG": "Catalogus nummer kan niet negatief zijn",
-            "NO_CATEGORY": "Product category is verplicht"
+            "NO_CATEGORY": "Product category is verplicht",
+            "CATALOG_BETWEEN": "Catalogus moet tussen 0 en ",
+            "ADD_SUCCESSFUL": "Product is toegevoegd!"
         }
     }
 }
