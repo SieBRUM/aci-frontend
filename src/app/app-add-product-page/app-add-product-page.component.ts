@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -12,7 +12,7 @@ import { ICategory } from '../models/category.model';
   templateUrl: './app-add-product-page.component.html',
   styleUrls: ['./app-add-product-page.component.scss']
 })
-export class AppAddProductPageComponent {
+export class AppAddProductPageComponent implements OnInit {
 
   /* Contains the values for the new product. */
   product: IAddProductObject;
@@ -49,6 +49,10 @@ export class AppAddProductPageComponent {
       requiresApproval: false
     };
 
+
+  }
+
+  ngOnInit(): void {
     this.apiService.getAllCategories().subscribe({
       next: (resp) => {
         this.categories = resp.body;

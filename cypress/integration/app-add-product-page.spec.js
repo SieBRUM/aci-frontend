@@ -4,13 +4,26 @@ import Chance from 'chance';
 const chance = new Chance();
 
 
-describe('Side menu bar tests', () => {
+describe('Add product menu tests', () => {
     beforeEach(() => {
-        cy.visit('http://localhost:4200/products/add')
+        // cy.intercept('https://localhost:44372/api/product/lastcatalog', '1');
+        // cy.intercept('/api/category', [{ id: 1, name: '' }]);
     });
 
     it('Should show initial page setup in English', () => {
+        cy.intercept('https://localhost:44372/api/product/lastcatalog', '1').as('test1');
+        cy.intercept('/api/product/lastcatalog', '1');
+        cy.intercept('GET', '/api/category', [{ id: 1, name: '' }]).as('test2');
+        cy.wait(5000);
+        cy.visit('http://localhost:4200/products/add')
+
         cy.changeLanguage('en');
+        cy.wait('@test1').then((intercept) => {
+            cy.log(intercept);
+        });
+        cy.wait('@test2').then((intercept) => {
+            cy.log(intercept);
+        });
 
         cy.get("mat-card-title[name=add-product-title]").contains('Add product');
 
