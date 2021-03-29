@@ -27,12 +27,6 @@
       <td mat-cell *matCellDef="let element"> {{ element.location }}</td>
     </ng-container>
 
-    <!-- Reserver Column -->
-    <ng-container matColumnDef="reserver">
-      <th mat-header-cell *matHeaderCellDef> {{ 'ATTRIBUTES.RESERVER' | translate }} </th>
-      <td mat-cell *matCellDef="let element"> {{ element.reserver }}</td>
-    </ng-container>
-
     <ng-container matColumnDef="noData">
       <mat-footer-cell [attr.colspan]="displayedColumns.length">{{'INVENTORY_EMPTY' | translate}}</mat-footer-cell>
     </ng-container>

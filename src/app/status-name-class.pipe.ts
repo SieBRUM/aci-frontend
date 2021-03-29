@@ -14,14 +14,8 @@ export class StatusNameClassPipe implements PipeTransform {
       case ProductStatus.Available: {
         return 'available-status';
       }
-      case ProductStatus.AwaitingApproval: {
-        return 'awaits-approval-status';
-      }
-      case ProductStatus.Reserved: {
-        return 'reserved-status';
-      }
-      case ProductStatus.LentOut: {
-        return 'lent-status';
+      case ProductStatus.RequiresApproval: {
+        return 'required-approval-status';
       }
       case ProductStatus.Unavailable: {
         return 'unavailable-status';
