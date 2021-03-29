@@ -6,9 +6,7 @@
         "TITLE": "Inventory",
         "INVENTORY_EMPTY": "No products found",
         "AVAILABLE": "Available",
-        "AWAITS_APPROVAL": "Awaits Approval",
-        "LENT": "Lent out",
-        "RESERVED": "Reserved",
+        "REQUIRES_APPROVAL": "Available with Approval",
         "UNAVAILABLE": "Unavailable"
     },  
     "SIDE_BAR": {
@@ -21,8 +19,6 @@
     "ATTRIBUTES": {
         "NAME": "Name",
         "STATUS": "Status",
-        "LOCATION": "Location",
-        "RESERVER": "Reserver",
-        "IS_AVAILABLE": "Is available"
+        "LOCATION": "Location"
     }
 }

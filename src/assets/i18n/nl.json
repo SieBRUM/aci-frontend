@@ -6,9 +6,7 @@
         "TITLE": "Inventaris",
         "INVENTORY_EMPTY": "Geen producten gevonden",
         "AVAILABLE": "Beschikbaar",
-        "AWAITS_APPROVAL": "Goedkeuring Nodig",
-        "RESERVED": "Gereserveerd",
-        "LENT": "Uitgeleend",
+        "REQUIRES_APPROVAL": "Beschikbaar met goedkeuring",
         "UNAVAILABLE": "Niet beschikbaar"
     },   
     "SIDE_BAR": {
@@ -20,7 +18,5 @@
     },
     "NAME": "Naam",
     "STATUS": "Status",
-    "LOCATION": "Locatie",
-    "RESERVER": "Reserveerder",
-    "IS_AVAILABLE": "Is beschikbaar"
+    "LOCATION": "Locatie"
 }
