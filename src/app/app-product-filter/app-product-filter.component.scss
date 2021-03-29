@@ -1,0 +1,59 @@
+//Container for the smaller page filter
+.dropdown-button-container {
+    
+    @media (min-width: 1000px) {
+        display: none;
+    }
+
+    .mat-expansion-panel {
+        border-top-right-radius: 0px; 
+        border-top-left-radius: 0px;
+    }
+
+    .filter-button {
+        margin: 20px;
+        text-align: center im !important;
+        align-items: center;
+        @media (min-width: 1000px) {
+            display: none;
+        }
+    }
+
+    .panel-description {
+        justify-content: center;
+        font-weight: 400;
+        margin-right: 0px;
+
+        .sort-icon {
+            line-height: 20px;
+            margin-right: 5px;
+        }
+    }
+
+    .main-card {
+        background-color: #464649;
+    }
+
+    .small-container {
+
+        .main-card {
+           overflow: hidden;
+           .mat-input-field {
+               width: 100%;
+           }
+           .mat-option-field {
+               width: 100%;
+           }
+           .date-form-field {
+               width: 100%;
+           }
+
+           .apply-button {
+               float: right;
+           }
+        }
+    }
+}
+
+
+

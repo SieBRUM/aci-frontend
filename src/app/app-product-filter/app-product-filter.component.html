@@ -1,0 +1,53 @@
+<!-- This container is used for the smaller page application like phones, then this filter will replace the regular filter, this is supposed to be placed at the top of the content-->
+<mat-accordion class="dropdown-button-container">
+    <mat-expansion-panel class="mat-expansion-panel" hideToggle>
+      <mat-expansion-panel-header>
+      <mat-panel-description class="panel-description">
+        <mat-icon class="sort-icon">sort</mat-icon> Filter resultaten
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+      <!-- this is the container for the filter beneath the button-->
+      <div class="small-container">
+        <!-- Input container -->
+        <mat-card class="main-card">
+          <mat-card-title style="margin-bottom: 16px;">Product Filter</mat-card-title>
+          <mat-form-field class="mat-input-field" appearance="fill">
+            <mat-label>Input</mat-label>
+            <input matInput type="text" [(ngModel)]="inputField">
+          </mat-form-field>
+          
+          <!-- Status container -->
+          <h1 style="font-weight: 500;margin-bottom: 8px;">Status</h1>
+          <mat-form-field class="mat-option-field"style="width: 100%;" appearance="fill">
+            <mat-label>Choose an status</mat-label>
+              <mat-select>
+                <mat-option *ngFor="let key of keys" [value]="key"></mat-option>
+              </mat-select>
+          </mat-form-field>
+        
+        <!-- Date container -->
+        <h1 style="font-weight: 500;margin-bottom: 8px;">Reservation Date</h1>
+        <mat-form-field class="date-form-field" appearance="fill">
+            <mat-label>Date</mat-label>
+            <mat-date-range-input
+              [formGroup]="picker"
+              [rangePicker]="rangePicker">
+              <input matStartDate placeholder="Start date" formControlName="start">
+              <input matEndDate placeholder="End date" formControlName="end">
+            </mat-date-range-input>
+            <mat-datepicker-toggle matSuffix [for]="rangePicker"></mat-datepicker-toggle>
+            <mat-date-range-picker #rangePicker ></mat-date-range-picker>
+        </mat-form-field>
+
+        <!-- Apply Button -->
+        <button class="apply-button" (click)="onApplyFilter()" mat-flat-button color="primary">Apply Filter</button>
+        </mat-card>
+    </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+    </mat-expansion-panel>
+</mat-accordion>
+
+

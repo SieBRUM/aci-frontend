@@ -1,0 +1,39 @@
+<!-- This is the normal container for full sized pages this container needs to be placed into a flexbox on the left side of the page next to the content-->
+<div class="main-container">
+    <!-- Input container -->
+    <mat-card class="main-card">
+    <mat-card-title style="margin-bottom: 16px;">Product Filter</mat-card-title>
+    <mat-form-field appearance="fill">
+        <mat-label>Input</mat-label>
+        <input matInput>
+    </mat-form-field>
+
+    <!-- Status container -->
+    <h1 style="font-weight: 500;margin-bottom: 8px;">Status</h1>
+    <mat-form-field appearance="fill">
+    <mat-label>Choose an option</mat-label>
+    <mat-select>
+    <mat-option value="option1">Option 1</mat-option>
+    <mat-option value="option2">optie</mat-option>
+    <mat-option value="option3">Option 3</mat-option>
+    </mat-select>
+    </mat-form-field>
+
+    <!-- Date container -->
+    <h1 style="font-weight: 500;margin-bottom: 8px;">Reservation Date</h1>
+    <mat-form-field class="example-form-field" appearance="fill">
+        <mat-label>Date</mat-label>
+        <mat-date-range-input
+          [formGroup]="pickerFullsize"
+          [rangePicker]="rangePickerFullsize">
+          <input matStartDate placeholder="Start date" formControlName="start">
+          <input matEndDate placeholder="End date" formControlName="end">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="rangePickerFullsize"></mat-datepicker-toggle>
+        <mat-date-range-picker #rangePickerFullsize ></mat-date-range-picker>
+    </mat-form-field>
+
+    <!-- Apply Button -->
+    <button class="apply-button" (click)="onApplyFilterFullsize()" mat-flat-button color="primary">Apply Filter</button>
+    </mat-card>
+</div>

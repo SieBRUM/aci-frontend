@@ -22,15 +22,19 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTableModule } from '@angular/material/table';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
     MatDividerModule,
+    MatNativeDateModule,
     MatCardModule,
     MatInputModule,
     MatFormFieldModule,
+    MatDatepickerModule,
     MatSidenavModule,
     MatSelectModule,
     MatSnackBarModule,
@@ -49,6 +53,8 @@ import { MatTableModule } from '@angular/material/table';
   ],
   exports: [
     MatDividerModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatCardModule,
     MatToolbarModule,
     MatButtonModule,
