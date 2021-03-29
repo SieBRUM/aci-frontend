@@ -204,8 +204,6 @@ describe('Add product menu tests', () => {
         cy.get("snack-bar-container").contains('Beschrijving is verplicht');
     });
 
-
-
     it('Should set catalog number to 10', () => {
         cy.intercept('GET', '/api/product/lastcatalog', '9');
         cy.intercept('GET', '/api/category', [{ id: 1, name: 'TestCategory' }]);
@@ -237,8 +235,6 @@ describe('Add product menu tests', () => {
         cy.visit('http://localhost:4200/products/add');
         cy.changeIsMenuOpened(false);
 
-
-
         cy.get("input[name=product-name-input]").type(productName);
         cy.get("input[name=catalog-number-input]").clear();
         cy.get("input[name=catalog-number-input]").type(catalogusNumber);
@@ -249,6 +245,7 @@ describe('Add product menu tests', () => {
         if (requiresApproval) {
             cy.get("mat-checkbox[name=requires-approval-checkbox]").click();
         }
+
         cy.get('button[name=save-product-button]').click();
         cy.wait('@addProductRequest').then((interception) => {
             const expectedValue = {
@@ -264,6 +261,7 @@ describe('Add product menu tests', () => {
             expect(JSON.stringify(interception.request.body)).equal(JSON.stringify(expectedValue));
         });
 
-        cy.url().should('not.include', 'product/add');
+        cy.url().should('include', 'products/add');
+        cy.get("snack-bar-container").should('have.class', 'success-snack');
     });
 });

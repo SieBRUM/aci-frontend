@@ -15,7 +15,7 @@ import { ICategory } from '../models/category.model';
 export class AppAddProductPageComponent implements OnInit {
 
   /* Contains the values for the new product. */
-  product: IAddProductObject;
+  product: IAddProductObject = {} as IAddProductObject;
   /* Contains all (temp) image objects  */
   images: Array<IAddProductImage> = [];
   /* Selected index of the image carousel. */
@@ -38,7 +38,20 @@ export class AppAddProductPageComponent implements OnInit {
     private snackbarService: MatSnackBar,
     private apiService: ApiService,
     private router: Router
-  ) {
+  ) { }
+
+  /*
+    Initialise categories and catalog numbers when page starts loading
+    See https://angular.io/guide/lifecycle-hooks for more information
+  */
+  ngOnInit(): void {
+    this.initialisePage();
+  }
+
+  /*
+    Initialise page
+  */
+  initialisePage(): void {
     this.product = {
       categoryId: -1,
       catalogNumber: 0,
@@ -49,10 +62,6 @@ export class AppAddProductPageComponent implements OnInit {
       requiresApproval: false
     };
 
-
-  }
-
-  ngOnInit(): void {
     this.apiService.getAllCategories().subscribe({
       next: (resp) => {
         this.categories = resp.body;
@@ -164,6 +173,10 @@ export class AppAddProductPageComponent implements OnInit {
         file: element.files.item(i) as File
       };
 
+      if (!this.checkIfImage(newImage.file)) {
+        continue;
+      }
+
       if (this.images.findIndex(x => x.base64 === newImage.base64) > -1) {
         continue;
       }
@@ -207,9 +220,10 @@ export class AppAddProductPageComponent implements OnInit {
       next: (resp) => {
         this.isLoading = false;
         this.snackbarService.open(this.translate.instant('PRODUCT.ADD.ADD_SUCCESSFUL'), undefined, {
+          panelClass: 'success-snack',
           duration: 2500
         });
-        this.router.navigate(['products']);
+        this.initialisePage();
       },
       error: (err) => {
         this.isLoading = false;
@@ -241,5 +255,13 @@ export class AppAddProductPageComponent implements OnInit {
       panelClass: 'error-snack',
       duration: 2500
     });
+  }
+
+  /*
+    Check if submitted file is an image. Note; this is just a 'client side' guess.
+    Real checks need to be done on the server side.
+  */
+  private checkIfImage(file: File): boolean {
+    return file.type.match(/image-*/) !== null;
   }
 }

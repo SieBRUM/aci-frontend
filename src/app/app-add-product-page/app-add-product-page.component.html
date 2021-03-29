@@ -56,9 +56,8 @@
                         <mat-icon>arrow_right</mat-icon>
                     </button>
                     |
-                    <input id="fileInput" type="file" (change)="onFileChanged($event)"
-                        accept="image/x-png,image/gif,image/jpeg" hidden='true' multiple [disabled]="isLoading"
-                        name="file-input-button">
+                    <input id="fileInput" type="file" (change)="onFileChanged($event)" accept="image/*" hidden='true'
+                        multiple [disabled]="isLoading" name="file-input-button">
                     <button mat-icon-button [title]="'PRODUCT.ADD.ADD_IMAGE' | translate" color="accent"
                         (click)="onClickAddImage()" [disabled]="isLoading" name="image-input-button">
                         <mat-icon>insert_photo</mat-icon>

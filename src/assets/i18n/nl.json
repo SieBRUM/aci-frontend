@@ -29,14 +29,16 @@
             "ADD_IMAGE": "Foto(s) toevoegen",
             "REMOVE_IMAGE": "Foto verwijderen",
             "CANCEL": "Annuleren",
-            "NO_DESCRIPTION": "Beschrijving is verplicht",
-            "CATALOG_NUMBER_INCORRECT": "Incorrect catalog nummer",
-            "NO_CATEGORIES_RESPONSE": "De API heeft geen reactie verstuurd. Probeer het later opnieuw of contacteer een administrator",
-            "NO_CATALOG_NUMBER_RESPONSE": "De API heeft geen reactie verstuurd. Probeer het later opnieuw of contacteer een administrator",
-            "NO_DATA": "De API heeft geen data ontvangen. Probeer het later opnieuw of contacteer een administrator",
             "NO_NAME": "Productnaam is verplicht",
             "NO_CATEGORY": "Product category is verplicht",
+            "NO_DESCRIPTION": "Beschrijving is verplicht",
+            "SAVING_IMAGES_FAILED": "Er is iets misgegaan met het opslaan van de afbeelding(en). Probeer het later opnieuw of contacteer een administrator",
+            "CATALOG_NUMBER_INCORRECT": "Incorrect catalog nummer",
             "CATALOG_BETWEEN": "Catalogus moet tussen 0 en ",
+            "NAME_ALREADY_EXISTS": "Dit productnaam bestaat al",
+            "NO_CATEGORIES_RESPONSE": "Er is iets misgegaan met het ophalen van de categorieën. Probeer het later opnieuw of contacteer een administrator",
+            "NO_CATALOG_NUMBER_RESPONSE": "Er is iets misgegaan met het ophalen van de catalogusnummers. Probeer het later opnieuw of contacteer een administrator",
+            "NO_DATA": "Er is iets misgegaan met het opslaan van de gegevens. Probeer het later opnieuw of contacteer een administrator",
             "ADD_SUCCESSFUL": "Product is toegevoegd!"
         }
     }
