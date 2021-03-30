@@ -7,6 +7,11 @@
                     <mat-icon>home</mat-icon>
                     {{ 'SIDE_BAR.HOME' | translate }}
                 </button>
+                <button mat-stroked-button class="menu-option-button" (click)="onClickNavigate('products')"
+                    [style]="isOnRoute('products')" name="menu-option-inventory">
+                    <mat-icon>cart</mat-icon>
+                    {{ 'SIDE_BAR.INVENTORY' | translate }}
+                </button>
                 <button mat-stroked-button class="menu-option-button" (click)="onClickNavigate('addproduct')"
                     [style]="isOnRoute('products/add')" name="menu-option-add-product">
                     <mat-icon>add</mat-icon>

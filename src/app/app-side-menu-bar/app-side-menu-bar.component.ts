@@ -73,6 +73,9 @@ export class AppSideMenuBarComponent {
       case 'addproduct':
         this.router.navigate(['products/add']);
         break;
+      case 'products':
+        this.router.navigate(['products']);
+        break;
       default:
         break;
     }

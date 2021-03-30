@@ -69,7 +69,7 @@ describe('Add product menu tests', () => {
         cy.get("mat-label[name=product-name-input-label]").contains('Productnaam');
         cy.get("input[name=product-name-input]").should('not.be.disabled');
 
-        cy.get("mat-label[name=catalog-number-input-label]").contains('Catalogus nummer');
+        cy.get("mat-label[name=catalog-number-input-label]").contains('Catalogusnummer');
         cy.get("input[name=catalog-number-input]").should('not.be.disabled');
 
         cy.get("mat-label[name=category-id-select-label]").contains('Categorie');
@@ -150,7 +150,7 @@ describe('Add product menu tests', () => {
         cy.get("input[name=catalog-number-input]").clear();
         cy.get("button[name=save-product-button]").click();
 
-        cy.get("snack-bar-container").contains('Incorrect catalog nummer');
+        cy.get("snack-bar-container").contains('Incorrect catalogusnummer');
     });
 
 
@@ -175,7 +175,7 @@ describe('Add product menu tests', () => {
         cy.get("input[name=product-name-input]").type('Bla bla bla');
         cy.get("button[name=save-product-button]").click();
 
-        cy.get("snack-bar-container").contains('Product category is verplicht');
+        cy.get("snack-bar-container").contains('Product categorie is verplicht');
     });
 
     it('Should show error {description error} in English', () => {

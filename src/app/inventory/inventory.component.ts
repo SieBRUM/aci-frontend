@@ -25,7 +25,7 @@ export class InventoryComponent implements OnInit {
 
   getData(): void {
     this.http
-      .get<ProductData[]>('https://localhost:44372/api/item')
-      .subscribe(data => this.dataSource = new MatTableDataSource(data));
+      .get<ProductData[]>('https://localhost:44372/api/product')
+      .subscribe((data: ProductData[] | undefined) => this.dataSource = new MatTableDataSource(data));
   }
 }
