@@ -1,4 +1,7 @@
 {
+    "INVENTORY" : {
+        "TITLE": "Inventaris"
+    },   
     "SIDE_BAR": {
         "LOGOUT": "Log uit",
         "UNPIN_MENU": "Ontgrendel menu",

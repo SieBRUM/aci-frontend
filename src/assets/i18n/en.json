@@ -1,4 +1,7 @@
 {
+    "INVENTORY" : {
+        "TITLE": "Inventory"
+    },  
     "SIDE_BAR": {
         "LOGOUT": "Log out",
         "UNPIN_MENU": "Unpin menu",
