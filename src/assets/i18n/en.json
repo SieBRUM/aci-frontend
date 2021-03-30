@@ -34,7 +34,7 @@
             "NO_DESCRIPTION": "Description is required",
             "SAVING_IMAGES_FAILED": "Something went wrong with saving the image(s). Please try again later of contact an administrator",
             "CATALOG_NUMBER_INCORRECT": "Incorrect catalog number",
-            "CATALOG_BETWEEN": "Catalog should be between 0 and ",
+            "CATALOG_BETWEEN": "Catalog number should be between 0 and ",
             "NAME_ALREADY_EXISTS": "Product name is already in use",
             "NO_CATEGORIES_RESPONSE": "Something went wrong with receiving the category data. Please try again later or contact an administrator",
             "NO_CATALOG_NUMBER_RESPONSE": "Something went wrong with receiving the catalog data. Please try again later or contact an administrator",
