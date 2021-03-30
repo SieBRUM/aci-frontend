@@ -52,6 +52,8 @@ export class AppAddProductPageComponent implements OnInit {
     Initialise page
   */
   initialisePage(): void {
+    this.images = [];
+
     this.product = {
       categoryId: -1,
       catalogNumber: 0,
@@ -80,6 +82,8 @@ export class AppAddProductPageComponent implements OnInit {
         this.showErrorNotification('PRODUCT.ADD.NO_CATALOG_NUMBER_RESPONSE');
       }
     });
+
+    this.onChangeSelectedImageIndex();
   }
 
   /*
