@@ -11,6 +11,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppHomePageComponent } from './app-home-page/app-home-page.component';
+import { AppSideMenuBarComponent } from './app-side-menu-bar/app-side-menu-bar.component';
+import { AppAddProductPageComponent } from './app-add-product-page/app-add-product-page.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -19,7 +21,9 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    AppHomePageComponent
+    AppHomePageComponent,
+    AppSideMenuBarComponent,
+    AppAddProductPageComponent
   ],
   imports: [
     BrowserModule,

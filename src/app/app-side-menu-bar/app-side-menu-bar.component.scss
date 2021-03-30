@@ -1,0 +1,65 @@
+.menu-top-container {
+    height: 100%;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+
+    .menu-lower-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        .menu-title {
+            text-align: center;
+        }
+
+        .main-options {
+            padding-top: 30px;
+            width: 100%;
+
+            .menu-option-button {
+                width: 100%;
+                text-align: left;
+                margin-top: 3px
+            }
+        }
+
+        .content-filler {
+            flex: 1;
+        }
+    }
+
+    .session-buttons {
+        height: 50px;
+
+        :not(:only-child) {
+            width: 50%;
+        }
+
+        .session-button {
+            height: 100%;
+        }
+    }
+}
+
+.language-form-field {
+    width: 95%;
+    padding-left: 5px;
+    padding-right: 5px;
+
+
+}
+
+.language-select-option {
+    display: flex;
+    align-items: center;
+
+    .country-flag {
+        width: 25px;
+        height: 25px;
+    }
+
+    .country-name {
+        margin-left: 5px;
+    }
+}

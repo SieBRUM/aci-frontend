@@ -1,0 +1,56 @@
+<div class="menu-top-container">
+    <div class="menu-lower-container">
+        <div>
+            <div class="main-options" name="menu-options-list">
+                <button mat-stroked-button class="menu-option-button" (click)="onClickNavigate('home')"
+                    [style]="isOnRoute('home')" name="menu-option-home">
+                    <mat-icon>home</mat-icon>
+                    {{ 'SIDE_BAR.HOME' | translate }}
+                </button>
+                <button mat-stroked-button class="menu-option-button" (click)="onClickNavigate('addproduct')"
+                    [style]="isOnRoute('products/add')" name="menu-option-add-product">
+                    <mat-icon>add</mat-icon>
+                    {{ 'SIDE_BAR.ADD_PRODUCT' | translate }}
+                </button>
+            </div>
+        </div>
+        <div class="content-filler">
+            <!-- Content filler -->
+            <!-- Dont place stuff in here!  -->
+        </div>
+        <div>
+            <mat-form-field class="language-form-field" appearance="fill">
+                <mat-label>{{ 'SIDE_BAR.LANGUAGE' | translate }}</mat-label>
+                <mat-select (selectionChange)="onChangeLanguage($event.value)" [value]="translate.currentLang"
+                    name="language-select">
+                    <mat-select-trigger>
+                        <div class="language-select-option">
+                            <img src="/assets/images/i18n_flags/{{translate.currentLang}}.png" class="country-flag">
+                            <span class="country-name">{{ translateLanguage(translate.currentLang) }}</span>
+                        </div>
+                    </mat-select-trigger>
+                    <mat-option *ngFor="let language of translate.getLangs()" [value]="language">
+                        <div class="language-select-option">
+                            <img src="/assets/images/i18n_flags/{{language}}.png" class="country-flag">
+                            <span class="country-name">{{ translateLanguage(language) }}</span>
+                        </div>
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="session-buttons">
+        <button mat-stroked-button class="session-button" style="width: 100%" (click)="onClickLogout()">
+            <mat-icon>exit_to_app</mat-icon>
+            {{ 'SIDE_BAR.LOGOUT' | translate }}
+        </button>
+
+    </div>
+    <div>
+        <button mat-button style="width: 100%; text-align: center;" (click)="onClickPinMenu()">
+            <mat-icon> {{ pinned ? 'lock_open' : 'lock' }}</mat-icon>
+            {{ pinned ? ('SIDE_BAR.UNPIN_MENU' | translate) : ('SIDE_BAR.PIN_MENU' | translate) }}
+        </button>
+    </div>
+
+</div>

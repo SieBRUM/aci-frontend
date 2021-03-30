@@ -1,12 +1,45 @@
 {
-    "HOME": {
-        "SUB_TITLE": "something in english or smth"
-    },
     "SIDE_BAR": {
+        "LOGOUT": "Log out",
+        "UNPIN_MENU": "Unpin menu",
+        "PIN_MENU": "Pin menu",
+        "HOME": "Home",
+        "ADD_PRODUCT": "Add product",
         "LANGUAGE": "Language",
         "LANGUAGES": {
             "NL": "Dutch",
             "EN": "English"
+        }
+    },
+    "HOME": {
+        "TITLE": "Welcome home"
+    },
+    "PRODUCT": {
+        "ADD": {
+            "TITLE": "Add product",
+            "NAME": "Product name",
+            "CATALOG_NUMBER": "Catalog number",
+            "CATEGORY": "Category",
+            "LOCATION": "Location",
+            "DESCRIPTION": "Description",
+            "REQUIRES_APPROVAL": "Requires approval",
+            "SAVE": "Add product",
+            "LEFT": "Previous image",
+            "RIGHT": "Next image",
+            "ADD_IMAGE": "Add image(s)",
+            "REMOVE_IMAGE": "Remove image",
+            "CANCEL": "Cancel",
+            "NO_NAME": "Product name is required",
+            "NO_CATEGORY": "Product category is required",
+            "NO_DESCRIPTION": "Description is required",
+            "SAVING_IMAGES_FAILED": "Something went wrong with saving the image(s). Please try again later of contact an administrator",
+            "CATALOG_NUMBER_INCORRECT": "Incorrect catalog number",
+            "CATALOG_BETWEEN": "Catalog number should be between 0 and ",
+            "NAME_ALREADY_EXISTS": "Product name is already in use",
+            "NO_CATEGORIES_RESPONSE": "Something went wrong with receiving the category data. Please try again later or contact an administrator",
+            "NO_CATALOG_NUMBER_RESPONSE": "Something went wrong with receiving the catalog data. Please try again later or contact an administrator",
+            "NO_DATA": "Something went wrong with saving your data. Please try again later or contact an administrator",
+            "ADD_SUCCESSFUL": "Product has been added!"
         }
     }
 }
