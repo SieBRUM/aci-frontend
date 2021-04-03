@@ -48,6 +48,12 @@
             "NO_CATALOG_NUMBER_RESPONSE": "Something went wrong with receiving the catalog data. Please try again later or contact an administrator",
             "NO_DATA": "Something went wrong with saving your data. Please try again later or contact an administrator",
             "ADD_SUCCESSFUL": "Product has been added!"
+        },
+        "ARCHIVE":{
+            "NO_VALID_ID": "The given product can not be archived",
+            "NO_PRODUCT_FOUND": "The product to archive was not found",
+            "PRODUCT_ALREADY_ARCHIVED": "This product is already archived",
+            "ARCHIVE_SUCCESFULL": "The product has been archived!"
         }
     },
     "ATTRIBUTES": {
