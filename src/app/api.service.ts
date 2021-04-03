@@ -26,4 +26,8 @@ export class ApiService {
   addProduct(product: IAddProductObject): Observable<HttpResponse<any>> {
     return this.http.post<any>(`${this.API_GATEWAY}product`, product, { observe: 'response' });
   }
+
+  archiveProduct(productid: number): Observable<HttpResponse<any>>{
+    return this.http.post<any>(`${this.API_GATEWAY}product/archive/` + productid, productid, { observe: 'response' });
+  }
 }
