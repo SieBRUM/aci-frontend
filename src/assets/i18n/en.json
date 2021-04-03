@@ -59,7 +59,7 @@
             "NO_DATA": "Something went wrong with saving your data. Please try again later or contact an administrator",
             "ADD_SUCCESSFUL": "Product has been added!"
         },
-        "ARCHIVE":{
+        "ARCHIVE": {
             "DIALOG_TITLE": "Confirm",
             "DIALOG_MESSAGE": "You are about to archive the following product:",
             "DIALOG_ARCHIVE_BUTTON": "Archive",
