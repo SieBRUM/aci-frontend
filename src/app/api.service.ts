@@ -37,4 +37,7 @@ export class ApiService {
   addCategory(category: IAddCategoryObject): Observable<HttpResponse<any>> {
     return this.http.post<any>(`${this.API_GATEWAY}category`, category, { observe: 'response' });
   }
+  archiveProduct(productid: number): Observable<HttpResponse<any>>{
+    return this.http.post<any>(`${this.API_GATEWAY}product/archive/` + productid, productid, { observe: 'response' });
+  }
 }
