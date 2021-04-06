@@ -7,9 +7,14 @@
         </mat-card-header>
         <mat-divider></mat-divider>
         <mat-card-content class="card-content">
-            <div *ngFor="let cartItem of cartItems">
-                <app-product-datepicker [productId]="cartItem.id" [startDate]="cartItem.startDate"
-                    [endDate]="cartItem.endDate"></app-product-datepicker>
+            <div *ngIf="!isLoading">
+                <div *ngFor="let cartProduct of cartProducts">
+                    <img [src]="'data:image/png;base64,' + getFlatProductById(cartProduct.id).image" alt=""
+                        width="100vh">
+                    {{ getFlatProductById(cartProduct.id).name }}
+                    <app-product-datepicker [productId]="cartProduct.id" [startDate]="cartProduct.startDate"
+                        [endDate]="cartProduct.endDate"></app-product-datepicker>
+                </div>
             </div>
         </mat-card-content>
         <mat-card-actions>
