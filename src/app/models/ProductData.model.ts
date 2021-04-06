@@ -1,4 +1,4 @@
-import { ProductStatus } from './ProductStatus';
+import { ProductStatus } from './ProductStatus.enum';
 
 /**
  * Defines data that is used in the inventory table
