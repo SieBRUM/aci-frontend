@@ -3,8 +3,9 @@
         "TITLE": "Inventory",
         "INVENTORY_EMPTY": "No products found",
         "AVAILABLE": "Available",
-        "REQUIRES_APPROVAL": "Available with Approval",
-        "UNAVAILABLE": "Unavailable"
+        "REQUIRES_APPROVAL": "Available with approval",
+        "UNAVAILABLE": "Unavailable",
+        "NO_INVENTORY_RESPONSE": "Something went wrong when with receving inventory data"
     },  
     "SIDE_BAR": {
         "LOGOUT": "Log out",

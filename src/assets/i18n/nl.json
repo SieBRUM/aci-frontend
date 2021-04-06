@@ -4,7 +4,8 @@
         "INVENTORY_EMPTY": "Geen producten gevonden",
         "AVAILABLE": "Beschikbaar",
         "REQUIRES_APPROVAL": "Beschikbaar met goedkeuring",
-        "UNAVAILABLE": "Niet beschikbaar"
+        "UNAVAILABLE": "Niet beschikbaar",
+        "NO_INVENTORY_RESPONSE": "Er is iets misgegeaan met get ophalen van de inventorie gegevens"
     },   
     "SIDE_BAR": {
         "LOGOUT": "Log uit",
