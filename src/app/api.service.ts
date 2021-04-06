@@ -24,7 +24,7 @@ export class ApiService {
   }
 
   getInventoryProducts(): Observable<HttpResponse<ProductData[]>> {
-    return this.http.get<ProductData[]>(`${this.API_GATEWAY}products`, { observe: 'response' });
+    return this.http.get<ProductData[]>(`${this.API_GATEWAY}product`, { observe: 'response' });
   }
 
   /* POST calls */
