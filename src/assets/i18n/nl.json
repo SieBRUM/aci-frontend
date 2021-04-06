@@ -5,6 +5,7 @@
         "PIN_MENU": "Vergrendel menu",
         "HOME": "Home",
         "ADD_PRODUCT": "Product toevoegen",
+        "SHOPPING_CART": "Winkelmandje",
         "LANGUAGE": "Taal",
         "LANGUAGES": {
             "NL": "Nederlands",
@@ -41,5 +42,8 @@
             "NO_DATA": "Er is iets misgegaan met het opslaan van de gegevens. Probeer het later opnieuw of contacteer een administrator",
             "ADD_SUCCESSFUL": "Product is toegevoegd!"
         }
+    },
+    "PRODUCT_DATEPICKER": {
+        "LABEL": "Kies een periode"
     }
 }

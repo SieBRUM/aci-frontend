@@ -22,6 +22,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTableModule } from '@angular/material/table';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 /*
@@ -50,7 +52,9 @@ import { MatTableModule } from '@angular/material/table';
     MatStepperModule,
     MatExpansionModule,
     MatListModule,
-    MatTableModule
+    MatTableModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   exports: [
     MatDividerModule,
@@ -74,7 +78,9 @@ import { MatTableModule } from '@angular/material/table';
     MatStepperModule,
     MatExpansionModule,
     MatListModule,
-    MatTableModule
+    MatTableModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ]
 })
 export class MaterialModule { }

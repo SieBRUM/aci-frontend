@@ -13,6 +13,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppHomePageComponent } from './app-home-page/app-home-page.component';
 import { AppSideMenuBarComponent } from './app-side-menu-bar/app-side-menu-bar.component';
 import { AppAddProductPageComponent } from './app-add-product-page/app-add-product-page.component';
+import { AppProductDatepickerComponent } from './app-product-datepicker/app-product-datepicker.component';
+import { AppShoppingCartPageComponent } from './app-shopping-cart-page/app-shopping-cart-page.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -23,7 +25,9 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AppComponent,
     AppHomePageComponent,
     AppSideMenuBarComponent,
-    AppAddProductPageComponent
+    AppAddProductPageComponent,
+    AppProductDatepickerComponent,
+    AppShoppingCartPageComponent
   ],
   imports: [
     BrowserModule,

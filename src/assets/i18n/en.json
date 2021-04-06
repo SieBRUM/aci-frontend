@@ -5,6 +5,7 @@
         "PIN_MENU": "Pin menu",
         "HOME": "Home",
         "ADD_PRODUCT": "Add product",
+        "SHOPPING_CART": "Shopping cart",
         "LANGUAGE": "Language",
         "LANGUAGES": {
             "NL": "Dutch",
@@ -41,5 +42,8 @@
             "NO_DATA": "Something went wrong with saving your data. Please try again later or contact an administrator",
             "ADD_SUCCESSFUL": "Product has been added!"
         }
+    },
+    "PRODUCT_DATEPICKER": {
+        "LABEL": "Choose a date period"
     }
 }

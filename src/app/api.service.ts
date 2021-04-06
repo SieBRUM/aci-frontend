@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IAddProductObject } from './models/add-product.model';
 import { ICategory } from './models/category.model';
+import { IReservation } from './models/reservation.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,10 @@ export class ApiService {
 
   getLastCatalogNumber(): Observable<HttpResponse<number>> {
     return this.http.get<number>(`${this.API_GATEWAY}product/lastcatalog`, { observe: 'response' });
+  }
+
+  getReservationsByProductId(productId: number): Observable<HttpResponse<Array<IReservation>>> {
+    return this.http.get<Array<IReservation>>(`${this.API_GATEWAY}reservation/${productId}`, { observe: 'response' });
   }
 
   /* POST calls */
