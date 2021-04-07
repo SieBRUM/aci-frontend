@@ -54,7 +54,11 @@
             "DIALOG_TITLE": "Bevestig",
             "DIALOG_MESSAGE": "Weet u zeker dat u dit product wilt archiveren?",
             "DIALOG_ARCHIVE_BUTTON": "Archiveren",
-            "DIALOG_CANCEL_BUTTON": "Annuleren"
+            "DIALOG_CANCEL_BUTTON": "Annuleren",
+            "NO_VALID_ID": "Het opgegeven product kan niet gearchiveerd worden",
+            "NO_PRODUCT_FOUND": "Het product dat gearchiveerd moet worden is niet gevonden",
+            "PRODUCT_ALREADY_ARCHIVED": "Dit product is al gearchiveerd",
+            "ARCHIVE_SUCCESFULL": "Het product is succesvol gearchiveerd"
         }
     },
     "CATEGORY": {
