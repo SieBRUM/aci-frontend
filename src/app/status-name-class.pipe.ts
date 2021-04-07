@@ -14,14 +14,10 @@ export class StatusNameClassPipe implements PipeTransform {
       case ProductStatus.Available: {
         return 'available-status';
       }
-      case ProductStatus.RequiresApproval: {
-        return 'required-approval-status';
-      }
       case ProductStatus.Unavailable: {
         return 'unavailable-status';
       }
     }
-    return '';
   }
 
 }

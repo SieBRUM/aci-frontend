@@ -14,9 +14,6 @@ export class StatusNameKeyPipe implements PipeTransform {
       case ProductStatus.Available: {
         return 'INVENTORY.AVAILABLE';
       }
-      case ProductStatus.RequiresApproval: {
-        return 'INVENTORY.REQUIRES_APPROVAL';
-      }
       case ProductStatus.Unavailable: {
         return 'INVENTORY.UNAVAILABLE';
       }

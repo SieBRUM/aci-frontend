@@ -13,3 +13,21 @@ table {
 .unavailable-status {
   background-color: rgb(255, 162, 0);
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+
+  .main-content {
+      max-width: 1000px;
+
+      .card-content {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: flex-end;
+          padding-top: 15px;
+      }
+  }
+}

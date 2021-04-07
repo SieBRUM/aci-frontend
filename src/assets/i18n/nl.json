@@ -3,9 +3,8 @@
         "TITLE": "Inventaris",
         "INVENTORY_EMPTY": "Geen producten gevonden",
         "AVAILABLE": "Beschikbaar",
-        "REQUIRES_APPROVAL": "Beschikbaar met goedkeuring",
         "UNAVAILABLE": "Niet beschikbaar",
-        "NO_INVENTORY_RESPONSE": "Er is iets misgegeaan met get ophalen van de inventorie gegevens"
+        "NO_INVENTORY_RESPONSE": "Er is iets misgegaan. Probeer later opnieuw"
     },   
     "SIDE_BAR": {
         "LOGOUT": "Log uit",
@@ -55,7 +54,10 @@
         "NAME": "Naam",
         "STATUS": "Status",
         "LOCATION": "Locatie",
-        "RESERVER": "Reserveerder",
-        "IS_AVAILABLE": "Is beschikbaar"
+        "REQUIRES_APPROVAL": "Goedkeuring vereist"
+    },
+    "GENERIC": {
+        "YES": "Ja",
+        "NO": "Nee"
     }
 }

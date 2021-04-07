@@ -7,5 +7,6 @@ export interface ProductData {
   name: string;
   location: string;
   reserver: string | null;
+  requiresApproval: boolean;
   status: ProductStatus;
 }

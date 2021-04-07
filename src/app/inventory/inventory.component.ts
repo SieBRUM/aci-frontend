@@ -15,11 +15,11 @@ import { InventoryPage} from '../models/InventoryPage.model';
 })
 export class InventoryComponent implements OnInit, AfterViewInit {
   // determined whch columns that are displayed in the inventory table and in which order.
-  displayedColumns: string[] = ['name', 'location', 'status'];
+  displayedColumns: string[] = ['name', 'location', 'requiresApproval', 'status'];
 
   // MatPaginator Inputs
   totalProductCount = 0;
-  pageSize = 2;
+  pageSize = 5;
   pageIndex = 0;
   pageSizeOptions: number[] = [5, 10, 25, 100];
  
