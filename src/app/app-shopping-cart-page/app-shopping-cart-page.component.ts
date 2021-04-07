@@ -30,13 +30,33 @@ export class AppShoppingCartPageComponent implements OnInit {
       startDate: new Date(),
       endDate: new Date()
     },
+    {
+      id: 3,
+      startDate: new Date(),
+      endDate: new Date()
+    },
+    {
+      id: 4,
+      startDate: new Date(),
+      endDate: new Date()
+    },
+    {
+      id: 5,
+      startDate: new Date(),
+      endDate: new Date()
+    },
+    {
+      id: 6,
+      startDate: new Date(),
+      endDate: new Date()
+    },
   ];
 
   constructor(
     private apiService: ApiService
   ) {
     // TODO: Remove
-    localStorage.setItem('cart', JSON.stringify(this.fakeItems));
+    // localStorage.setItem('cart', JSON.stringify(this.fakeItems));
   }
 
   ngOnInit(): void {
@@ -60,8 +80,15 @@ export class AppShoppingCartPageComponent implements OnInit {
     this.cartProducts = items;
   }
 
+  receivedFlatProduct(id: number): boolean {
+    if (this.productsFlat.length < 1) {
+      return false;
+    }
+
+    return this.productsFlat.findIndex(x => x.id === id) > -1;
+  }
+
   private getFlatProducts(): void {
-    this.isLoading = true;
     this.productsFlat = [];
     const seen = new Set();
     const filteredProducts = this.cartProducts.filter(el => {
@@ -70,7 +97,8 @@ export class AppShoppingCartPageComponent implements OnInit {
       return !duplicate;
     });
 
-    filteredProducts.forEach(product => {
+    filteredProducts.forEach(async product => {
+      await new Promise(resolve => setTimeout(resolve, 2000));
       this.apiService.getProductFlatById(product.id).subscribe({
         next: (resp) => {
           if (resp.body === null) {
@@ -78,10 +106,8 @@ export class AppShoppingCartPageComponent implements OnInit {
           }
 
           this.productsFlat.push(resp.body as IProductFlat);
-          this.isLoading = false;
         },
         error: (err) => {
-          this.isLoading = false;
           // TODO: error
         }
       });

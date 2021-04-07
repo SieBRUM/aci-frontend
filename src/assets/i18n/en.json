@@ -43,6 +43,12 @@
             "ADD_SUCCESSFUL": "Product has been added!"
         }
     },
+    "CART": {
+        "TITLE": "Shopping cart",
+        "LOADING_PRODUCT": "Loading product...",
+        "REMOVE_PRODUCT": "Remove product",
+        "INFO": "Info"
+    },
     "PRODUCT_DATEPICKER": {
         "LABEL": "Choose a date period"
     }

@@ -43,6 +43,12 @@
             "ADD_SUCCESSFUL": "Product is toegevoegd!"
         }
     },
+    "CART": {
+        "TITLE": "Winkelmandje",
+        "LOADING_PRODUCT": "Product laden...",
+        "REMOVE_PRODUCT": "Product verwijderen",
+        "INFO": "Info"
+    },
     "PRODUCT_DATEPICKER": {
         "LABEL": "Kies een periode"
     }
