@@ -3,7 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
 import { ApiService } from '../api.service';
-import {Router} from "@angular/router"
+import { Router } from "@angular/router"
 
 @Component({
   selector: 'app-app-archive-dialog',
@@ -18,8 +18,8 @@ export class AppArchiveDialogComponent implements OnInit {
     private translate: TranslateService,
     private snackbarService: MatSnackBar,
     private router: Router,
-    private dialogRef: MatDialogRef<AppArchiveDialogComponent> 
-    ) { }
+    private dialogRef: MatDialogRef<AppArchiveDialogComponent>
+  ) { }
 
   ngOnInit(): void {
   }
@@ -27,9 +27,9 @@ export class AppArchiveDialogComponent implements OnInit {
   /*
     Makes backend call to archive the product
   */
-  archiveProduct(){
+  archiveProduct() {
     this.apiService.archiveProduct(this.data.id).subscribe({
-      next: (resp) =>{
+      next: (resp) => {
         this.snackbarService.open(this.translate.instant("PRODUCT.ARCHIVE.ARCHIVE_SUCCESFULL"), undefined, {
           panelClass: 'success-snack',
           duration: 1500
@@ -38,9 +38,9 @@ export class AppArchiveDialogComponent implements OnInit {
         setTimeout(function () {
           window.location.reload();
         }, 1500);
-        
+
       },
-      error: (err) =>{
+      error: (err) => {
         this.showErrorNotification(err.error)
       }
     })
@@ -52,17 +52,17 @@ export class AppArchiveDialogComponent implements OnInit {
     @param translateableMessage: string
     String that has to be presented in the error notification (gets translated)
   */
-    private showErrorNotification(translateableMessage: string): void {
-      this.snackbarService.open(this.translate.instant(translateableMessage), undefined, {
-        panelClass: 'error-snack',
-        duration: 2500
-      });
-    }
+  private showErrorNotification(translateableMessage: string): void {
+    this.snackbarService.open(this.translate.instant(translateableMessage), undefined, {
+      panelClass: 'error-snack',
+      duration: 2500
+    });
+  }
 
-    /*
-    *Closes this dialog
-  */
-    public closeDialog(){
-      this.dialogRef.close();
-    }
+  /*
+  *Closes this dialog
+*/
+  public closeDialog() {
+    this.dialogRef.close();
+  }
 }
