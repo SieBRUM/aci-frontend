@@ -7,6 +7,9 @@ import { TranslateService } from '@ngx-translate/core';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { InventoryPage} from '../models/InventoryPage.model';
 
+const PAGE_SIZE_DEFAULT = 50
+const INDEX_DEFAULT = 0
+const PRODUCT_COUNT_DEFAULT = 0;
 
 @Component({
   selector: 'app-inventory',
@@ -18,10 +21,10 @@ export class InventoryComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['name', 'location', 'requiresApproval', 'status'];
 
   // MatPaginator Inputs
-  totalProductCount = 0;
-  pageSize = 5;
-  pageIndex = 0;
-  pageSizeOptions: number[] = [5, 10, 25, 100];
+  totalProductCount = PRODUCT_COUNT_DEFAULT;
+  pageSize = PAGE_SIZE_DEFAULT;
+  pageIndex = INDEX_DEFAULT;
+  pageSizeOptions: number[] = [5, 10, 25, 50, 100];
  
   // MatPaginator Output
   pageEvent: PageEvent | undefined;
@@ -67,8 +70,8 @@ export class InventoryComponent implements OnInit, AfterViewInit {
    * @returns same event object that got sent as parameter
    */
   public handlePageEvent(event?:PageEvent) : PageEvent | undefined{
-    this.pageIndex = event?.pageIndex ?? 0
-    this.pageSize = event?.pageSize ?? 10
+    this.pageIndex = event?.pageIndex ?? INDEX_DEFAULT
+    this.pageSize = event?.pageSize ?? PAGE_SIZE_DEFAULT
     this.getProductData();
     return event;
   }
@@ -93,7 +96,7 @@ export class InventoryComponent implements OnInit, AfterViewInit {
    * Sets page to first page
    */
   public resetPaging(): void {
-    this.paginator.pageIndex = 0;
+    this.paginator.pageIndex = INDEX_DEFAULT;
   }
 
   /*
