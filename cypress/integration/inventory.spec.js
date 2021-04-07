@@ -40,7 +40,6 @@ describe('Home page tests', () => {
 
         cy.get(".available-status").contains("Available")
         cy.get(".unavailable-status").contains("Unavailable")
-        cy.get(".required-approval-status").contains("Available with approval")
     });
 
     it('Should show status chips in Dutch', () => {
@@ -53,7 +52,6 @@ describe('Home page tests', () => {
 
         cy.get(".available-status").contains("Beschikbaar")
         cy.get(".unavailable-status").contains("Niet beschikbaar")
-        cy.get(".required-approval-status").contains("Beschikbaar met goedkeuring")
     });
 
     
@@ -65,7 +63,7 @@ describe('Home page tests', () => {
         cy.visit('http://localhost:4200/products')
         cy.wait("@getProducts")
 
-        cy.get("snack-bar-container").contains('Something went wrong when with receving inventory data');
+        cy.get("snack-bar-container").contains('Something went wrong. Please try again later');
     });
 
     it('Should show error in Dutch', () => {
@@ -76,6 +74,41 @@ describe('Home page tests', () => {
         cy.visit('http://localhost:4200/products')
         cy.wait("@getProducts")
 
-        cy.get("snack-bar-container").contains('Er is iets misgegeaan met get ophalen van de inventorie gegevens');
+        cy.get("snack-bar-container").contains('Er is iets misgegaan. Probeer later opnieuw');
+    });
+
+    it('Should go to next page', () => {
+        cy.intercept('GET', /\/api\/product\/page\/0\/[0-9]+$/, { fixture: 'inventory-products.json' }).as('getProducts');
+
+        cy.changeLanguage('en');
+
+        cy.visit('http://localhost:4200/products')
+        cy.wait("@getProducts")
+
+        cy.get(".mat-paginator-range-label").contains(" 1 – 5 of 6 ")
+
+        cy.intercept('GET', /\/api\/product\/page\/1\/[0-9]+$/, { fixture: 'inventory-products-page-2.json' }).as('getProductsNextPage');
+
+        cy.get(".mat-paginator-navigation-next").click();
+
+        cy.wait("@getProductsNextPage")
+
+        cy.get(".mat-paginator-range-label").contains(" 6 – 6 of 6 ")
+    });
+
+    
+    it('Should change page size', () => {
+        cy.intercept('GET', /\/api\/product\/page\/0\/[0-9]+$/, { fixture: 'inventory-products.json' }).as('getProducts');
+
+        cy.changeLanguage('en');
+
+        cy.visit('http://localhost:4200/products')
+        cy.wait("@getProducts")
+
+        cy.intercept('GET', '/api/product/page/0/100', { fixture: 'inventory-products.json' }).as('getProducts');
+
+        cy.get('.mat-paginator-container mat-select').click().get('mat-option').contains(100).click();
+
+        cy.wait("@getProducts")
     });
 });
