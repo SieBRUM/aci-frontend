@@ -50,6 +50,10 @@
             "ADD_SUCCESSFUL": "Product has been added!"
         },
         "ARCHIVE":{
+            "DIALOG_TITLE": "Confirm",
+            "DIALOG_MESSAGE": "Are you sure you want to archive this product?",
+            "DIALOG_ARCHIVE_BUTTON": "Archive",
+            "DIALOG_CANCEL_BUTTON": "Cancel",
             "NO_VALID_ID": "The given product can not be archived",
             "NO_PRODUCT_FOUND": "The product to archive was not found",
             "PRODUCT_ALREADY_ARCHIVED": "This product is already archived",

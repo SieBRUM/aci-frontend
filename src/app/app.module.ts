@@ -17,6 +17,7 @@ import { InventoryComponent } from './inventory/inventory.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { StatusNameKeyPipe } from './status-name-key.pipe';
 import { StatusNameClassPipe } from './status-name-class.pipe';
+import { AppArchiveDialogComponent } from './app-archive-dialog/app-archive-dialog.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -30,7 +31,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AppAddProductPageComponent,
     InventoryComponent,
     StatusNameKeyPipe,
-    StatusNameClassPipe
+    StatusNameClassPipe,
+    AppArchiveDialogComponent
   ],
   imports: [
     BrowserModule,
