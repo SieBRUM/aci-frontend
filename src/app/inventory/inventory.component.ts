@@ -41,7 +41,10 @@ export class InventoryComponent implements OnInit, AfterViewInit {
      }
      
   ngOnInit(): void {
+    let inventoryPageOptions = localStorage.getItem('inventoryPageOptions');
 
+    if (inventoryPageOptions != null)
+      this.pageSize = JSON.parse(inventoryPageOptions);
   }
 
   ngAfterViewInit(): void {
@@ -71,7 +74,10 @@ export class InventoryComponent implements OnInit, AfterViewInit {
    */
   public handlePageEvent(event?:PageEvent) : PageEvent | undefined{
     this.pageIndex = event?.pageIndex ?? INDEX_DEFAULT
-    this.pageSize = event?.pageSize ?? PAGE_SIZE_DEFAULT
+    if (this.pageSize != event?.pageSize) {
+      this.pageSize = event?.pageSize ?? PAGE_SIZE_DEFAULT
+      localStorage.setItem('inventoryPageOptions', JSON.stringify(this.pageSize));
+    }
     this.getProductData();
     return event;
   }
