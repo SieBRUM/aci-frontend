@@ -4,7 +4,7 @@
         "INVENTORY_EMPTY": "Geen producten gevonden",
         "AVAILABLE": "Beschikbaar",
         "UNAVAILABLE": "Niet beschikbaar",
-        "NO_INVENTORY_RESPONSE": "Er is iets misgegaan. Probeer later opnieuw"
+        "NO_INVENTORY_RESPONSE": "Er is iets misgegaan, probeer later opnieuw"
     },   
     "SIDE_BAR": {
         "LOGOUT": "Log uit",

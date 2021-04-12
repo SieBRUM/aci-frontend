@@ -4,7 +4,7 @@
         "INVENTORY_EMPTY": "No products found",
         "AVAILABLE": "Available",
         "UNAVAILABLE": "Unavailable",
-        "NO_INVENTORY_RESPONSE": "Something went wrong. Please try again later"
+        "NO_INVENTORY_RESPONSE": "Something went wrong, please try again later"
     },  
     "SIDE_BAR": {
         "LOGOUT": "Log out",
