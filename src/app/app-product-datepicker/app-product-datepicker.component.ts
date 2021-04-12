@@ -1,9 +1,9 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { MatCalendarCellClassFunction } from '@angular/material/datepicker';
 import { ApiService } from '../api.service';
 import { IReservation } from '../models/reservation.model';
-import { FormGroup, FormControl } from '@angular/forms';
 import * as moment from 'moment';
+import { IDatePickerError } from '../models/datepicker-error.model';
 
 @Component({
   selector: 'app-product-datepicker',
@@ -17,30 +17,16 @@ export class AppProductDatepickerComponent implements OnInit {
   @Input() startDate: Date | null = null;
   @Input() endDate: Date | null = null;
 
+  @Output() errorsChanged: EventEmitter<Array<IDatePickerError>> = new EventEmitter();
+
   isLoading = true;
   reservations: Array<IReservation> = [];
 
-  range = new FormGroup({
-    start: new FormControl(),
-    end: new FormControl()
-  });
+  errors: Array<IDatePickerError> = [];
 
-  constructor(private apiService: ApiService) {
-
-  }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
-    const startDateFormGroup = new FormControl();
-    const endDateFormGroup = new FormControl();
-
-    startDateFormGroup.setValue(this.startDate);
-    endDateFormGroup.setValue(this.endDate);
-    console.log(this.startDate);
-    this.range = new FormGroup({
-      start: startDateFormGroup,
-      end: endDateFormGroup
-    });
-
     this.isLoading = true;
     this.apiService.getReservationsByProductId(this.productId).subscribe({
       next: (resp) => {
@@ -56,6 +42,7 @@ export class AppProductDatepickerComponent implements OnInit {
           });
           this.reservations = resp.body;
           this.isLoading = false;
+          this.dateChangeEvent();
         }
       },
       error: (err) => {
@@ -73,11 +60,65 @@ export class AppProductDatepickerComponent implements OnInit {
     return '';
   }
 
+  dateFilter = (d: Date | null): boolean => {
+    if (d === null) {
+      return false;
+    }
+    const day = (d || new Date()).getDay();
+    // Prevent Saturday and Sunday from being selected.
+    return day !== 0 && day !== 6 && !this.isDateReserved(moment(d));
+  }
+
+  dateChangeEvent(): void {
+    this.errors = [];
+
+    if (this.startDate == null) {
+      this.errors.push({ date: null, error: 'START_DATE_NULL' });
+      return;
+    }
+
+    const startDate = moment(this.startDate).clone();
+    const endDate = moment(this.endDate).clone();
+    const dates = [];
+    let weekendDays = 0;
+
+    if (this.endDate !== null) {
+      while (startDate.isSameOrBefore(endDate)) {
+        dates.push(startDate.clone());
+        startDate.add('1', 'days');
+      }
+    } else {
+      dates.push(startDate.clone());
+    }
+
+    dates.forEach((selectedDate, i) => {
+      if (selectedDate.day() === 6 || selectedDate.day() === 0) {
+        weekendDays++;
+        if (i === 0) {
+          this.errors.push({ date: selectedDate.clone().format('M/D/YYYY'), error: 'START_DATE_WEEKEND' });
+        } else if (i === (dates.length - 1)) {
+          this.errors.push({ date: selectedDate.clone().format('M/D/YYYY'), error: 'END_DATE_WEEKEND' });
+        }
+      }
+
+      if (this.isDateReserved(selectedDate)) {
+        this.errors.push({ date: selectedDate.clone().format('M/D/YYYY'), error: 'DATE_ALREADY_RESERVED' });
+      }
+
+    });
+
+    if ((dates.length - weekendDays) > 5) {
+      this.errors.push({ date: null, error: 'TOO_MANY_DAYS' });
+    }
+
+    this.errorsChanged.emit(this.errors);
+  }
+
   private convertSqlDateToJsDate(dateToConvert: string): Date {
     return new Date(dateToConvert.replace('T', ' '));
   }
 
-  private isDateReserved(date: Date): boolean {
+  private isDateReserved(date: Date | moment.Moment): boolean {
     let isReserved = false;
     this.reservations.forEach(reservation => {
       if (moment(date).isBetween(reservation.startDate, reservation.endDate, 'day', '[]')) {

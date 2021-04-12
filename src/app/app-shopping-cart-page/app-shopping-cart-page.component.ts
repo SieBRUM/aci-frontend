@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { ICartProduct } from '../models/cart-product.model';
+import { IDatePickerError } from '../models/datepicker-error.model';
 import { IProductFlat } from '../models/product-flat.model';
 
 @Component({
@@ -11,6 +12,7 @@ import { IProductFlat } from '../models/product-flat.model';
 export class AppShoppingCartPageComponent implements OnInit {
   cartProducts: Array<ICartProduct> = [];
   productsFlat: Array<IProductFlat> = [];
+  datepickerErrors: Map<number, Array<IDatePickerError>> = new Map<number, Array<IDatePickerError>>();
   isLoading = false;
 
   // TODO: Remove
@@ -64,6 +66,14 @@ export class AppShoppingCartPageComponent implements OnInit {
     this.getFlatProducts();
   }
 
+  datepickerErrorChanged(index: number, event: any): void {
+    this.datepickerErrors.set(index, event);
+  }
+
+  hasCartProductErrors(index: number): boolean {
+    const errors = this.datepickerErrors.get(index);
+    return errors !== undefined && errors.length > 0;
+  }
 
   getFlatProductById(id: number): IProductFlat {
     return this.productsFlat[this.productsFlat.findIndex(x => x.id === id)];

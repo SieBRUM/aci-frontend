@@ -6,35 +6,38 @@
             </mat-card-title>
         </mat-card-header>
         <mat-divider></mat-divider>
-        <mat-card-content>
+        <mat-card-content style="overflow: hidden;">
             <div *ngIf="!isLoading">
                 <!-- Loop with all the cart products  -->
-                <div *ngFor="let cartProduct of cartProducts">
-                    <div class="product-list" name="product-list"
-                        *ngIf="receivedFlatProduct(cartProduct.id) && cartProduct.id != 3">
+                <div *ngFor="let cartProduct of cartProducts; index as i">
+                    <div class="product-list" name="product-list" *ngIf="receivedFlatProduct(cartProduct.id)">
                         <div class="product-list-info-item product-image">
                             <img [src]="'data:image/png;base64,' + getFlatProductById(cartProduct.id).image" alt="">
                         </div>
                         <div class="product-list-info-item product-text">
-                            <h2 style="margin-bottom:unset;">{{ getFlatProductById(cartProduct.id).name }}</h2>
-                            <p>{{ getFlatProductById(cartProduct.id).description }}</p>
+                            <h2 class="product-title">{{
+                                getFlatProductById(cartProduct.id).name }}</h2>
+                            <div class="description">{{ getFlatProductById(cartProduct.id).description }}</div>
                         </div>
                         <div class="product-list-info-item product-datepicker">
                             <app-product-datepicker [productId]="cartProduct.id" [startDate]="cartProduct.startDate"
-                                [endDate]="cartProduct.endDate"></app-product-datepicker>
-                            <button mat-stroked-button color="primary" style="width: 70%; float:left;">
+                                [endDate]="cartProduct.endDate" (errorsChanged)="datepickerErrorChanged(i, $event)">
+                            </app-product-datepicker>
+                            <button mat-stroked-button color="primary" class="delete-entry-button">
                                 <mat-icon>delete</mat-icon> Delete entry
-                            </button>
-                            <button mat-stroked-button style="margin-left: 10px;float:right;"
-                                *ngIf="cartProduct.id === 1">
-                                Info
                             </button>
                         </div>
                     </div>
+                    <mat-chip-list style="padding: 0px 5px 0px 0px;" *ngIf="hasCartProductErrors(i)">
+                        <mat-chip *ngFor=" let error of datepickerErrors.get(i);"
+                            style="background-color: red; margin-left:15px;" disableRipple>
+                            <mat-icon style="vertical-align: middle;">warning</mat-icon> &nbsp;
+                            {{ error.date }} : {{ error.error }}
+                        </mat-chip>
+                    </mat-chip-list>
 
                     <!-- Loading fake animation  -->
-                    <div *ngIf="!receivedFlatProduct(cartProduct.id) || cartProduct.id == 3 "
-                        class="loading-item-background product-list">
+                    <div *ngIf="!receivedFlatProduct(cartProduct.id)" class="loading-item-background product-list">
                         <div class="product-list-info-item product-image fake-product-image-container">
                             <div class="fake-product-image-content"></div>
                         </div>
@@ -46,18 +49,17 @@
                             <div class="fake-product-remove-button"></div>
                         </div>
                     </div>
+                    <div></div>
                     <mat-divider></mat-divider>
                 </div>
-                <button mat-stroked-button style="width: 100%; margin-top: 20px;" color="accent">Save</button>
+                <div style="display:flex; justify-content: center; align-items: center;">
+                    <button mat-raised-button
+                        style="width: 90%; margin-top: 20px; background-color: rgba(0, 128, 0, 0.884);">
+                        <mat-icon>shopping_cart</mat-icon>
+                        {{ 'CART.RESERVE' | translate }}
+                    </button>
+                </div>
             </div>
         </mat-card-content>
-        <mat-card-actions>
-            <!-- <button mat-stroked-button class="green" style="float:right;" (click)="onClickAddProduct()"
-                *ngIf="!isLoading" name="save-product-button">
-                {{ 'PRODUCT.ADD.SAVE' | translate }}
-            </button>
-            <mat-spinner *ngIf="isLoading" diameter="35" style="margin:auto; padding-bottom: 10px;"
-                name="save-product-loading-spinner"></mat-spinner> -->
-        </mat-card-actions>
     </mat-card>
 </div>

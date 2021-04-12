@@ -24,6 +24,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTableModule } from '@angular/material/table';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatChipsModule } from '@angular/material/chips';
 
 
 /*
@@ -54,7 +55,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatListModule,
     MatTableModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatChipsModule
   ],
   exports: [
     MatDividerModule,
@@ -80,7 +82,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatListModule,
     MatTableModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatChipsModule
   ]
 })
 export class MaterialModule { }
