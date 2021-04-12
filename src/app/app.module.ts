@@ -13,6 +13,10 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppHomePageComponent } from './app-home-page/app-home-page.component';
 import { AppSideMenuBarComponent } from './app-side-menu-bar/app-side-menu-bar.component';
 import { AppAddProductPageComponent } from './app-add-product-page/app-add-product-page.component';
+import { InventoryComponent } from './inventory/inventory.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { StatusNameKeyPipe } from './status-name-key.pipe';
+import { StatusNameClassPipe } from './status-name-class.pipe';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -23,7 +27,10 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AppComponent,
     AppHomePageComponent,
     AppSideMenuBarComponent,
-    AppAddProductPageComponent
+    AppAddProductPageComponent,
+    InventoryComponent,
+    StatusNameKeyPipe,
+    StatusNameClassPipe
   ],
   imports: [
     BrowserModule,
@@ -39,7 +46,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

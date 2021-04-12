@@ -22,6 +22,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTableModule } from '@angular/material/table';
+import { MatChipsModule } from '@angular/material/chips';
 
 
 /*
@@ -50,6 +51,7 @@ import { MatTableModule } from '@angular/material/table';
     MatStepperModule,
     MatExpansionModule,
     MatListModule,
+    MatChipsModule,
     MatTableModule
   ],
   exports: [
@@ -74,6 +76,7 @@ import { MatTableModule } from '@angular/material/table';
     MatStepperModule,
     MatExpansionModule,
     MatListModule,
+    MatChipsModule,
     MatTableModule
   ]
 })

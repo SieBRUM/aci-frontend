@@ -56,7 +56,7 @@ export class AppSideMenuBarComponent {
     Contains route of the button. Ex: products/add. Returns css styling when on this route
   */
   isOnRoute(buttonRoute: string): string {
-    return this.router.url.indexOf(buttonRoute) > -1 ? 'background:rgba(156,39,176,.15); color:#d176e1;' : '';
+    return this.router.url.endsWith(buttonRoute) ? 'background:rgba(156,39,176,.15); color:#d176e1;' : '';
   }
 
   /*
@@ -72,6 +72,9 @@ export class AppSideMenuBarComponent {
         break;
       case 'addproduct':
         this.router.navigate(['products/add']);
+        break;
+      case 'products':
+        this.router.navigate(['products']);
         break;
       default:
         break;

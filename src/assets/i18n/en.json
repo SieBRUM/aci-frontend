@@ -1,9 +1,17 @@
 {
+    "INVENTORY" : {
+        "TITLE": "Inventory",
+        "INVENTORY_EMPTY": "No products found",
+        "AVAILABLE": "Available",
+        "UNAVAILABLE": "Unavailable",
+        "NO_INVENTORY_RESPONSE": "Something went wrong, please try again later"
+    },  
     "SIDE_BAR": {
         "LOGOUT": "Log out",
         "UNPIN_MENU": "Unpin menu",
         "PIN_MENU": "Pin menu",
         "HOME": "Home",
+        "INVENTORY": "Inventory",
         "ADD_PRODUCT": "Add product",
         "LANGUAGE": "Language",
         "LANGUAGES": {
@@ -41,5 +49,15 @@
             "NO_DATA": "Something went wrong with saving your data. Please try again later or contact an administrator",
             "ADD_SUCCESSFUL": "Product has been added!"
         }
+    },
+    "ATTRIBUTES": {
+        "NAME": "Name",
+        "STATUS": "Status",
+        "LOCATION": "Location",
+        "REQUIRES_APPROVAL": "Requires approval"
+    },
+    "GENERIC": {
+        "YES": "Yes",
+        "NO": "No"
     }
 }

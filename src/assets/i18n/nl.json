@@ -1,9 +1,17 @@
 {
+    "INVENTORY" : {
+        "TITLE": "Inventaris",
+        "INVENTORY_EMPTY": "Geen producten gevonden",
+        "AVAILABLE": "Beschikbaar",
+        "UNAVAILABLE": "Niet beschikbaar",
+        "NO_INVENTORY_RESPONSE": "Er is iets misgegaan, probeer later opnieuw"
+    },   
     "SIDE_BAR": {
         "LOGOUT": "Log uit",
         "UNPIN_MENU": "Ontgrendel menu",
         "PIN_MENU": "Vergrendel menu",
         "HOME": "Home",
+        "INVENTORY": "Inventaris",
         "ADD_PRODUCT": "Product toevoegen",
         "LANGUAGE": "Taal",
         "LANGUAGES": {
@@ -41,5 +49,15 @@
             "NO_DATA": "Er is iets misgegaan met het opslaan van de gegevens. Probeer het later opnieuw of contacteer een administrator",
             "ADD_SUCCESSFUL": "Product is toegevoegd!"
         }
+    },
+    "ATTRIBUTES": {
+        "NAME": "Naam",
+        "STATUS": "Status",
+        "LOCATION": "Locatie",
+        "REQUIRES_APPROVAL": "Goedkeuring vereist"
+    },
+    "GENERIC": {
+        "YES": "Ja",
+        "NO": "Nee"
     }
 }
