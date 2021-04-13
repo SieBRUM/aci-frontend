@@ -51,7 +51,7 @@
         },
         "ARCHIVE":{
             "DIALOG_TITLE": "Confirm",
-            "DIALOG_MESSAGE": "Are you sure you want to archive this product?",
+            "DIALOG_MESSAGE": "You are about to archive the following product:",
             "DIALOG_ARCHIVE_BUTTON": "Archive",
             "DIALOG_CANCEL_BUTTON": "Cancel",
             "NO_VALID_ID": "The given product can not be archived",
@@ -74,7 +74,8 @@
         "NAME": "Name",
         "STATUS": "Status",
         "LOCATION": "Location",
-        "REQUIRES_APPROVAL": "Requires approval"
+        "REQUIRES_APPROVAL": "Requires approval",
+        "OPTIONS": "Options"
     },
     "GENERIC": {
         "YES": "Yes",

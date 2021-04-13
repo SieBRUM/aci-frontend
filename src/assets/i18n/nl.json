@@ -52,7 +52,7 @@
         },
         "ARCHIVE":{
             "DIALOG_TITLE": "Bevestig",
-            "DIALOG_MESSAGE": "Weet u zeker dat u dit product wilt archiveren?",
+            "DIALOG_MESSAGE": "U staat op het punt het volgende product te archiveren:",
             "DIALOG_ARCHIVE_BUTTON": "Archiveren",
             "DIALOG_CANCEL_BUTTON": "Annuleren",
             "NO_VALID_ID": "Het opgegeven product kan niet gearchiveerd worden",
@@ -75,7 +75,8 @@
         "NAME": "Naam",
         "STATUS": "Status",
         "LOCATION": "Locatie",
-        "REQUIRES_APPROVAL": "Goedkeuring vereist"
+        "REQUIRES_APPROVAL": "Goedkeuring vereist",
+        "OPTIONS": "Opties"
     },
     "GENERIC": {
         "YES": "Ja",
