@@ -5,7 +5,7 @@ import { ApiService } from '../api.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
-import { InventoryPage} from '../models/InventoryPage.model';
+import { InventoryPage } from '../models/InventoryPage.model';
 import { MatDialog } from '@angular/material/dialog';
 import { AppArchiveDialogComponent } from '../app-archive-dialog/app-archive-dialog.component';
 
@@ -27,22 +27,22 @@ export class InventoryComponent implements OnInit, AfterViewInit {
   pageSize = PAGE_SIZE_DEFAULT;
   pageIndex = INDEX_DEFAULT;
   pageSizeOptions: number[] = [5, 10, 25, 50, 100];
- 
+
   // MatPaginator Output
   pageEvent: PageEvent | undefined;
-   
+
   dataSource: MatTableDataSource<ProductData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(
     private apiService: ApiService,
-    private notificationService: MatSnackBar, 
+    private notificationService: MatSnackBar,
     private translateService: TranslateService,
-    private dialog: MatDialog, ) {
-      this.dataSource = new MatTableDataSource();
-     }
-     
+    private dialog: MatDialog,) {
+    this.dataSource = new MatTableDataSource();
+  }
+
   ngOnInit(): void {
     let inventoryPageOptions = localStorage.getItem('inventoryPageOptions');
 
@@ -59,9 +59,9 @@ export class InventoryComponent implements OnInit, AfterViewInit {
    * get product data that gets displayed in the inventory
    */
   private getProductData(): void {
-      this.apiService.getInventoryProducts(this.pageIndex, this.pageSize)
+    this.apiService.getInventoryProducts(this.pageIndex, this.pageSize)
       .subscribe({
-        next: (response) => { 
+        next: (response) => {
           this.readInventoryPage(response.body);
         },
         error: (_err: any) => {
@@ -75,7 +75,7 @@ export class InventoryComponent implements OnInit, AfterViewInit {
    * @param event event object that should be handled
    * @returns same event object that got sent as parameter
    */
-  public handlePageEvent(event?:PageEvent) : PageEvent | undefined{
+  public handlePageEvent(event?: PageEvent): PageEvent | undefined {
     this.pageIndex = event?.pageIndex ?? INDEX_DEFAULT
     if (this.pageSize != event?.pageSize) {
       this.pageSize = event?.pageSize ?? PAGE_SIZE_DEFAULT
@@ -90,13 +90,13 @@ export class InventoryComponent implements OnInit, AfterViewInit {
    * @param pageData page data containing relevant data for inventory page
    * @returns void
    */
-  private readInventoryPage(pageData: InventoryPage | null): void {    
+  private readInventoryPage(pageData: InventoryPage | null): void {
     if (pageData == null) {
       this.dataSource.data = new Array<ProductData>()
       return;
     }
 
-    this.dataSource.data =  pageData.products ?? new Array<ProductData>();
+    this.dataSource.data = pageData.products ?? new Array<ProductData>();
     this.totalProductCount = pageData.totalProductCount
     this.pageIndex = pageData.currentPage;
   }
@@ -114,23 +114,23 @@ export class InventoryComponent implements OnInit, AfterViewInit {
     @param translateableMessage: string
     String that has to be presented in the error notification (gets translated)
   */
-    private showErrorNotification(translateableMessage: string): void {
-      this.notificationService.open(this.translateService.instant(translateableMessage), undefined, {
-        panelClass: 'error-snack',
-        duration: 2500
-      });
-    }
+  private showErrorNotification(translateableMessage: string): void {
+    this.notificationService.open(this.translateService.instant(translateableMessage), undefined, {
+      panelClass: 'error-snack',
+      duration: 2500
+    });
+  }
 
-    /*
-    *Show dialog for archiving
-  */
-    openDialog(element: any) {
-      const dialogRef = this.dialog.open(AppArchiveDialogComponent, {
-        data: {
-          id: element.id,
-          name: element.name
-        },
-        backdropClass: 'no-backdrop',
-      },);
-    }
+  /*
+  *Show dialog for archiving
+*/
+  openDialog(element: any) {
+    const dialogRef = this.dialog.open(AppArchiveDialogComponent, {
+      data: {
+        id: element.id,
+        name: element.name
+      },
+      backdropClass: 'no-backdrop',
+    });
+  }
 }
