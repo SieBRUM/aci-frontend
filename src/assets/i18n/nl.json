@@ -1,4 +1,12 @@
 {
+    "APP": {
+        "ROUTE": {
+            "HOME": "Home",
+            "ADD_PRODUCT": "Product toevoegen",
+            "PRODUCTS": "Inventaris",
+            "CART": "Winkelmandje"
+        }
+    },
     "SIDE_BAR": {
         "LOGOUT": "Log uit",
         "UNPIN_MENU": "Ontgrendel menu",

@@ -1,6 +1,6 @@
 <mat-form-field appearance="fill" style="width: 100%;">
     <mat-label>{{ 'PRODUCT_DATEPICKER.LABEL' | translate }}</mat-label>
-    <mat-date-range-input [rangePicker]="picker" [dateFilter]="dateFilter">
+    <mat-date-range-input [rangePicker]="picker" [dateFilter]="dateFilter" [disabled]="isLoading">
         <input matStartDate [(ngModel)]="startDate" placeholder="Start date" (dateChange)="dateChangeEvent()">
         <input matEndDate [(ngModel)]="endDate" placeholder="End date" (dateChange)="dateChangeEvent()">
     </mat-date-range-input>

@@ -1,5 +1,6 @@
 export interface ICartProduct {
     id: number;
+    localId?: number;
     startDate: Date;
-    endDate: Date;
+    endDate: Date | null;
 }

@@ -1,4 +1,12 @@
 {
+    "APP": {
+        "ROUTE": {
+            "HOME": "Home",
+            "ADD_PRODUCT": "Add product",
+            "PRODUCTS": "Inventory",
+            "CART": "Shopping cart"
+        }
+    },
     "SIDE_BAR": {
         "LOGOUT": "Log out",
         "UNPIN_MENU": "Unpin menu",
