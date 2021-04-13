@@ -25,7 +25,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatChipsModule } from '@angular/material/chips';
-
+import {MatMenuModule} from '@angular/material/menu';
 
 /*
   Contains all 'default' material components.
@@ -58,7 +58,8 @@ import { MatChipsModule } from '@angular/material/chips';
     MatNativeDateModule,
     MatChipsModule,
     MatChipsModule,
-    MatTableModule
+    MatTableModule,
+    MatMenuModule
   ],
   exports: [
     MatDividerModule,
@@ -87,7 +88,8 @@ import { MatChipsModule } from '@angular/material/chips';
     MatNativeDateModule,
     MatChipsModule,
     MatChipsModule,
-    MatTableModule
+    MatTableModule,
+    MatMenuModule
   ]
 })
 export class MaterialModule { }

@@ -6,6 +6,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { InventoryPage} from '../models/InventoryPage.model';
+import { MatDialog } from '@angular/material/dialog';
+import { AppArchiveDialogComponent } from '../app-archive-dialog/app-archive-dialog.component';
 
 const PAGE_SIZE_DEFAULT = 50
 const INDEX_DEFAULT = 0
@@ -18,7 +20,7 @@ const PRODUCT_COUNT_DEFAULT = 0;
 })
 export class InventoryComponent implements OnInit, AfterViewInit {
   // determined whch columns that are displayed in the inventory table and in which order.
-  displayedColumns: string[] = ['name', 'location', 'requiresApproval', 'status'];
+  displayedColumns: string[] = ['name', 'location', 'requiresApproval', 'status', 'options'];
 
   // MatPaginator Inputs
   totalProductCount = PRODUCT_COUNT_DEFAULT;
@@ -36,7 +38,8 @@ export class InventoryComponent implements OnInit, AfterViewInit {
   constructor(
     private apiService: ApiService,
     private notificationService: MatSnackBar, 
-    private translateService: TranslateService) {
+    private translateService: TranslateService,
+    private dialog: MatDialog, ) {
       this.dataSource = new MatTableDataSource();
      }
      
@@ -115,6 +118,18 @@ export class InventoryComponent implements OnInit, AfterViewInit {
       this.notificationService.open(this.translateService.instant(translateableMessage), undefined, {
         panelClass: 'error-snack',
         duration: 2500
+      });
+    }
+
+    /*
+    *Show dialog for archiving
+  */
+    openDialog(element: any) {
+      const dialogRef = this.dialog.open(AppArchiveDialogComponent, {
+        data: {
+          id: element.id,
+          name: element.name
+        }
       });
     }
 }
