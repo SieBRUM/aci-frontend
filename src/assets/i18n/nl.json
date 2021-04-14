@@ -1,11 +1,19 @@
 {
-    "INVENTORY" : {
+    "APP": {
+        "ROUTE": {
+            "HOME": "Home",
+            "ADD_PRODUCT": "Product toevoegen",
+            "PRODUCTS": "Inventaris",
+            "CART": "Winkelmandje"
+        }
+    },
+    "INVENTORY": {
         "TITLE": "Inventaris",
         "INVENTORY_EMPTY": "Geen producten gevonden",
         "AVAILABLE": "Beschikbaar",
         "UNAVAILABLE": "Niet beschikbaar",
         "NO_INVENTORY_RESPONSE": "Er is iets misgegaan, probeer later opnieuw"
-    },   
+    },
     "SIDE_BAR": {
         "LOGOUT": "Log uit",
         "UNPIN_MENU": "Ontgrendel menu",
@@ -13,6 +21,7 @@
         "HOME": "Home",
         "INVENTORY": "Inventaris",
         "ADD_PRODUCT": "Product toevoegen",
+        "SHOPPING_CART": "Winkelmandje",
         "LANGUAGE": "Taal",
         "LANGUAGES": {
             "NL": "Nederlands",
@@ -48,7 +57,31 @@
             "NO_CATALOG_NUMBER_RESPONSE": "Er is iets misgegaan met het ophalen van de catalogusnummers. Probeer het later opnieuw of contacteer een administrator",
             "NO_DATA": "Er is iets misgegaan met het opslaan van de gegevens. Probeer het later opnieuw of contacteer een administrator",
             "ADD_SUCCESSFUL": "Product is toegevoegd!"
-            
+        }
+    },
+    "CART": {
+        "TITLE": "Winkelmandje",
+        "LOADING_PRODUCT": "Product laden...",
+        "REMOVE_PRODUCT": "Product verwijderen",
+        "INFO": "Info",
+        "RESERVE": "Reserveren",
+        "FIX_ERRORS": "Graag de fouten oplossen voordat u reserveert",
+        "NO_PRODUCTS": "Je hebt nog geen producten in je winkelmandje! Ga naar de inventaris pagina om één of meerdere producten toe te voegen.",
+        "RESERVE_SUCCESSFUL": "Reservering is succesvol toegevoegd!",
+        "NO_FLAT_PRODUCT_RESPONSE": "Er is iets misgegaan met het ophalen van de producten. Probeer het later opnieuw of contacteer een administrator.",
+        "RESERVING_PRODUCTS": "Producten aan het reserveren...",
+        "REMOVED_UNAVAILABLE_PRODUCTS": "Er zijn één of meerdere producten uit je winkelwagentje verwijderd omdat deze niet meer beschikbaar zijn."
+    },
+    "PRODUCT_DATEPICKER": {
+        "LABEL": "Kies een periode",
+        "ERROR": {
+            "START_DATE_WEEKEND": "Startdatum kan niet in het weekend zijn",
+            "END_DATE_WEEKEND": "Einddatum kan niet in het weekend zijn",
+            "DATE_ALREADY_RESERVED": "De geselecteerde datum al gereserveerd",
+            "TOO_MANY_DAYS": "Reservering is langer dan vijf dagen",
+            "START_DATE_NULL": "Geen startdatum geselecteerd",
+            "END_DATE_BEFORE_START_DATE": "Einddatum kan niet voor startdatum zijn",
+            "START_DATE_CANNOT_BE_PAST": "Startdatum kan niet in het verleden zijn"
         }
     },
     "CATEGORY": {
@@ -60,7 +93,7 @@
             "ADD_NEW_CATEGORY_BUTTON": "Voeg nieuwe categorie toe",
             "ADD_CATEGORY_UNSUCCESFUL": "Voeg een naam in voor de categorie"
         }
-    },    
+    },
     "ATTRIBUTES": {
         "NAME": "Naam",
         "STATUS": "Status",

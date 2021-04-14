@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDrawerMode } from '@angular/material/sidenav';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -19,6 +20,7 @@ export class AppComponent {
 
   constructor(
     public translate: TranslateService,
+    private router: Router
   ) {
     this.initLanguage();
     this.initMenuBar();
@@ -76,7 +78,7 @@ export class AppComponent {
   }
 
   /*
-    Initialise the sidebar state. 
+    Initialise the sidebar state.
     Check if the localstorage contains previously saved menu values and use those.
     If non-existing values are stored in the localstorage, use the default values and save to localstorage.
   */
@@ -95,5 +97,23 @@ export class AppComponent {
     }
 
     localStorage.setItem('menu-pinned', this.isMenuPinned.toString());
+  }
+
+  /*
+    Returns translated page title for current route.
+  */
+  getTranslatedRoute(): string {
+    let textToTranslate = 'APP.ROUTE.UNKNOWN_ROUTE';
+    if (this.router.url.endsWith('home')) {
+      textToTranslate = 'APP.ROUTE.HOME';
+    } else if (this.router.url.endsWith('products/add')) {
+      textToTranslate = 'APP.ROUTE.ADD_PRODUCT';
+    } else if (this.router.url.endsWith('products')) {
+      textToTranslate = 'APP.ROUTE.PRODUCTS';
+    } else if (this.router.url.endsWith('cart')) {
+      textToTranslate = 'APP.ROUTE.CART';
+    }
+
+    return this.translate.instant(textToTranslate);
   }
 }

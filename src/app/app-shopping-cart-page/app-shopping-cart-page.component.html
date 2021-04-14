@@ -1,0 +1,90 @@
+<div class="container">
+    <mat-card class="main-content">
+        <mat-card-header>
+            <mat-card-title name="cart-title">
+                {{ 'CART.TITLE' | translate }}
+            </mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-content style="overflow: hidden;">
+            <div *ngIf="cartProducts.length > 0 && !isReserving && !hasLoadingError">
+                <!-- Loop with all the cart products  -->
+                <div *ngFor="let cartProduct of cartProducts">
+                    <div class="product-list" name="product-list" *ngIf="receivedFlatProduct(cartProduct.id)">
+                        <div class="product-list-info-item product-image">
+                            <img [src]="getImageByProductId(cartProduct.id)" alt="">
+                        </div>
+                        <div class="product-list-info-item product-text">
+                            <h2 class="product-title">
+                                {{ getFlatProductById(cartProduct.id).name }}
+                            </h2>
+                            <div class="description">{{ getFlatProductById(cartProduct.id).description }}</div>
+                        </div>
+                        <div class="product-list-info-item product-datepicker">
+                            <app-product-datepicker [productId]="cartProduct.id" [startDate]="cartProduct.startDate"
+                                [endDate]="cartProduct.endDate" [localId]="cartProduct.localId"
+                                (errorsChanged)="datepickerErrorChanged(cartProduct.localId, $event)"
+                                (datesChanged)="datepickerDatesChanged(cartProduct.localId, $event)" #productdatepicker>
+                            </app-product-datepicker>
+                            <button mat-stroked-button color="primary" class="delete-entry-button"
+                                (click)="onClickRemove(cartProduct.localId)">
+                                <mat-icon>delete</mat-icon> {{ 'CART.REMOVE_PRODUCT' | translate }}
+                            </button>
+                        </div>
+                    </div>
+                    <mat-chip-list style="padding: 0px 5px 0px 0px;" *ngIf="hasCartProductErrors(cartProduct.localId)">
+                        <mat-chip *ngFor="let error of getErrorsByLocalId(cartProduct.localId)"
+                            style="background-color: red; margin-left:15px;" disableRipple>
+                            <mat-icon style="vertical-align: middle;">warning</mat-icon> &nbsp;
+                            {{ error.error | translate }}
+                        </mat-chip>
+                    </mat-chip-list>
+
+                    <!-- Loading fake animation  -->
+                    <div *ngIf="!receivedFlatProduct(cartProduct.id)" class="loading-item-background product-list">
+                        <div class="product-list-info-item product-image fake-product-image-container">
+                            <div class="fake-product-image-content"></div>
+                        </div>
+                        <div class="product-list-info-item product-text">
+                            <h2 class="product-title"> {{ 'CART.LOADING_PRODUCT' | translate }} </h2>
+                            <div class="description"></div>
+                        </div>
+                        <div class="product-list-info-item product-datepicker">
+                            <div class="fake-product-datepicker"></div>
+                            <div class="fake-product-remove-button"></div>
+                        </div>
+                    </div>
+                    <div></div>
+                    <mat-divider></mat-divider>
+                </div>
+                <!-- Shopping cart empty -->
+                <div style="display:flex; justify-content: center; align-items: center;">
+                    <button mat-raised-button
+                        style="width: 90%; margin-top: 20px; background-color: rgba(0, 128, 0, 0.884);"
+                        [disabled]="anyErrorsExist() || !isEverythingLoaded()" (click)="onClickReserve()">
+                        <mat-icon>shopping_cart</mat-icon>
+                        {{ 'CART.RESERVE' | translate }}
+                    </button>
+                </div>
+            </div>
+            <!-- Show this when reserving -->
+            <div *ngIf="isReserving" style="text-align: center; margin-top: 10px;">
+                <mat-spinner diameter="50" style="margin:0 auto"></mat-spinner>
+                <br>
+                {{ 'CART.RESERVING_PRODUCTS' | translate }}
+            </div>
+            <!-- Show this when flat product call failed -->
+            <div *ngIf="hasLoadingError" style="text-align: center; margin-top: 10px;">
+                <mat-icon>production_quantity_limits</mat-icon>
+                <br>
+                {{ 'CART.NO_FLAT_PRODUCT_RESPONSE' | translate }}
+            </div>
+            <!-- Show this when no products in shopping cart -->
+            <div *ngIf="cartProducts.length < 1" style="text-align: center; margin-top: 10px;">
+                <mat-icon>sentiment_dissatisfied</mat-icon>
+                <br>
+                {{ 'CART.NO_PRODUCTS' | translate }}
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

@@ -1,11 +1,19 @@
 {
-    "INVENTORY" : {
+    "APP": {
+        "ROUTE": {
+            "HOME": "Home",
+            "ADD_PRODUCT": "Add product",
+            "PRODUCTS": "Inventory",
+            "CART": "Shopping cart"
+        }
+    },
+    "INVENTORY": {
         "TITLE": "Inventory",
         "INVENTORY_EMPTY": "No products found",
         "AVAILABLE": "Available",
         "UNAVAILABLE": "Unavailable",
         "NO_INVENTORY_RESPONSE": "Something went wrong, please try again later"
-    },  
+    },
     "SIDE_BAR": {
         "LOGOUT": "Log out",
         "UNPIN_MENU": "Unpin menu",
@@ -13,6 +21,7 @@
         "HOME": "Home",
         "INVENTORY": "Inventory",
         "ADD_PRODUCT": "Add product",
+        "SHOPPING_CART": "Shopping cart",
         "LANGUAGE": "Language",
         "LANGUAGES": {
             "NL": "Dutch",
@@ -48,6 +57,31 @@
             "NO_CATALOG_NUMBER_RESPONSE": "Something went wrong with receiving the catalog data. Please try again later or contact an administrator",
             "NO_DATA": "Something went wrong with saving your data. Please try again later or contact an administrator",
             "ADD_SUCCESSFUL": "Product has been added!"
+        }
+    },
+    "CART": {
+        "TITLE": "Shopping cart",
+        "LOADING_PRODUCT": "Loading product...",
+        "REMOVE_PRODUCT": "Remove product",
+        "INFO": "Info",
+        "RESERVE": "Reserve",
+        "FIX_ERRORS": "Please fix the errors before reserving products",
+        "NO_PRODUCTS": "You do not have anything added to your shopping cart yet! Head over to the inventory page add one or more products.",
+        "RESERVE_SUCCESSFUL": "Reservation has been successfully added!",
+        "NO_FLAT_PRODUCT_RESPONSE": "Something went wrong with receiving the products. Please try again later or contact an administrator.",
+        "RESERVING_PRODUCTS": "Reserving products...",
+        "REMOVED_UNAVAILABLE_PRODUCTS": "One or more products have been removed from your shoppingcart because they are unavailable."
+    },
+    "PRODUCT_DATEPICKER": {
+        "LABEL": "Choose a date period",
+        "ERROR": {
+            "START_DATE_WEEKEND": "Start date cannot be in the weekend",
+            "END_DATE_WEEKEND": "End date cannot be in the weekend",
+            "DATE_ALREADY_RESERVED": "Product is already reserved on this date",
+            "TOO_MANY_DAYS": "Reservation exceeds five days",
+            "START_DATE_NULL": "No start date selected",
+            "END_DATE_BEFORE_START_DATE": "End date cannot be before start date",
+            "START_DATE_CANNOT_BE_PAST": "Start date cannot be in the past"
         }
     },
     "CATEGORY": {

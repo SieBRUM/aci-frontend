@@ -22,6 +22,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTableModule } from '@angular/material/table';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 import { MatChipsModule } from '@angular/material/chips';
 
 
@@ -51,6 +53,10 @@ import { MatChipsModule } from '@angular/material/chips';
     MatStepperModule,
     MatExpansionModule,
     MatListModule,
+    MatTableModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatChipsModule,
     MatChipsModule,
     MatTableModule
   ],
@@ -76,6 +82,10 @@ import { MatChipsModule } from '@angular/material/chips';
     MatStepperModule,
     MatExpansionModule,
     MatListModule,
+    MatTableModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatChipsModule,
     MatChipsModule,
     MatTableModule
   ]

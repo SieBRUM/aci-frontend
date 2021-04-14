@@ -13,6 +13,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppHomePageComponent } from './app-home-page/app-home-page.component';
 import { AppSideMenuBarComponent } from './app-side-menu-bar/app-side-menu-bar.component';
 import { AppAddProductPageComponent } from './app-add-product-page/app-add-product-page.component';
+import { AppProductDatepickerComponent } from './app-product-datepicker/app-product-datepicker.component';
+import { AppShoppingCartPageComponent } from './app-shopping-cart-page/app-shopping-cart-page.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { StatusNameKeyPipe } from './status-name-key.pipe';
@@ -28,6 +30,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AppHomePageComponent,
     AppSideMenuBarComponent,
     AppAddProductPageComponent,
+    AppProductDatepickerComponent,
+    AppShoppingCartPageComponent,
     InventoryComponent,
     StatusNameKeyPipe,
     StatusNameClassPipe
