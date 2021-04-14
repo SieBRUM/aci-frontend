@@ -3,7 +3,7 @@ table {
 }
 
 .available-status {
-  background-color: rgb(8, 148, 17);
+  background-color: #006600;
 }
 
 .requires-approval-status {
@@ -11,7 +11,11 @@ table {
 }
 
 .unavailable-status {
-  background-color: rgb(255, 162, 0);
+  background-color: #FF8000;
+}
+
+.archived-status {
+  background-color: red;
 }
 
 .container {

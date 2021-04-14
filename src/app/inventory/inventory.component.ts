@@ -90,7 +90,7 @@ export class InventoryComponent implements OnInit, AfterViewInit {
    * @param pageData page data containing relevant data for inventory page
    * @returns void
    */
-  private readInventoryPage(pageData: InventoryPage | null): void {          
+  private readInventoryPage(pageData: InventoryPage | null): void {    
     if (pageData == null) {
       this.dataSource.data = new Array<ProductData>()
       return;
@@ -129,7 +129,8 @@ export class InventoryComponent implements OnInit, AfterViewInit {
         data: {
           id: element.id,
           name: element.name
-        }
-      });
+        },
+        backdropClass: 'no-backdrop',
+      },);
     }
 }

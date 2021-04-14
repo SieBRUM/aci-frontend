@@ -12,6 +12,7 @@
         "INVENTORY_EMPTY": "No products found",
         "AVAILABLE": "Available",
         "UNAVAILABLE": "Unavailable",
+        "ARCHIVED": "Archived",
         "NO_INVENTORY_RESPONSE": "Something went wrong, please try again later"
     },
     "SIDE_BAR": {

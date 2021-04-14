@@ -1,10 +1,10 @@
 
-<h2 class="dialog-title">{{ 'PRODUCT.ARCHIVE.DIALOG_TITLE' | translate }}</h2>
-<p>
+<h2 name="archive-dialog-title" class="dialog-title">{{ 'PRODUCT.ARCHIVE.DIALOG_TITLE' | translate }}</h2>
+<p name="archive-dialog-text">
   {{ 'PRODUCT.ARCHIVE.DIALOG_MESSAGE' | translate }}
 </p>
 <ul>
-  <li>{{data.name}}</li>
+  <li name="archive-dialog-list-item">{{data.name}}</li>
 </ul>
-<button class="archive-button" mat-button>{{ 'PRODUCT.ARCHIVE.DIALOG_ARCHIVE_BUTTON' | translate }}</button>
-<button class="cancel-button"  mat-stroked-button>{{ 'PRODUCT.ARCHIVE.DIALOG_CANCEL_BUTTON' | translate }}</button>
+<button class="archive-button" (click)="archiveProduct()" name="archive-dialog-archive-button" mat-button>{{ 'PRODUCT.ARCHIVE.DIALOG_ARCHIVE_BUTTON' | translate }}</button>
+<button class="cancel-button" name="archive-dialog-cancel-button" (click)="closeDialog()"  mat-stroked-button>{{ 'PRODUCT.ARCHIVE.DIALOG_CANCEL_BUTTON' | translate }}</button>
