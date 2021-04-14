@@ -3,7 +3,9 @@
  */
 export enum ProductStatus {
     // Product can be rented 
-    Available = 1,
+    Available = 0,
     // Product can't be rented
-    Unavailable = 2
+    Unavailable = 1,
+    // Product is archived
+    Archived = 2
   }
