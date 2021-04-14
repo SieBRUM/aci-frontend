@@ -20,15 +20,20 @@
                         [max]="maxCatalogNumber" min="1">
                     <mat-hint>{{ 'PRODUCT.ADD.CATALOG_BETWEEN' | translate }} {{ maxCatalogNumber }}</mat-hint>
                 </mat-form-field>
-                <mat-form-field appearance="fill" class="input-field-full-width" style="padding-top:5px;">
+                <mat-form-field name="category-mat-form-field" *ngIf="addNewCategory" style="padding-bottom: 2px;" class="input-field-full-width" appearance="fill" >
+                    <mat-label name="category-id-input-label">{{ 'CATEGORY.ADD.ADD_NEW_CATEGORY_INPUT' | translate }}</mat-label>
+                    <input matInput name="newcategory-input" [(ngModel)]="newCategory.name">
+                </mat-form-field>
+                <button name="category-save-button" mat-flat-button style="float: right; margin-bottom: 10px;" (click)="onClickSaveCategory()" *ngIf="addNewCategory" [title]="'CATEGORY.ADD.SAVE_NEW_CATEGORY' | translate" color="accent">{{ 'CATEGORY.ADD.SAVE_NEW_CATEGORY' | translate }}</button>                
+                <mat-form-field *ngIf="!addNewCategory" appearance="fill" class="input-field-full-width" style="padding-top:5px;">
                     <mat-label name="category-id-select-label">{{ 'PRODUCT.ADD.CATEGORY' | translate }}</mat-label>
-                    <mat-select [(ngModel)]="product.categoryId" [disabled]="isLoading || categories == null"
+                    <mat-select [(ngModel)]="product.categoryId" [disabled]="isLoading || categories == null" 
                         name="category-id-select">
+                        <mat-option name="category-matoption-new" (onSelectionChange)="onChange($event)" value="addNewCategory"><mat-icon style="margin-bottom:2px;margin-right: 5px;">add</mat-icon> {{ 'CATEGORY.ADD.ADD_NEW_CATEGORY' | translate }} </mat-option>
                         <mat-option *ngFor="let category of categories" [value]="category.id">{{ category.name }}
                         </mat-option>
                     </mat-select>
                 </mat-form-field>
-
                 <mat-form-field appearance="fill" class="input-field-full-width">
                     <mat-label name="product-location-input-label">{{ 'PRODUCT.ADD.LOCATION' | translate }}</mat-label>
                     <input matInput [(ngModel)]="product.location" [disabled]="isLoading" name="product-location-input">

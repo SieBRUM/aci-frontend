@@ -1,0 +1,33 @@
+table {
+  width: 100%;
+}
+
+.available-status {
+  background-color: rgb(8, 148, 17);
+}
+
+.requires-approval-status {
+  background-color: rgb(152, 79, 241);
+}
+
+.unavailable-status {
+  background-color: rgb(255, 162, 0);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+
+  .main-content {
+      max-width: 1000px;
+
+      .card-content {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: flex-end;
+          padding-top: 15px;
+      }
+  }
+}

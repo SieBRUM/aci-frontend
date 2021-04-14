@@ -7,11 +7,19 @@
             "CART": "Winkelmandje"
         }
     },
+    "INVENTORY": {
+        "TITLE": "Inventaris",
+        "INVENTORY_EMPTY": "Geen producten gevonden",
+        "AVAILABLE": "Beschikbaar",
+        "UNAVAILABLE": "Niet beschikbaar",
+        "NO_INVENTORY_RESPONSE": "Er is iets misgegaan, probeer later opnieuw"
+    },
     "SIDE_BAR": {
         "LOGOUT": "Log uit",
         "UNPIN_MENU": "Ontgrendel menu",
         "PIN_MENU": "Vergrendel menu",
         "HOME": "Home",
+        "INVENTORY": "Inventaris",
         "ADD_PRODUCT": "Product toevoegen",
         "SHOPPING_CART": "Winkelmandje",
         "LANGUAGE": "Taal",
@@ -74,5 +82,25 @@
             "END_DATE_BEFORE_START_DATE": "Einddatum kan niet voor startdatum zijn",
             "START_DATE_CANNOT_BE_PAST": "Startdatum kan niet in het verleden zijn"
         }
+    },
+    "CATEGORY": {
+        "ADD": {
+            "ADD_NEW_CATEGORY": "Nieuwe categorie",
+            "ADD_NEW_CATEGORY_INPUT": "Voeg nieuwe categorie toe",
+            "SAVE_NEW_CATEGORY": "Sla de nieuwe categorie op",
+            "ADD_CATEGORY_SUCCESFUL": "Nieuwe categorie toegevoegd",
+            "ADD_NEW_CATEGORY_BUTTON": "Voeg nieuwe categorie toe",
+            "ADD_CATEGORY_UNSUCCESFUL": "Voeg een naam in voor de categorie"
+        }
+    },
+    "ATTRIBUTES": {
+        "NAME": "Naam",
+        "STATUS": "Status",
+        "LOCATION": "Locatie",
+        "REQUIRES_APPROVAL": "Goedkeuring vereist"
+    },
+    "GENERIC": {
+        "YES": "Ja",
+        "NO": "Nee"
     }
 }

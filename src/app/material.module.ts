@@ -56,7 +56,9 @@ import { MatChipsModule } from '@angular/material/chips';
     MatTableModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatChipsModule
+    MatChipsModule,
+    MatChipsModule,
+    MatTableModule
   ],
   exports: [
     MatDividerModule,
@@ -83,7 +85,9 @@ import { MatChipsModule } from '@angular/material/chips';
     MatTableModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatChipsModule
+    MatChipsModule,
+    MatChipsModule,
+    MatTableModule
   ]
 })
 export class MaterialModule { }

@@ -7,11 +7,19 @@
             "CART": "Shopping cart"
         }
     },
+    "INVENTORY": {
+        "TITLE": "Inventory",
+        "INVENTORY_EMPTY": "No products found",
+        "AVAILABLE": "Available",
+        "UNAVAILABLE": "Unavailable",
+        "NO_INVENTORY_RESPONSE": "Something went wrong, please try again later"
+    },
     "SIDE_BAR": {
         "LOGOUT": "Log out",
         "UNPIN_MENU": "Unpin menu",
         "PIN_MENU": "Pin menu",
         "HOME": "Home",
+        "INVENTORY": "Inventory",
         "ADD_PRODUCT": "Add product",
         "SHOPPING_CART": "Shopping cart",
         "LANGUAGE": "Language",
@@ -74,5 +82,25 @@
             "END_DATE_BEFORE_START_DATE": "End date cannot be before start date",
             "START_DATE_CANNOT_BE_PAST": "Start date cannot be in the past"
         }
+    },
+    "CATEGORY": {
+        "ADD": {
+            "ADD_NEW_CATEGORY": "New category",
+            "ADD_NEW_CATEGORY_INPUT": "Add new category",
+            "SAVE_NEW_CATEGORY": "Save the new category",
+            "ADD_CATEGORY_SUCCESFUL": "New category has been added",
+            "ADD_NEW_CATEGORY_BUTTON": "Add new category",
+            "ADD_CATEGORY_UNSUCCESFUL": "Add a name to the category"
+        }
+    },
+    "ATTRIBUTES": {
+        "NAME": "Name",
+        "STATUS": "Status",
+        "LOCATION": "Location",
+        "REQUIRES_APPROVAL": "Requires approval"
+    },
+    "GENERIC": {
+        "YES": "Yes",
+        "NO": "No"
     }
 }

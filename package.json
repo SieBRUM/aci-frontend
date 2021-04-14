@@ -37,7 +37,7 @@
     "@types/node": "^12.20.6",
     "chance": "^1.1.7",
     "codelyzer": "^6.0.0",
-    "cypress": "^6.8.0",
+    "cypress": "^6.9.1",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "^6.1.2",

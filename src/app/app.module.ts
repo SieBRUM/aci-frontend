@@ -15,6 +15,10 @@ import { AppSideMenuBarComponent } from './app-side-menu-bar/app-side-menu-bar.c
 import { AppAddProductPageComponent } from './app-add-product-page/app-add-product-page.component';
 import { AppProductDatepickerComponent } from './app-product-datepicker/app-product-datepicker.component';
 import { AppShoppingCartPageComponent } from './app-shopping-cart-page/app-shopping-cart-page.component';
+import { InventoryComponent } from './inventory/inventory.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { StatusNameKeyPipe } from './status-name-key.pipe';
+import { StatusNameClassPipe } from './status-name-class.pipe';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -27,7 +31,10 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AppSideMenuBarComponent,
     AppAddProductPageComponent,
     AppProductDatepickerComponent,
-    AppShoppingCartPageComponent
+    AppShoppingCartPageComponent,
+    InventoryComponent,
+    StatusNameKeyPipe,
+    StatusNameClassPipe
   ],
   imports: [
     BrowserModule,
@@ -43,7 +50,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
