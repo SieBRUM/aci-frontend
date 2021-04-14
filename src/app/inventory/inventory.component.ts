@@ -122,7 +122,7 @@ export class InventoryComponent implements OnInit, AfterViewInit {
     }
 
     /*
-    *Show dialog for archiving
+    Shows the confirm dialog for archiving a product
   */
     openDialog(element: any) {
       const dialogRef = this.dialog.open(AppArchiveDialogComponent, {

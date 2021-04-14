@@ -3,7 +3,6 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
 import { ApiService } from '../api.service';
-import {Router} from "@angular/router"
 
 @Component({
   selector: 'app-app-archive-dialog',
@@ -17,7 +16,6 @@ export class AppArchiveDialogComponent implements OnInit {
     private apiService: ApiService,
     private translate: TranslateService,
     private snackbarService: MatSnackBar,
-    private router: Router,
     private dialogRef: MatDialogRef<AppArchiveDialogComponent> 
     ) { }
 
@@ -60,7 +58,7 @@ export class AppArchiveDialogComponent implements OnInit {
     }
 
     /*
-    *Closes this dialog
+    Closes this dialog
   */
     public closeDialog(){
       this.dialogRef.close();
