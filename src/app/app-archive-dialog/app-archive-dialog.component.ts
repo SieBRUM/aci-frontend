@@ -38,7 +38,6 @@ export class AppArchiveDialogComponent implements OnInit {
         setTimeout(function () {
           window.location.reload();
         }, 1500);
-
       },
       error: (err) => {
         this.showErrorNotification(err.error)
