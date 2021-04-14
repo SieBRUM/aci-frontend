@@ -1,6 +1,7 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { IAddCategoryObject } from './models/add-category.model';
 import { IAddProductObject } from './models/add-product.model';
 import { ICategory } from './models/category.model';
 import { InventoryPage } from './models/InventoryPage.model';
@@ -31,5 +32,9 @@ export class ApiService {
   /* POST calls */
   addProduct(product: IAddProductObject): Observable<HttpResponse<any>> {
     return this.http.post<any>(`${this.API_GATEWAY}product`, product, { observe: 'response' });
+  }
+
+  addCategory(category: IAddCategoryObject): Observable<HttpResponse<any>> {
+    return this.http.post<any>(`${this.API_GATEWAY}category`, category, { observe: 'response' });
   }
 }

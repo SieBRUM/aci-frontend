@@ -55,6 +55,8 @@ describe('Add product menu tests', () => {
         cy.get("button[name=save-product-button]").should('not.be.disabled');
 
         cy.get('mat-spinner[name=save-product-loading-spinner]').should('not.exist');
+        cy.get('category-mat-form-field').should('not.exist');
+        cy.get('category-save-button').should('not.exist');
     });
 
     it('Should show initial page setup in Dutch', () => {
@@ -107,6 +109,55 @@ describe('Add product menu tests', () => {
         cy.get("button[name=save-product-button]").should('not.be.disabled');
 
         cy.get('mat-spinner[name=save-product-loading-spinner]').should('not.exist');
+        cy.get('category-mat-form-field').should('not.exist');
+        cy.get('category-save-button').should('not.exist');
+    });
+
+    it('Add a new category succesfully, dutch', () => {
+        cy.intercept('GET', '/api/product/lastcatalog', '9');
+        cy.intercept('GET', '/api/category', [{ id: 1, name: 'TestCategory' }, { id: 2, name: 'nieuwe categorie test toegevoegd' }]);
+        cy.intercept('POST', '/api/category', {
+            statusCode: 200,
+            body: '2',
+          });
+        cy.visit('http://localhost:4200/products/add')
+        cy.changeLanguage('nl');
+
+        cy.get('mat-select[name=category-id-select]').click({ force: true })
+        cy.get("mat-option").contains("Nieuwe categorie").click()
+
+        cy.get("input[name=newcategory-input]").type('nieuwe categorie test toegevoegd');
+        cy.get("button[name=category-save-button]").click();
+
+        cy.get('category-mat-form-field').should('not.exist');
+        cy.get('category-save-button').should('not.exist');
+
+        cy.get("snack-bar-container").contains('Nieuwe categorie toegevoegd');
+        cy.get('mat-select[name=category-id-select]').contains("nieuwe categorie test toegevoegd");
+    });
+
+    it('Add a new category succesfully, english', () => {
+        cy.intercept('GET', '/api/product/lastcatalog', '9');
+        cy.intercept('GET', '/api/category', [{ id: 1, name: 'TestCategory' },{ id: 2, name: 'new added categorytest' } ]);
+        cy.intercept('POST', '/api/category', {
+            statusCode: 200,
+            body: '2',
+          });
+
+        cy.visit('http://localhost:4200/products/add')
+        cy.changeLanguage('en');
+
+        cy.get('mat-select[name=category-id-select]').click({ force: true })
+        cy.get("mat-option").contains("New category").click()
+
+        cy.get("input[name=newcategory-input]").type('new added categorytest');
+        cy.get("button[name=category-save-button]").click();
+
+        cy.get('category-mat-form-field').should('not.exist');
+        cy.get('category-save-button').should('not.exist');
+
+        cy.get("snack-bar-container").contains('New category has been added');
+        cy.get('mat-select[name=category-id-select]').contains("new added categorytest");
     });
 
     it('Should show error {no product name} in English', () => {
@@ -219,8 +270,48 @@ describe('Add product menu tests', () => {
 
         cy.get('mat-select[name=category-id-select]').click({ force: true })
 
-        cy.get("mat-option").should('have.length', '2');
+        cy.get("mat-option").should('have.length', '3');
     });
+
+    it('Should show error {no new category added}, dutch', () => {
+        cy.intercept('GET', '/api/product/lastcatalog', '9');
+        cy.intercept('GET', '/api/category', [{ id: 1, name: 'TestCategory' }, { id: 2, name: 'TestCategory2' }]);
+        cy.visit('http://localhost:4200/products/add')
+        cy.changeLanguage('nl');
+
+        cy.get('mat-select[name=category-id-select]').click({ force: true })
+
+        cy.get("mat-option").contains("Nieuwe categorie")
+        cy.get("mat-option").contains("Nieuwe categorie").click()
+
+        cy.get("mat-label[name=category-id-input-label]").contains('Voeg nieuwe categorie toe');
+        cy.get("button[name=category-save-button]").contains('Sla de nieuwe categorie op');
+
+        cy.get("button[name=category-save-button]").click();
+
+        cy.get("snack-bar-container").contains('Voeg een naam in voor de categorie');
+    });
+
+    it('Should show error {no new category added}, english', () => {
+        cy.intercept('GET', '/api/product/lastcatalog', '9');
+        cy.intercept('GET', '/api/category', [{ id: 1, name: 'TestCategory' }, { id: 2, name: 'TestCategory2' }]);
+        cy.visit('http://localhost:4200/products/add')
+        cy.changeLanguage('en');
+
+        cy.get('mat-select[name=category-id-select]').click({ force: true })
+
+        cy.get("mat-option").contains("New category")
+        cy.get("mat-option").contains("New category").click()
+
+        cy.get("mat-label[name=category-id-input-label]").contains('Add new category');
+        cy.get("button[name=category-save-button]").contains('Save the new category');
+
+        cy.get("button[name=category-save-button]").click();
+
+        cy.get("snack-bar-container").contains('Add a name to the category');
+    });
+
+    
 
     it('Should POST the correct json', () => {
         const productName = chance.name();

@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ApiService } from '../api.service';
+import { IAddCategoryObject } from '../models/add-category.model';
 import { IAddProductImage } from '../models/add-product-image.model';
 import { IAddProductObject } from '../models/add-product.model';
 import { ICategory } from '../models/category.model';
@@ -13,7 +14,12 @@ import { ICategory } from '../models/category.model';
   styleUrls: ['./app-add-product-page.component.scss']
 })
 export class AppAddProductPageComponent implements OnInit {
-
+  /* Contains the value for the succes of retrieving the categories */
+  succesfullCategoriesBool: boolean = false;
+  /* Contains the value for the new category field */
+  newCategory: IAddCategoryObject = {} as IAddCategoryObject;
+  /* Contains the boolean value if a new category should be created  */
+  addNewCategory: boolean = false;
   /* Contains the values for the new product. */
   product: IAddProductObject = {} as IAddProductObject;
   /* Contains all (temp) image objects  */
@@ -54,6 +60,8 @@ export class AppAddProductPageComponent implements OnInit {
   initialisePage(): void {
     this.images = [];
 
+    this.addNewCategory = false;
+
     this.product = {
       categoryId: -1,
       catalogNumber: 0,
@@ -84,6 +92,59 @@ export class AppAddProductPageComponent implements OnInit {
     });
 
     this.onChangeSelectedImageIndex();
+  }
+
+  /*
+    Handles the functionality when the new category gets selected
+  */
+  onChange(event:any) {
+    //console.log(event.source.value, event.source.selected);
+      this.addNewCategory = event.source.selected;
+  }
+
+  /*
+    Handles saving the category and resetting the page to get the new category
+  */
+  onClickSaveCategory() {
+    if(this.newCategory.name){
+      this.apiService.addCategory(this.newCategory).subscribe({
+        next: (resp) => {
+          this.isLoading = false;
+          this.snackbarService.open(this.translate.instant('CATEGORY.ADD.ADD_CATEGORY_SUCCESFUL'), undefined, {
+            panelClass: 'success-snack',
+            duration: 2500
+          });
+          this.getAllCategories()
+          this.product.categoryId = resp.body;
+          this.addNewCategory = false;
+        },
+        error: (err) => {
+          this.isLoading = false;
+          this.showErrorNotification(err.error);
+        }
+      });
+    }
+    else {
+      this.snackbarService.open(this.translate.instant('CATEGORY.ADD.ADD_CATEGORY_UNSUCCESFUL'), undefined, {
+        panelClass: 'error-snack',
+        duration: 2500
+      });
+    }
+  }
+
+  /*
+    Gets all categories
+  */
+  getAllCategories() {
+    this.apiService.getAllCategories().subscribe({
+      next: (resp) => {
+        this.categories = resp.body;
+      },
+      error: (err) => {
+        this.showErrorNotification('PRODUCT.ADD.NO_CATEGORIES_RESPONSE');
+      }
+    });
+
   }
 
   /*

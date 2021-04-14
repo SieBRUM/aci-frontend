@@ -48,8 +48,19 @@
             "NO_CATALOG_NUMBER_RESPONSE": "Er is iets misgegaan met het ophalen van de catalogusnummers. Probeer het later opnieuw of contacteer een administrator",
             "NO_DATA": "Er is iets misgegaan met het opslaan van de gegevens. Probeer het later opnieuw of contacteer een administrator",
             "ADD_SUCCESSFUL": "Product is toegevoegd!"
+            
         }
     },
+    "CATEGORY": {
+        "ADD": {
+            "ADD_NEW_CATEGORY": "Nieuwe categorie",
+            "ADD_NEW_CATEGORY_INPUT": "Voeg nieuwe categorie toe",
+            "SAVE_NEW_CATEGORY": "Sla de nieuwe categorie op",
+            "ADD_CATEGORY_SUCCESFUL": "Nieuwe categorie toegevoegd",
+            "ADD_NEW_CATEGORY_BUTTON": "Voeg nieuwe categorie toe",
+            "ADD_CATEGORY_UNSUCCESFUL": "Voeg een naam in voor de categorie"
+        }
+    },    
     "ATTRIBUTES": {
         "NAME": "Naam",
         "STATUS": "Status",

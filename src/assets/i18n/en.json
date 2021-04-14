@@ -50,6 +50,16 @@
             "ADD_SUCCESSFUL": "Product has been added!"
         }
     },
+    "CATEGORY": {
+        "ADD": {
+            "ADD_NEW_CATEGORY": "New category",
+            "ADD_NEW_CATEGORY_INPUT": "Add new category",
+            "SAVE_NEW_CATEGORY": "Save the new category",
+            "ADD_CATEGORY_SUCCESFUL": "New category has been added",
+            "ADD_NEW_CATEGORY_BUTTON": "Add new category",
+            "ADD_CATEGORY_UNSUCCESFUL": "Add a name to the category"
+        }
+    },
     "ATTRIBUTES": {
         "NAME": "Name",
         "STATUS": "Status",
