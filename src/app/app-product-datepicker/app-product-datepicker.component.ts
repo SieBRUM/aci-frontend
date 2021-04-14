@@ -109,16 +109,31 @@ export class AppProductDatepickerComponent implements OnInit {
     this.errors = [];
 
     if (this.startDate == null) {
-      this.errors.push({ date: null, error: 'START_DATE_NULL' });
+      this.errors.push({ date: null, error: 'PRODUCT_DATEPICKER.ERROR.START_DATE_NULL' });
       return;
+    }
+
+    // Later, add 'time' slots
+    this.startDate.setHours(23, 59, 58, 0);
+    if (this.endDate !== null) {
+      this.endDate.setHours(23, 59, 59, 0);
     }
 
     const startDate = moment(this.startDate).clone();
     const endDate = moment(this.endDate).clone();
     const dates = [];
     let weekendDays = 0;
+    // Later, add a 'time' slot
+
+    if (startDate < moment()) {
+      this.errors.push({ date: null, error: 'PRODUCT_DATEPICKER.ERROR.START_DATE_CANNOT_BE_PAST' });
+    }
 
     if (this.endDate !== null) {
+      // Later, add a 'time' slot
+      if (endDate.isBefore(startDate)) {
+        this.errors.push({ date: null, error: 'PRODUCT_DATEPICKER.ERROR.END_DATE_BEFORE_START_DATE' });
+      }
       while (startDate.isSameOrBefore(endDate)) {
         dates.push(startDate.clone());
         startDate.add('1', 'days');
@@ -131,20 +146,20 @@ export class AppProductDatepickerComponent implements OnInit {
       if (selectedDate.day() === 6 || selectedDate.day() === 0) {
         weekendDays++;
         if (i === 0) {
-          this.errors.push({ date: selectedDate.clone().format('M/D/YYYY'), error: 'START_DATE_WEEKEND' });
+          this.errors.push({ date: selectedDate.clone().format('M/D/YYYY'), error: 'PRODUCT_DATEPICKER.ERROR.START_DATE_WEEKEND' });
         } else if (i === (dates.length - 1)) {
-          this.errors.push({ date: selectedDate.clone().format('M/D/YYYY'), error: 'END_DATE_WEEKEND' });
+          this.errors.push({ date: selectedDate.clone().format('M/D/YYYY'), error: 'PRODUCT_DATEPICKER.ERROR.END_DATE_WEEKEND' });
         }
       }
 
       if (this.isDateReserved(selectedDate)) {
-        this.errors.push({ date: selectedDate.clone().format('M/D/YYYY'), error: 'DATE_ALREADY_RESERVED' });
+        this.errors.push({ date: selectedDate.clone().format('M/D/YYYY'), error: 'PRODUCT_DATEPICKER.ERROR.DATE_ALREADY_RESERVED' });
       }
 
     });
 
     if ((dates.length - weekendDays) > 5) {
-      this.errors.push({ date: null, error: 'TOO_MANY_DAYS' });
+      this.errors.push({ date: null, error: 'PRODUCT_DATEPICKER.ERROR.TOO_MANY_DAYS' });
     }
 
     this.errorsChanged.emit(this.errors);

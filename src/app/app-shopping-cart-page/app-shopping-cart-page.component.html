@@ -28,7 +28,7 @@
                             </app-product-datepicker>
                             <button mat-stroked-button color="primary" class="delete-entry-button"
                                 (click)="onClickRemove(cartProduct.localId)">
-                                <mat-icon>delete</mat-icon> {{ 'CART.DELETE_ENTRY' | translate }}
+                                <mat-icon>delete</mat-icon> {{ 'CART.REMOVE_PRODUCT' | translate }}
                             </button>
                         </div>
                     </div>
@@ -36,13 +36,12 @@
                         <mat-chip *ngFor="let error of getErrorsByLocalId(cartProduct.localId)"
                             style="background-color: red; margin-left:15px;" disableRipple>
                             <mat-icon style="vertical-align: middle;">warning</mat-icon> &nbsp;
-                            {{ error.date }} : {{ error.error }}
+                            {{ error.error | translate }}
                         </mat-chip>
                     </mat-chip-list>
 
                     <!-- Loading fake animation  -->
-                    <div *ngIf="!receivedFlatProduct(cartProduct.id) || cartProduct.id === 4"
-                        class="loading-item-background product-list">
+                    <div *ngIf="!receivedFlatProduct(cartProduct.id)" class="loading-item-background product-list">
                         <div class="product-list-info-item product-image fake-product-image-container">
                             <div class="fake-product-image-content"></div>
                         </div>
@@ -58,10 +57,11 @@
                     <div></div>
                     <mat-divider></mat-divider>
                 </div>
-
+                <!-- Shopping cart empty -->
                 <div style="display:flex; justify-content: center; align-items: center;">
                     <button mat-raised-button
-                        style="width: 90%; margin-top: 20px; background-color: rgba(0, 128, 0, 0.884);">
+                        style="width: 90%; margin-top: 20px; background-color: rgba(0, 128, 0, 0.884);"
+                        [disabled]="anyErrorsExist() || !isEverythingLoaded()" (click)="onClickReserve()">
                         <mat-icon>shopping_cart</mat-icon>
                         {{ 'CART.RESERVE' | translate }}
                     </button>

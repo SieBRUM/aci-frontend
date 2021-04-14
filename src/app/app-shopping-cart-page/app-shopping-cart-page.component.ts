@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ApiService } from '../api.service';
+import { IAddReservation } from '../models/add-reservation.model';
 import { ICartProduct } from '../models/cart-product.model';
 import { IDateChangedEvent } from '../models/date-changed-event.model';
 import { IDatePickerError } from '../models/datepicker-error.model';
@@ -19,6 +21,8 @@ export class AppShoppingCartPageComponent implements OnInit {
   productsFlat: Array<IProductFlat> = [];
   /* All datepicker errors. Key = localId, value = errors */
   datepickerErrors: Map<number, Array<IDatePickerError>> = new Map<number, Array<IDatePickerError>>();
+  /* Keep state of reserving to show loading spinner */
+  isReserving = false;
   // TODO: Remove
   fakeItems: Array<ICartProduct> = [
     {
@@ -61,7 +65,8 @@ export class AppShoppingCartPageComponent implements OnInit {
   constructor(
     private apiService: ApiService,
     private translateService: TranslateService,
-    private notificationService: MatSnackBar
+    private notificationService: MatSnackBar,
+    private router: Router
   ) {
     // TODO: Remove
     // localStorage.setItem('cart', JSON.stringify(this.fakeItems));
@@ -122,14 +127,54 @@ export class AppShoppingCartPageComponent implements OnInit {
     return errors !== undefined && errors.length > 0;
   }
 
-  /*
-    Get all errors from the datepicker based on the temp localId
+  /**
+   * Checks if there are any errors
+   * @returns boolean True if any errors. False if no errors
+   */
+  anyErrorsExist(): boolean {
+    let hasAnyErrors = false;
 
-    @param localId: number | undefined Number will never be undefined.
-    @returns IDatePickerError[] All DatePickerError's bound to the localId
-  */
+    for (const cartProduct of this.cartProducts) {
+      if (this.hasCartProductErrors(cartProduct.localId)) {
+        hasAnyErrors = true;
+        break;
+      }
+    }
+
+    return hasAnyErrors;
+  }
+
+  /**
+   * Checks if all products are loaded from the backend
+   * @returns Returns true if everything is loaded. False if not everything is loaded.
+   */
+  isEverythingLoaded(): boolean {
+    let isAllLoaded = true;
+    for (const cartProduct of this.cartProducts) {
+      if (this.productsFlat.findIndex(x => x.id === cartProduct.id) < 0) {
+        isAllLoaded = false;
+        break;
+      }
+    }
+
+    return isAllLoaded;
+  }
+
+  /**
+   * Get all errors from the datepicker based on the temp localId
+   * @param localId Number will never be undefined.
+   * @returns All DatePickerError's bound to the localId
+   */
   getErrorsByLocalId(localId: number | undefined): IDatePickerError[] {
-    return this.datepickerErrors.get(localId as number) as IDatePickerError[];
+    // Deepclone
+    const seen = new Set();
+    const errors = (this.datepickerErrors.get(localId as number) as IDatePickerError[]).filter(el => {
+      const duplicate = seen.has(el.error);
+      seen.add(el.error);
+      return !duplicate;
+    });
+
+    return errors;
   }
 
   /*
@@ -156,6 +201,32 @@ export class AppShoppingCartPageComponent implements OnInit {
     return this.productsFlat.findIndex(x => x.id === id) > -1;
   }
 
+  onClickReserve(): void {
+    if (this.anyErrorsExist()) {
+      this.showErrorNotification('CART.FIX_ERRORS');
+      return;
+    }
+    this.isReserving = true;
+    const reservationObject: IAddReservation = {
+      productModels: this.cartProducts
+    };
+
+    this.apiService.reserveProducts(reservationObject).subscribe({
+      next: (resp) => {
+        this.notificationService.open(this.translateService.instant('CART.RESERVE_SUCCESSFUL'), undefined, {
+          panelClass: 'success-snack',
+          duration: 2500
+        });
+        localStorage.removeItem('cart');
+        this.isReserving = false;
+        this.router.navigate(['home']);
+      },
+      error: (err) => {
+        this.isReserving = false;
+      }
+    });
+  }
+
   /*
     Function to save all cartProducts to localstorage
   */
@@ -170,6 +241,10 @@ export class AppShoppingCartPageComponent implements OnInit {
   private convertLocalStorage(): void {
     let localId = 0;
     const items = JSON.parse(localStorage.getItem('cart') as string) as Array<ICartProduct>;
+    if (items === null || items.length < 1) {
+      this.cartProducts = [];
+      return;
+    }
     items.forEach(item => {
       item.localId = localId;
       // string -> date

@@ -2,6 +2,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IAddProductObject } from './models/add-product.model';
+import { IAddReservation } from './models/add-reservation.model';
 import { ICategory } from './models/category.model';
 import { IProductFlat } from './models/product-flat.model';
 import { IReservation } from './models/reservation.model';
@@ -35,5 +36,9 @@ export class ApiService {
   /* POST calls */
   addProduct(product: IAddProductObject): Observable<HttpResponse<any>> {
     return this.http.post<any>(`${this.API_GATEWAY}product`, product, { observe: 'response' });
+  }
+
+  reserveProducts(cartProducts: IAddReservation): Observable<HttpResponse<any>> {
+    return this.http.post<any>(`${this.API_GATEWAY}products/reserve`, cartProducts, { observe: 'response' });
   }
 }
