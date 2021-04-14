@@ -17,6 +17,9 @@ export class StatusNameClassPipe implements PipeTransform {
       case ProductStatus.Unavailable: {
         return 'unavailable-status';
       }
+      case ProductStatus.Archived: {
+        return 'archived-status';
+      }
     }
   }
 

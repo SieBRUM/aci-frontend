@@ -34,6 +34,6 @@ export class ApiService {
   }
 
   archiveProduct(productid: number): Observable<HttpResponse<any>>{
-    return this.http.post<any>(`${this.API_GATEWAY}product/archive/` + productid, productid, { observe: 'response' });
+    return this.http.delete<any>(`${this.API_GATEWAY}product/` + productid, { observe: 'response' });
   }
 }

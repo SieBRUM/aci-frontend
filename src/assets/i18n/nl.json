@@ -4,6 +4,7 @@
         "INVENTORY_EMPTY": "Geen producten gevonden",
         "AVAILABLE": "Beschikbaar",
         "UNAVAILABLE": "Niet beschikbaar",
+        "ARCHIVED": "Gearchiveerd",
         "NO_INVENTORY_RESPONSE": "Er is iets misgegaan, probeer later opnieuw"
     },   
     "SIDE_BAR": {
@@ -57,7 +58,7 @@
             "NO_VALID_ID": "Het opgegeven product kan niet gearchiveerd worden",
             "NO_PRODUCT_FOUND": "Het product dat gearchiveerd moet worden is niet gevonden",
             "PRODUCT_ALREADY_ARCHIVED": "Dit product is al gearchiveerd",
-            "ARCHIVE_SUCCESFULL": "Het product is succesvol gearchiveerd"
+            "ARCHIVE_SUCCESFULL": "Het product is succesvol gearchiveerd!"
         }
     },
     "ATTRIBUTES": {

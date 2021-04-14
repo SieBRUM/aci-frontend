@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
 import { ApiService } from '../api.service';
@@ -13,12 +13,12 @@ import {Router} from "@angular/router"
 export class AppArchiveDialogComponent implements OnInit {
 
   constructor(
-    public translate: TranslateService,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private apiService: ApiService,
-    private translateService: TranslateService,
+    private translate: TranslateService,
     private snackbarService: MatSnackBar,
-    private router: Router 
+    private router: Router,
+    private dialogRef: MatDialogRef<AppArchiveDialogComponent> 
     ) { }
 
   ngOnInit(): void {
@@ -30,7 +30,15 @@ export class AppArchiveDialogComponent implements OnInit {
   archiveProduct(){
     this.apiService.archiveProduct(this.data.id).subscribe({
       next: (resp) =>{
-        this.router.navigate(['/products'])
+        this.snackbarService.open(this.translate.instant("PRODUCT.ARCHIVE.ARCHIVE_SUCCESFULL"), undefined, {
+          panelClass: 'success-snack',
+          duration: 1500
+        });
+        this.closeDialog();
+        setTimeout(function () {
+          window.location.reload();
+        }, 1500);
+        
       },
       error: (err) =>{
         this.showErrorNotification(err.error)
@@ -51,4 +59,10 @@ export class AppArchiveDialogComponent implements OnInit {
       });
     }
 
+    /*
+    *Closes this dialog
+  */
+    public closeDialog(){
+      this.dialogRef.close();
+    }
 }
