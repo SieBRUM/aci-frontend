@@ -9,6 +9,7 @@ import { ICartProduct } from '../models/cart-product.model';
 import { IDateChangedEvent } from '../models/date-changed-event.model';
 import { IDatePickerError } from '../models/datepicker-error.model';
 import { IProductFlat } from '../models/product-flat.model';
+import { ProductStatus } from '../models/ProductStatus.enum';
 
 @Component({
   selector: 'app-shopping-cart-page',
@@ -26,9 +27,6 @@ export class AppShoppingCartPageComponent implements OnInit {
   isReserving = false;
   /* Is true when loading products has failed */
   hasLoadingError = false;
-  /* All AppProductDatepickerComponents so we can reload them if something goes wrong */
-  @ViewChildren('productdatepicker')
-  productDatePickers: QueryList<AppProductDatepickerComponent> = new QueryList<AppProductDatepickerComponent>();
 
   constructor(
     private apiService: ApiService,
@@ -185,13 +183,7 @@ export class AppShoppingCartPageComponent implements OnInit {
         this.router.navigate(['home']);
       },
       error: (err) => {
-        if (err.error !== null && err.error.length > 0) {
-          err.error.forEach((error: any) => {
-            const faultyProduct = (error.key as ICartProduct);
-            const datePicker = this.productDatePickers.filter(x => x.localId === faultyProduct.localId as number)[0];
-            datePicker.initialiseDatePicker();
-          });
-        }
+        this.getFlatProducts();
         this.showErrorNotification('CART.FIX_ERRORS');
         this.isReserving = false;
       }
@@ -263,6 +255,7 @@ export class AppShoppingCartPageComponent implements OnInit {
           }
 
           this.productsFlat.push(resp.body);
+          this.removeUnavailableProducts();
         },
         error: (err) => {
           this.showErrorNotification('CART.NO_FLAT_PRODUCT_RESPONSE');
@@ -272,6 +265,21 @@ export class AppShoppingCartPageComponent implements OnInit {
     });
   }
 
+  private removeUnavailableProducts(): void {
+    const unavailableProducts = this.productsFlat.filter(x => x.productState !== ProductStatus.Available);
+    let products: ICartProduct[] = [];
+    unavailableProducts.forEach(unavailableProduct => {
+      products = products.concat(this.cartProducts.filter(x => x.id === unavailableProduct.id));
+    });
+
+    if (products.length > 0) {
+      products.forEach(product => {
+        this.cartProducts.splice(this.cartProducts.findIndex(x => x.localId === product.localId), 1);
+      });
+      this.showErrorNotification('CART.REMOVED_UNAVAILABLE_PRODUCTS');
+      this.saveToLocalStorage();
+    }
+  }
   /**
    * Show error notification
    * @param translateableMessage Message to translate and send to notification

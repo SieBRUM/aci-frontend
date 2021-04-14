@@ -69,7 +69,8 @@
         "NO_PRODUCTS": "Je hebt nog geen producten in je winkelmandje! Ga naar de inventaris pagina om één of meerdere producten toe te voegen.",
         "RESERVE_SUCCESSFUL": "Reservering is succesvol toegevoegd!",
         "NO_FLAT_PRODUCT_RESPONSE": "Er is iets misgegaan met het ophalen van de producten. Probeer het later opnieuw of contacteer een administrator.",
-        "RESERVING_PRODUCTS": "Producten aan het reserveren..."
+        "RESERVING_PRODUCTS": "Producten aan het reserveren...",
+        "REMOVED_UNAVAILABLE_PRODUCTS": "Er zijn één of meerdere producten uit je winkelwagentje verwijderd omdat deze niet meer beschikbaar zijn."
     },
     "PRODUCT_DATEPICKER": {
         "LABEL": "Kies een periode",

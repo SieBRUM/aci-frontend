@@ -102,7 +102,7 @@ export class AppProductDatepickerComponent implements OnInit {
     }
     const day = (date || new Date()).getDay();
     // Prevent Saturday and Sunday from being selected.
-    return day !== 0 && day !== 6 && !this.isDateReserved(moment(date));
+    return day !== 0 && day !== 6 && !this.isDateReserved(moment(date)) && (!moment(date).isBefore(moment(), 'day'));
   }
 
   /**

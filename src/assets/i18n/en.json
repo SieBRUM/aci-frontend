@@ -69,7 +69,8 @@
         "NO_PRODUCTS": "You do not have anything added to your shopping cart yet! Head over to the inventory page add one or more products.",
         "RESERVE_SUCCESSFUL": "Reservation has been successfully added!",
         "NO_FLAT_PRODUCT_RESPONSE": "Something went wrong with receiving the products. Please try again later or contact an administrator.",
-        "RESERVING_PRODUCTS": "Reserving products..."
+        "RESERVING_PRODUCTS": "Reserving products...",
+        "REMOVED_UNAVAILABLE_PRODUCTS": "One or more products have been removed from your shoppingcart because they are unavailable."
     },
     "PRODUCT_DATEPICKER": {
         "LABEL": "Choose a date period",
