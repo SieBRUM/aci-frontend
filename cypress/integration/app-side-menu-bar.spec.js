@@ -10,6 +10,7 @@ describe('Side menu bar tests', () => {
         cy.changeIsMenuOpened(true);
         cy.get('div[name=menu-options-list]').contains('Home');
         cy.get('div[name=menu-options-list]').contains('Add product');
+        cy.get('div[name=menu-options-list]').contains('Shopping cart');
     });
 
     it('Should show hello message in Dutch', () => {
@@ -17,6 +18,7 @@ describe('Side menu bar tests', () => {
         cy.changeIsMenuOpened(true);
         cy.get('div[name=menu-options-list]').contains('Home');
         cy.get('div[name=menu-options-list]').contains('Product toevoegen');
+        cy.get('div[name=menu-options-list]').contains('Winkelmandje');
     });
 
     it('Should navigate to correct add product url', () => {
@@ -29,6 +31,12 @@ describe('Side menu bar tests', () => {
         cy.changeIsMenuOpened(true);
         cy.get('button[name=menu-option-home]').click();
         cy.url().should('include', 'home')
+    });
+
+    it('Should navigate to correct shopping cart url', () => {
+        cy.changeIsMenuOpened(true);
+        cy.get('button[name=menu-option-shopping-cart]').click();
+        cy.url().should('include', 'cart')
     });
 
 });

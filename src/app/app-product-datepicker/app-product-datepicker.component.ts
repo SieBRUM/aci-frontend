@@ -91,7 +91,7 @@ export class AppProductDatepickerComponent implements OnInit {
    * Custom filter to disable entries in the datepicker.
    * Days are disabled when:
    * - The date is already reserved
-   * - It's a saterday
+   * - It's a saturday
    * - It's a sunday
    * @param date The date to check if it has to be disabled
    * @returns boolean true if enabled. False if disabled
@@ -130,14 +130,11 @@ export class AppProductDatepickerComponent implements OnInit {
     const endDate = moment(this.endDate).clone();
     const dates = [];
     let weekendDays = 0;
-    // Later, add a 'time' slot
-
     if (startDate < moment()) {
       this.errors.push({ date: null, error: 'PRODUCT_DATEPICKER.ERROR.START_DATE_CANNOT_BE_PAST' });
     }
 
     if (this.endDate !== null) {
-      // Later, add a 'time' slot
       if (endDate.isBefore(startDate)) {
         this.errors.push({ date: null, error: 'PRODUCT_DATEPICKER.ERROR.END_DATE_BEFORE_START_DATE' });
       }
