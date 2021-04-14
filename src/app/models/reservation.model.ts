@@ -1,3 +1,4 @@
+/* The backend reservation class */
 export interface IReservation {
     id: number;
     state: number;

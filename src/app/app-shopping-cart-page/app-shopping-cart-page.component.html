@@ -7,7 +7,7 @@
         </mat-card-header>
         <mat-divider></mat-divider>
         <mat-card-content style="overflow: hidden;">
-            <div *ngIf="cartProducts.length > 0">
+            <div *ngIf="cartProducts.length > 0 && !isReserving && !hasLoadingError">
                 <!-- Loop with all the cart products  -->
                 <div *ngFor="let cartProduct of cartProducts">
                     <div class="product-list" name="product-list" *ngIf="receivedFlatProduct(cartProduct.id)">
@@ -22,9 +22,9 @@
                         </div>
                         <div class="product-list-info-item product-datepicker">
                             <app-product-datepicker [productId]="cartProduct.id" [startDate]="cartProduct.startDate"
-                                [endDate]="cartProduct.endDate"
+                                [endDate]="cartProduct.endDate" [localId]="cartProduct.localId"
                                 (errorsChanged)="datepickerErrorChanged(cartProduct.localId, $event)"
-                                (datesChanged)="datepickerDatesChanged(cartProduct.localId, $event)">
+                                (datesChanged)="datepickerDatesChanged(cartProduct.localId, $event)" #productdatepicker>
                             </app-product-datepicker>
                             <button mat-stroked-button color="primary" class="delete-entry-button"
                                 (click)="onClickRemove(cartProduct.localId)">
@@ -66,6 +66,16 @@
                         {{ 'CART.RESERVE' | translate }}
                     </button>
                 </div>
+            </div>
+            <div *ngIf="isReserving" style="text-align: center; margin-top: 10px;">
+                <mat-spinner diameter="50" style="margin:0 auto"></mat-spinner>
+                <br>
+                {{ 'CART.RESERVING_PRODUCTS' | translate }}
+            </div>
+            <div *ngIf="hasLoadingError" style="text-align: center; margin-top: 10px;">
+                <mat-icon>production_quantity_limits</mat-icon>
+                <br>
+                {{ 'CART.NO_FLAT_PRODUCT_RESPONSE' | translate }}
             </div>
             <div *ngIf="cartProducts.length < 1" style="text-align: center; margin-top: 10px;">
                 <mat-icon>sentiment_dissatisfied</mat-icon>

@@ -1,3 +1,4 @@
+/* The backend DTO for the shopping cart product data */
 export interface IProductFlat {
     id: number;
     name: string;

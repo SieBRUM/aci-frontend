@@ -20,6 +20,8 @@ export class AppProductDatepickerComponent implements OnInit {
   @Input() startDate: Date | null = null;
   /* Contains the endDate given by the parent component. If null, no default value will be set */
   @Input() endDate: Date | null = null;
+  /* Contains the localId of the product. Can be useful for parent-references */
+  @Input() localId: number | undefined = -1;
 
   /* Emitter to emit when errors are changed. Other components can hook into this */
   @Output() errorsChanged: EventEmitter<Array<IDatePickerError>> = new EventEmitter();
@@ -36,6 +38,13 @@ export class AppProductDatepickerComponent implements OnInit {
   constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
+    this.initialiseDatePicker();
+  }
+
+  /**
+   * Initialises the datepicker
+   */
+  initialiseDatePicker(): void {
     this.isLoading = true;
     this.apiService.getReservationsByProductId(this.productId).subscribe({
       next: (resp) => {
@@ -63,13 +72,12 @@ export class AppProductDatepickerComponent implements OnInit {
     });
   }
 
-  /*
-    Custom classes for the days that are already reserved
-
-    @param cellDate: Date to check
-    @param view: "month" | "year" | "multiyear" Contains the current viewing type
-    @returns string: The class to use
-  */
+  /**
+   * Custom classes for the days that are already reserved
+   * @param cellDate: Date to check
+   * @param view Contains the current viewing type
+   * @returns The class to use
+   */
   dateClass: MatCalendarCellClassFunction<Date> = (cellDate, view) => {
     // Only highligh dates inside the month view.
     if (view === 'month') {
@@ -79,32 +87,31 @@ export class AppProductDatepickerComponent implements OnInit {
     return '';
   }
 
-  /*
-    Custom filter to disable entries in the datepicker.
-    Days are disabled when:
-    - The date is already reserved
-    - It's a saterday
-    - It's a sunday
-
-    @param d Date | null The date to check if it has to be disabled
-    @returns boolean true if enabled. False if disabled
-  */
-  dateFilter = (d: Date | null): boolean => {
-    if (d === null) {
+  /**
+   * Custom filter to disable entries in the datepicker.
+   * Days are disabled when:
+   * - The date is already reserved
+   * - It's a saterday
+   * - It's a sunday
+   * @param date The date to check if it has to be disabled
+   * @returns boolean true if enabled. False if disabled
+   */
+  dateFilter = (date: Date | null): boolean => {
+    if (date === null) {
       return false;
     }
-    const day = (d || new Date()).getDay();
+    const day = (date || new Date()).getDay();
     // Prevent Saturday and Sunday from being selected.
-    return day !== 0 && day !== 6 && !this.isDateReserved(moment(d));
+    return day !== 0 && day !== 6 && !this.isDateReserved(moment(date));
   }
 
-  /*
-    Hook on the Material datepicker DateChanged event.
-    All functionality when the selected date is changed.
-    Will check if the selected date has errors.
-
-    Emits errors and new dates so other components can hook into this.
-  */
+  /**
+   * Hook on the Material datepicker DateChanged event.
+   * All functionality when the selected date is changed.
+   * Will check if the selected date has errors.
+   *
+   * Emits errors and new dates so other components can hook into this.
+   */
   dateChangeEvent(): void {
     this.errors = [];
 
@@ -169,22 +176,20 @@ export class AppProductDatepickerComponent implements OnInit {
     });
   }
 
-  /*
-    Converts the SQL date format to the Js date format
-
-    @param dateToConvert: string The SQL date to return
-    @returns Date The converted date
-  */
+  /**
+   * Converts the SQL date format to the Js date format
+   * @param dateToConvert The SQL date to return
+   * @returns The converted date
+   */
   private convertSqlDateToJsDate(dateToConvert: string): Date {
     return new Date(dateToConvert.replace('T', ' '));
   }
 
-  /*
-    Checks if a date is already reserved
-
-    @param date: Date | moment.Moment The date to check if it's already reserved
-    @returns boolean True if already reserved. False if not reserved yet.
-  */
+  /**
+   * Checks if a date is already reserved
+   * @param date The date to check if it's already reserved
+   * @returns True if already reserved. False if not reserved yet.
+   */
   private isDateReserved(date: Date | moment.Moment): boolean {
     let isReserved = false;
     this.reservations.forEach(reservation => {

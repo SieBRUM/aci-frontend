@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ApiService } from '../api.service';
+import { AppProductDatepickerComponent } from '../app-product-datepicker/app-product-datepicker.component';
 import { IAddReservation } from '../models/add-reservation.model';
 import { ICartProduct } from '../models/cart-product.model';
 import { IDateChangedEvent } from '../models/date-changed-event.model';
@@ -23,67 +24,30 @@ export class AppShoppingCartPageComponent implements OnInit {
   datepickerErrors: Map<number, Array<IDatePickerError>> = new Map<number, Array<IDatePickerError>>();
   /* Keep state of reserving to show loading spinner */
   isReserving = false;
-  // TODO: Remove
-  fakeItems: Array<ICartProduct> = [
-    {
-      id: 1,
-      startDate: new Date(),
-      endDate: new Date()
-    },
-    {
-      id: 2,
-      startDate: new Date(),
-      endDate: new Date()
-    },
-    {
-      id: 1,
-      startDate: new Date(),
-      endDate: new Date()
-    },
-    {
-      id: 3,
-      startDate: new Date(),
-      endDate: new Date()
-    },
-    {
-      id: 4,
-      startDate: new Date(),
-      endDate: new Date()
-    },
-    {
-      id: 5,
-      startDate: new Date(),
-      endDate: new Date()
-    },
-    {
-      id: 6,
-      startDate: new Date(),
-      endDate: new Date()
-    },
-  ];
+  /* Is true when loading products has failed */
+  hasLoadingError = false;
+  /* All AppProductDatepickerComponents so we can reload them if something goes wrong */
+  @ViewChildren('productdatepicker')
+  productDatePickers: QueryList<AppProductDatepickerComponent> = new QueryList<AppProductDatepickerComponent>();
 
   constructor(
     private apiService: ApiService,
     private translateService: TranslateService,
     private notificationService: MatSnackBar,
     private router: Router
-  ) {
-    // TODO: Remove
-    // localStorage.setItem('cart', JSON.stringify(this.fakeItems));
-  }
+  ) { }
 
   ngOnInit(): void {
     this.convertLocalStorage();
     this.getFlatProducts();
   }
 
-  /*
-    Click event when the 'remove product from shopping cart' button is clicked
-    Removes item from the cartProducts array and removes all errors from datePickerErrors.
-    Saves the new cartProducts array to localstorage
-
-    @param localId: number | undefined localId will never be undefined. Contains localId of the item to remove
-  */
+  /**
+   * Click event when the 'remove product from shopping cart' button is clicked
+   * Removes item from the cartProducts array and removes all errors from datePickerErrors.
+   * Saves the new cartProducts array to localstorage
+   * @param localId localId will never be undefined. Contains localId of the item to remove
+   */
   onClickRemove(localId: number | undefined): void {
     const index = this.cartProducts.findIndex(x => x.localId === localId);
     this.datepickerErrors.delete(localId as number);
@@ -91,22 +55,20 @@ export class AppShoppingCartPageComponent implements OnInit {
     this.saveToLocalStorage();
   }
 
-  /*
-    Hook on the errorsChanged event emitted by the custom datepickers
-
-    @param localId: number | undefined LocalId will never be undefined
-    @param event: IDatePickerError[] Contains all DatePickerErrors from the specific localId datepicker
-  */
+  /**
+   * Hook on the errorsChanged event emitted by the custom datepickers
+   * @param localId LocalId will never be undefined
+   * @param event Contains all DatePickerErrors from the specific localId datepicker
+   */
   datepickerErrorChanged(localId: number | undefined, event: IDatePickerError[]): void {
     this.datepickerErrors.set(localId as number, event);
   }
 
-  /*
-    Hook on the dateChanged event emitted by the custom datepickers
-
-    @param localId: number | undefined LocalId will never be undefined
-    @param event: IDateChangedEvent Contains the new dates
-  */
+  /**
+   * Hook on the dateChanged event emitted by the custom datepickers
+   * @param localId LocalId will never be undefined
+   * @param event Contains the new dates
+   */
   datepickerDatesChanged(localId: number | undefined, event: IDateChangedEvent): void {
     const cartIndex = this.cartProducts.findIndex(x => x.localId === localId);
     const currentProduct = this.cartProducts[cartIndex];
@@ -116,12 +78,11 @@ export class AppShoppingCartPageComponent implements OnInit {
     this.saveToLocalStorage();
   }
 
-  /*
-    Checks if a product (based on localId) has any date errors
-
-    @param localId: number | undefined LocalId will never be undefined
-    @returns boolean Returns true if datepicker has errors. False if there are no errors.
-  */
+  /**
+   * Checks if a product (based on localId) has any date errors
+   * @param localId LocalId will never be undefined
+   * @returns True if datepicker has errors. False if there are no errors.
+   */
   hasCartProductErrors(localId: number | undefined): boolean {
     const errors = this.datepickerErrors.get(localId as number);
     return errors !== undefined && errors.length > 0;
@@ -177,22 +138,20 @@ export class AppShoppingCartPageComponent implements OnInit {
     return errors;
   }
 
-  /*
-    Receive IProductFlat based on product id
-
-    @param id: number Id of the product
-    @returns IProductFlat The backend product data
-  */
+  /**
+   * Receive IProductFlat based on product id
+   * @param id Id of the product
+   * @returns The backend product data
+   */
   getFlatProductById(id: number): IProductFlat {
     return this.productsFlat[this.productsFlat.findIndex(x => x.id === id)];
   }
 
-  /*
-    Function to check if the backend has returned the product data for a specific product
-
-    @param id: number The id of the product
-    @returns boolean True if data is found. False if it's not found
-  */
+  /**
+   * Function to check if the backend has returned the product data for a specific product
+   * @param id The id of the product
+   * @returns True if data is found. False if it's not found
+   */
   receivedFlatProduct(id: number): boolean {
     if (this.productsFlat.length < 1) {
       return false;
@@ -201,6 +160,10 @@ export class AppShoppingCartPageComponent implements OnInit {
     return this.productsFlat.findIndex(x => x.id === id) > -1;
   }
 
+  /**
+   * Functionality to save the reservations
+   * Will reload the datepickers when a reservation fails
+   */
   onClickReserve(): void {
     if (this.anyErrorsExist()) {
       this.showErrorNotification('CART.FIX_ERRORS');
@@ -222,22 +185,30 @@ export class AppShoppingCartPageComponent implements OnInit {
         this.router.navigate(['home']);
       },
       error: (err) => {
+        if (err.error !== null && err.error.length > 0) {
+          err.error.forEach((error: any) => {
+            const faultyProduct = (error.key as ICartProduct);
+            const datePicker = this.productDatePickers.filter(x => x.localId === faultyProduct.localId as number)[0];
+            datePicker.initialiseDatePicker();
+          });
+        }
+        this.showErrorNotification('CART.FIX_ERRORS');
         this.isReserving = false;
       }
     });
   }
 
-  /*
-    Function to save all cartProducts to localstorage
-  */
+  /**
+   * Function to save all cartProducts to localstorage
+   */
   private saveToLocalStorage(): void {
     localStorage.setItem('cart', JSON.stringify(this.cartProducts));
   }
 
-  /*
-    Converts localstorage to usable ICartProduct objects
-    Sets a temp localId value to keep track of all the items
-  */
+  /**
+   * Converts localstorage to usable ICartProduct objects
+   * Sets a temp localId value to keep track of all the items
+   */
   private convertLocalStorage(): void {
     let localId = 0;
     const items = JSON.parse(localStorage.getItem('cart') as string) as Array<ICartProduct>;
@@ -256,10 +227,10 @@ export class AppShoppingCartPageComponent implements OnInit {
     this.cartProducts = items;
   }
 
-  /*
-    Get all product data from the API.
-    First, filters out duplicates so no duplicate calls are needed.
-  */
+  /**
+   * Get all product data from the API.
+   * First, filters out duplicates so no duplicate calls are needed.
+   */
   private getFlatProducts(): void {
     this.productsFlat = [];
     const seen = new Set();
@@ -280,16 +251,16 @@ export class AppShoppingCartPageComponent implements OnInit {
         },
         error: (err) => {
           this.showErrorNotification('CART.NO_FLAT_PRODUCT_RESPONSE');
+          this.hasLoadingError = true;
         }
       });
     });
   }
 
-  /*
-  Show error notification
-  @param translateableMessage: string
-  String that has to be presented in the error notification (gets translated)
-*/
+  /**
+   * Show error notification
+   * @param translateableMessage Message to translate and send to notification
+   */
   private showErrorNotification(translateableMessage: string): void {
     this.notificationService.open(this.translateService.instant(translateableMessage), undefined, {
       panelClass: 'error-snack',
