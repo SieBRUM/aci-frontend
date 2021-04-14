@@ -198,6 +198,11 @@ export class AppShoppingCartPageComponent implements OnInit {
     });
   }
 
+  /**
+   * returns the image of the product based on it's id. Will return fallback image if no image is found
+   * @param productId id used to find the correct image
+   * @returns Base64 string of the image or a fallback image
+   */
   getImageByProductId(productId: number): string {
     const product = this.getFlatProductById(productId);
 
