@@ -198,6 +198,16 @@ export class AppShoppingCartPageComponent implements OnInit {
     });
   }
 
+  getImageByProductId(productId: number): string {
+    const product = this.getFlatProductById(productId);
+
+    if (product.image === null || product.image.trim() === '') {
+      return '/assets/images/no_image_found.png';
+    } else {
+      return 'data:image/png;base64,' + product.image;
+    }
+  }
+
   /**
    * Function to save all cartProducts to localstorage
    */

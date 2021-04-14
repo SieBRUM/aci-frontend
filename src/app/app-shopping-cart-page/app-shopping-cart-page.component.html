@@ -12,7 +12,7 @@
                 <div *ngFor="let cartProduct of cartProducts">
                     <div class="product-list" name="product-list" *ngIf="receivedFlatProduct(cartProduct.id)">
                         <div class="product-list-info-item product-image">
-                            <img [src]="'data:image/png;base64,' + getFlatProductById(cartProduct.id).image" alt="">
+                            <img [src]="getImageByProductId(cartProduct.id)" alt="">
                         </div>
                         <div class="product-list-info-item product-text">
                             <h2 class="product-title">
