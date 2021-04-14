@@ -247,15 +247,20 @@ export class AppShoppingCartPageComponent implements OnInit {
       return !duplicate;
     });
 
+
+    let hasRan = 0;
     filteredProducts.forEach(async product => {
       this.apiService.getProductFlatById(product.id).subscribe({
         next: (resp) => {
+          hasRan++;
           if (resp.body === null) {
             return;
           }
 
           this.productsFlat.push(resp.body);
-          this.removeUnavailableProducts();
+          if (hasRan === filteredProducts.length) {
+            this.removeUnavailableProducts();
+          }
         },
         error: (err) => {
           this.showErrorNotification('CART.NO_FLAT_PRODUCT_RESPONSE');
