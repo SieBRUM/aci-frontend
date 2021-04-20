@@ -23,5 +23,4 @@ export class StatusNameKeyPipe implements PipeTransform {
     }
     return '';
   }
-
 }

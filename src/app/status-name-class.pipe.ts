@@ -22,5 +22,4 @@ export class StatusNameClassPipe implements PipeTransform {
       }
     }
   }
-
 }

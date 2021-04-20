@@ -45,7 +45,7 @@
         <ng-container matColumnDef="options">
           <th mat-header-cell *matHeaderCellDef> {{ 'ATTRIBUTES.OPTIONS' | translate }} </th>
           <td mat-cell *matCellDef="let element">
-            <div *ngIf="element.status !== 2" as>
+            <div *ngIf="element.status !== 2">
               <button name="dropdown-menu-icon" mat-icon-button [matMenuTriggerFor]="menu">
                 <mat-icon>more_vert</mat-icon>
               </button>
