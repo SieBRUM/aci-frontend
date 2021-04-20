@@ -18,10 +18,9 @@ export class StatusNameKeyPipe implements PipeTransform {
         return 'INVENTORY.UNAVAILABLE';
       }
       case ProductStatus.Archived: {
-        return 'INVENTORY.ARCHIVED'
+        return 'INVENTORY.ARCHIVED';
       }
     }
     return '';
   }
-
 }

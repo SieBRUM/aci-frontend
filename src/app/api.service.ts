@@ -5,7 +5,6 @@ import { IAddCategoryObject } from './models/add-category.model';
 import { IAddProductObject } from './models/add-product.model';
 import { ICategory } from './models/category.model';
 import { InventoryPage } from './models/InventoryPage.model';
-import { ProductData } from './models/ProductData.model';
 
 @Injectable({
   providedIn: 'root'
@@ -39,7 +38,7 @@ export class ApiService {
   }
 
   /* DELETE calls */
-  archiveProduct(productid: number): Observable<HttpResponse<any>>{
+  archiveProduct(productid: number): Observable<HttpResponse<any>> {
     return this.http.delete<any>(`${this.API_GATEWAY}product/` + productid, { observe: 'response' });
   }
 }
