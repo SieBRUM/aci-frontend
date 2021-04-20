@@ -12,6 +12,7 @@
         "INVENTORY_EMPTY": "Geen producten gevonden",
         "AVAILABLE": "Beschikbaar",
         "UNAVAILABLE": "Niet beschikbaar",
+        "ARCHIVED": "Gearchiveerd",
         "NO_INVENTORY_RESPONSE": "Er is iets misgegaan, probeer later opnieuw"
     },
     "SIDE_BAR": {
@@ -57,6 +58,16 @@
             "NO_CATALOG_NUMBER_RESPONSE": "Er is iets misgegaan met het ophalen van de catalogusnummers. Probeer het later opnieuw of contacteer een administrator",
             "NO_DATA": "Er is iets misgegaan met het opslaan van de gegevens. Probeer het later opnieuw of contacteer een administrator",
             "ADD_SUCCESSFUL": "Product is toegevoegd!"
+        },
+        "ARCHIVE": {
+            "DIALOG_TITLE": "Bevestig",
+            "DIALOG_MESSAGE": "U staat op het punt het volgende product te archiveren:",
+            "DIALOG_ARCHIVE_BUTTON": "Archiveren",
+            "DIALOG_CANCEL_BUTTON": "Annuleren",
+            "NO_VALID_ID": "Het opgegeven product kan niet gearchiveerd worden",
+            "NO_PRODUCT_FOUND": "Het product dat gearchiveerd moet worden is niet gevonden",
+            "PRODUCT_ALREADY_ARCHIVED": "Dit product is al gearchiveerd",
+            "ARCHIVE_SUCCESFULL": "Het product is succesvol gearchiveerd!"
         }
     },
     "CART": {
@@ -98,7 +109,8 @@
         "NAME": "Naam",
         "STATUS": "Status",
         "LOCATION": "Locatie",
-        "REQUIRES_APPROVAL": "Goedkeuring vereist"
+        "REQUIRES_APPROVAL": "Goedkeuring vereist",
+        "OPTIONS": "Opties"
     },
     "GENERIC": {
         "YES": "Ja",

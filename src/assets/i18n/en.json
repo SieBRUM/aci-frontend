@@ -12,6 +12,7 @@
         "INVENTORY_EMPTY": "No products found",
         "AVAILABLE": "Available",
         "UNAVAILABLE": "Unavailable",
+        "ARCHIVED": "Archived",
         "NO_INVENTORY_RESPONSE": "Something went wrong, please try again later"
     },
     "SIDE_BAR": {
@@ -57,6 +58,16 @@
             "NO_CATALOG_NUMBER_RESPONSE": "Something went wrong with receiving the catalog data. Please try again later or contact an administrator",
             "NO_DATA": "Something went wrong with saving your data. Please try again later or contact an administrator",
             "ADD_SUCCESSFUL": "Product has been added!"
+        },
+        "ARCHIVE": {
+            "DIALOG_TITLE": "Confirm",
+            "DIALOG_MESSAGE": "You are about to archive the following product:",
+            "DIALOG_ARCHIVE_BUTTON": "Archive",
+            "DIALOG_CANCEL_BUTTON": "Cancel",
+            "NO_VALID_ID": "The given product can not be archived",
+            "NO_PRODUCT_FOUND": "The product to archive was not found",
+            "PRODUCT_ALREADY_ARCHIVED": "This product is already archived",
+            "ARCHIVE_SUCCESFULL": "The product has been archived!"
         }
     },
     "CART": {
@@ -98,7 +109,8 @@
         "NAME": "Name",
         "STATUS": "Status",
         "LOCATION": "Location",
-        "REQUIRES_APPROVAL": "Requires approval"
+        "REQUIRES_APPROVAL": "Requires approval",
+        "OPTIONS": "Options"
     },
     "GENERIC": {
         "YES": "Yes",

@@ -51,4 +51,9 @@ export class ApiService {
   addCategory(category: IAddCategoryObject): Observable<HttpResponse<any>> {
     return this.http.post<any>(`${this.API_GATEWAY}category`, category, { observe: 'response' });
   }
+
+  /* DELETE calls */
+  archiveProduct(productid: number): Observable<HttpResponse<any>> {
+    return this.http.delete<any>(`${this.API_GATEWAY}product/` + productid, { observe: 'response' });
+  }
 }
