@@ -39,7 +39,7 @@ export class InventoryComponent implements OnInit, AfterViewInit {
     private apiService: ApiService,
     private notificationService: MatSnackBar, 
     private translateService: TranslateService,
-    private dialog: MatDialog, ) {
+    private dialog: MatDialog ) {
       this.dataSource = new MatTableDataSource();
      }
      
@@ -121,16 +121,16 @@ export class InventoryComponent implements OnInit, AfterViewInit {
       });
     }
 
-    /*
+  /*
     Shows the confirm dialog for archiving a product
   */
     openDialog(element: any) {
-      const dialogRef = this.dialog.open(AppArchiveDialogComponent, {
+      this.dialog.open(AppArchiveDialogComponent, {
         data: {
           id: element.id,
           name: element.name
         },
         backdropClass: 'no-backdrop',
-      },);
+      });
     }
 }
