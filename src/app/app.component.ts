@@ -112,6 +112,8 @@ export class AppComponent {
       textToTranslate = 'APP.ROUTE.PRODUCTS';
     } else if (this.router.url.endsWith('cart')) {
       textToTranslate = 'APP.ROUTE.CART';
+    } else if (this.router.url.endsWith('catalog')) {
+      textToTranslate = 'APP.ROUTE.CATALOG';
     }
 
     return this.translate.instant(textToTranslate);

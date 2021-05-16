@@ -1,0 +1,96 @@
+.main-container {
+    display: flex;
+    justify-content: center;
+
+    .catalog-card {
+        display:flex;
+        flex-direction: column;
+        width: 80%;
+        margin-top: 20px;
+
+        
+
+        .catalog-content {
+            display: flex;
+            flex-direction: column;
+
+            
+
+            .catalogItemBox{
+                display: flex;
+                flex-direction: row;
+                margin-bottom: 20px;
+
+                @media (max-width: 500px) { 
+                  flex-direction: column;
+                }
+
+                .catalogItemBox-imgbox{
+
+                  .image-button-div{
+                    padding-left: 10px;
+                  }
+
+                  .image-div {
+                    max-width: 100px;
+                    min-width: 100px;
+                    padding-right: 35px;
+                    margin: auto;
+  
+                    img {
+                      max-width: 100px;
+                      max-height: 100px;
+                      object-fit: contain;
+                    }
+                  }
+                }
+
+                .catalogItemBox-description{
+                  padding-right: 20px;
+                  max-width: 600px;
+                }
+
+                .catalogItemBox-datepicker{
+                  margin-left: auto;
+                  
+                  max-width: 350px;
+                }
+
+                .catalogItemBox-status{
+                  display: flex;
+                  flex-direction: row;
+                  padding-top: 20px;
+
+                  .catalogItemBox-status-product{
+                    display: flex;
+                    flex-direction: row;
+                    padding-left: 20px;
+
+                    .catalogItemBox-status-product-text {
+                      margin-right: 5px;
+                      margin-top: 5px;
+                    }
+                  }
+                }
+
+                
+                
+                .available-status {
+                    background-color: #006600;
+                  }
+                  
+                  .requires-approval-status {
+                    background-color: rgb(152, 79, 241);
+                  }
+                  
+                  .unavailable-status {
+                    background-color: #FF8000;
+                  }
+                  
+                  .archived-status {
+                    background-color: red;
+                  }
+            }
+        }
+    }
+}

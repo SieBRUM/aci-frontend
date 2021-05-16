@@ -8,6 +8,7 @@ import { ICategory } from './models/category.model';
 import { IProductFlat } from './models/product-flat.model';
 import { IReservation } from './models/reservation.model';
 import { InventoryPage } from './models/InventoryPage.model';
+import { CatalogPage } from './models/catalog-page.model';
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +38,10 @@ export class ApiService {
 
   getInventoryProducts(pageNumber: number, pageSize: number): Observable<HttpResponse<InventoryPage>> {
     return this.http.get<InventoryPage>(`${this.API_GATEWAY}product/page/${pageNumber}/${pageSize}`, { observe: 'response' });
+  }
+
+  getCatalogEntries(pageNumber: number, pageSize: number): Observable<HttpResponse<CatalogPage>> {
+    return this.http.get<CatalogPage>(`${this.API_GATEWAY}product/catalogEntries/${pageNumber}/${pageSize}`, { observe: 'response' });
   }
 
   /* POST calls */

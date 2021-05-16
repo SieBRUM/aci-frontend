@@ -1,0 +1,64 @@
+<div *ngFor="let catalogItem of catalogItemsWithCategory" class="main-container">
+    <mat-card class="catalog-card">
+        <mat-card-header>
+            <mat-card-title name="cart-title">
+                <h1>{{catalogItem.categoryName}}</h1>
+            </mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content style="overflow: hidden;" class="catalog-content">
+            <div *ngFor="let item of catalogItem.catalogItems">
+                <div class="catalogItemBox">
+                    <div class="catalogItemBox-imgbox">
+                        <img class="image-div" src="data:image/png;base64,{{item.images[0]}}" #previewimage
+                            id="image-{{item.id}}">
+                        <div class="image-button-div">
+                            <button mat-icon-button [title]="'PRODUCT.ADD.LEFT' | translate" color="accent"
+                                (click)="onClickPreviousImage(item)" name="previous-image-button">
+                                <mat-icon>arrow_left</mat-icon>
+                            </button>
+                            <button mat-icon-button [title]="'PRODUCT.ADD.RIGHT' | translate" color="accent"
+                                (click)="onClickNextImage(item)" name="next-image-button">
+                                <mat-icon>arrow_right</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="catalogItemBox-description">
+                        <h2>{{item.name}}</h2>
+                        <div>
+                            {{item.description}}
+                        </div>
+                        <div class="catalogItemBox-status">
+                            <div>
+                                <P style="margin-top: 5px;">{{ 'CATALOG.APPROVAL_TEXT' | translate }} {{
+                                    (item.requiresApproval ? 'GENERIC.YES' :
+                                    'GENERIC.NO') |
+                                    translate }}</P>
+                            </div>
+                            <div class="catalogItemBox-status-product">
+                                <p class="catalogItemBox-status-product-text">Status:</p>
+                                <mat-chip-list aria-label="product status">
+                                    <mat-chip [ngClass]="item.status | statusNameClass">{{item.status | statusNameKey |
+                                        translate}}
+                                    </mat-chip>
+                                </mat-chip-list>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="catalogItemBox-datepicker">
+                        <app-product-datepicker [productId]="item.id" #productdatepicker
+                            (datesChanged)="datepickerDatesChanged(item, $event)">
+                        </app-product-datepicker>
+                        <button mat-flat-button color="primary" (click)="addItemToCart(item)"> {{ 'CATALOG.ADD_TO_CART'
+                            | translate }} </button>
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+
+    </mat-card>
+</div>
+<mat-paginator style="margin-top: 30px;" [length]="totalProductCount" [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions" [pageIndex]="pageIndex" (page)="pageEvent = handlePageEvent($event)"
+    showFirstLastButtons></mat-paginator>

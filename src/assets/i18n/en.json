@@ -4,8 +4,15 @@
             "HOME": "Home",
             "ADD_PRODUCT": "Add product",
             "PRODUCTS": "Inventory",
-            "CART": "Shopping cart"
+            "CART": "Shopping cart",
+            "CATALOG": "Catalog"
         }
+    },
+    "CATALOG": {
+        "APPROVAL_TEXT": "Approval necessary:",
+        "ADD_TO_CART": "+ Add to cart",
+        "EMPTY_DATE": "Add a date to the product",
+        "CART_ADD_SUCCESSFUL": "has been added to the shopping cart"
     },
     "INVENTORY": {
         "TITLE": "Inventory",
@@ -20,6 +27,7 @@
         "UNPIN_MENU": "Unpin menu",
         "PIN_MENU": "Pin menu",
         "HOME": "Home",
+        "CATALOG": "Catalog",
         "INVENTORY": "Inventory",
         "ADD_PRODUCT": "Add product",
         "SHOPPING_CART": "Shopping cart",

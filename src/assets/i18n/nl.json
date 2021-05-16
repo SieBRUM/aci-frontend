@@ -4,8 +4,15 @@
             "HOME": "Home",
             "ADD_PRODUCT": "Product toevoegen",
             "PRODUCTS": "Inventaris",
-            "CART": "Winkelmandje"
+            "CART": "Winkelmandje",
+            "CATALOG": "Catalogus"
         }
+    },
+    "CATALOG": {
+        "APPROVAL_TEXT": "Goedkeuring nodig:",
+        "ADD_TO_CART": "+ In winkelwagen",
+        "EMPTY_DATE": "Voeg een datum toe aan het product",
+        "CART_ADD_SUCCESSFUL": "is toegevoegd aan winkelmandje"
     },
     "INVENTORY": {
         "TITLE": "Inventaris",
@@ -20,6 +27,7 @@
         "UNPIN_MENU": "Ontgrendel menu",
         "PIN_MENU": "Vergrendel menu",
         "HOME": "Home",
+        "CATALOG": "Catalogus",
         "INVENTORY": "Inventaris",
         "ADD_PRODUCT": "Product toevoegen",
         "SHOPPING_CART": "Winkelmandje",
