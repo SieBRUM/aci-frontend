@@ -1,3 +1,28 @@
+<!-- Loading spinner when page is loading -->
+<div class="loading-spinner" *ngIf="isLoading">
+    <mat-card style="display: flex; flex-direction: column; align-items: center;">
+        <h2 style="padding-top: 22px; padding-right: 20px;">{{ 'CATALOG.LOADING' | translate }}</h2>
+        <mat-spinner diameter="70"></mat-spinner>
+    </mat-card>
+</div>
+<!-- Display box if there are no catalog items to be found -->
+<div *ngIf="catalogItemsWithCategory.length < 1 && !isLoading" style="text-align: center; margin-top: 10px;">
+    <mat-card class="empty-catalog-card">
+        <mat-card-header>
+            <mat-card-title name="cart-title">
+                {{ 'CATALOG.TITLE' | translate }}
+            </mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-content>
+            <mat-icon style="padding-top: 20px;">sentiment_dissatisfied</mat-icon>
+            <br>
+            {{ 'CATALOG.NO_PRODUCTS' | translate }}
+        </mat-card-content>
+
+    </mat-card>
+</div>
+<!-- Regular generating fields for the catalog-->
 <div *ngFor="let catalogItem of catalogItemsWithCategory" class="main-container">
     <mat-card class="catalog-card">
         <mat-card-header>
@@ -5,60 +30,72 @@
                 <h1>{{catalogItem.categoryName}}</h1>
             </mat-card-title>
         </mat-card-header>
-
         <mat-card-content style="overflow: hidden;" class="catalog-content">
+
             <div *ngFor="let item of catalogItem.catalogItems">
+                <mat-divider></mat-divider>
                 <div class="catalogItemBox">
                     <div class="catalogItemBox-imgbox">
-                        <img class="image-div" src="data:image/png;base64,{{item.images[0]}}" #previewimage
-                            id="image-{{item.id}}">
-                        <div class="image-button-div">
-                            <button mat-icon-button [title]="'PRODUCT.ADD.LEFT' | translate" color="accent"
+                        <img *ngIf="item.images?.length; else elseImageBlock" class="image-div"
+                            src="data:image/png;base64,{{item.images[0]}}" #previewimage id="image-{{item.id}}">
+                        <ng-template #elseImageBlock>
+                            <img class="image-div" src="/assets/images/image-not-found.jpg">
+                        </ng-template>
+                        <div class="image-div" *ngIf="checkAmountOfImages(item.images)">
+                            <button style="font-size: 28px;" mat-icon-button disableRipple
+                                [title]="'PRODUCT.ADD.LEFT' | translate" color="accent"
                                 (click)="onClickPreviousImage(item)" name="previous-image-button">
-                                <mat-icon>arrow_left</mat-icon>
+                                &laquo;
                             </button>
-                            <button mat-icon-button [title]="'PRODUCT.ADD.RIGHT' | translate" color="accent"
+                            <button style="padding-left: 25px; font-size: 28px;" disableRipple mat-icon-button
+                                [title]="'PRODUCT.ADD.RIGHT' | translate" color="accent"
                                 (click)="onClickNextImage(item)" name="next-image-button">
-                                <mat-icon>arrow_right</mat-icon>
+                                &raquo;
                             </button>
                         </div>
                     </div>
-                    <div class="catalogItemBox-description">
-                        <h2>{{item.name}}</h2>
-                        <div>
-                            {{item.description}}
-                        </div>
+                    <div class="catalogItemBox-middle">
                         <div class="catalogItemBox-status">
+                            <h2 style="padding-right: 10px;">{{item.name}}</h2>
                             <div>
-                                <P style="margin-top: 5px;">{{ 'CATALOG.APPROVAL_TEXT' | translate }} {{
-                                    (item.requiresApproval ? 'GENERIC.YES' :
-                                    'GENERIC.NO') |
-                                    translate }}</P>
-                            </div>
-                            <div class="catalogItemBox-status-product">
-                                <p class="catalogItemBox-status-product-text">Status:</p>
-                                <mat-chip-list aria-label="product status">
-                                    <mat-chip [ngClass]="item.status | statusNameClass">{{item.status | statusNameKey |
-                                        translate}}
+                                <mat-chip-list *ngIf="item.requiresApproval" style="margin-top: 5px;"
+                                    class="mat-chip-list-stacked" aria-label="Color selection">
+                                    <mat-chip selected color="accent">
+                                        {{
+                                        (item.requiresApproval ? 'CATALOG.APPROVAL_TEXT_YES' :
+                                        'CATALOG.APPROVAL_TEXT_NO') |
+                                        translate }}
                                     </mat-chip>
                                 </mat-chip-list>
                             </div>
+                            <div *ngIf="item.status == 1" class="catalogItemBox-status-product">
+
+                            </div>
+                        </div>
+                        <div class="catalogItemBox-description">
+                            {{item.description}}
                         </div>
                     </div>
-
                     <div class="catalogItemBox-datepicker">
-                        <app-product-datepicker [productId]="item.id" #productdatepicker
-                            (datesChanged)="datepickerDatesChanged(item, $event)">
-                        </app-product-datepicker>
-                        <button mat-flat-button color="primary" (click)="addItemToCart(item)"> {{ 'CATALOG.ADD_TO_CART'
+                        <p style="width: 100%; padding-top: 40px; padding-right: 20px; margin:auto"
+                            *ngIf="item.requiresApproval; else elseBlock">
+                            Product niet beschikbaar
+                        </p>
+
+                        <ng-template #elseBlock>
+                            <app-product-datepicker [productId]="item.id" #productdatepicker
+                                (datesChanged)="datepickerDatesChanged(item, $event)">
+                            </app-product-datepicker>
+                        </ng-template>
+                        <button *ngIf="!item.requiresApproval" mat-flat-button color="primary"
+                            (click)="addItemToCart(item)"> {{ 'CATALOG.ADD_TO_CART'
                             | translate }} </button>
                     </div>
                 </div>
             </div>
         </mat-card-content>
-
     </mat-card>
 </div>
-<mat-paginator style="margin-top: 30px;" [length]="totalProductCount" [pageSize]="pageSize"
-    [pageSizeOptions]="pageSizeOptions" [pageIndex]="pageIndex" (page)="pageEvent = handlePageEvent($event)"
-    showFirstLastButtons></mat-paginator>
+<mat-paginator *ngIf="catalogItemsWithCategory.length > 0" style="margin-top: 30px;" [length]="totalProductCount"
+    [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" [pageIndex]="pageIndex"
+    (page)="pageEvent = handlePageEvent($event)" showFirstLastButtons></mat-paginator>

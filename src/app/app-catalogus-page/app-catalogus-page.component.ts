@@ -38,6 +38,8 @@ export class AppCatalogusPageComponent implements OnInit {
   /* Is true when loading products has failed */
   hasLoadingError = false;
 
+  isLoading = true;
+
   catalogItemsWithCategory: Array<CatalogItemsWithCategory>;
 
   constructor(
@@ -105,6 +107,15 @@ export class AppCatalogusPageComponent implements OnInit {
     }
   }
 
+  checkAmountOfImages(images: Array<string>) {
+    if (images.length <= 1) {
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
+
   datepickerDatesChanged(item: ICatalogFlat, event: IDateChangedEvent): void {
     item.startDate = event.startDate;
     item.endDate = event.endDate;
@@ -132,16 +143,16 @@ export class AppCatalogusPageComponent implements OnInit {
    */
   private readCatalogPage(pageData: CatalogPage | null): void {
     if (pageData == null) {
-      this.catalogItemsWithCategory = new Array<CatalogItemsWithCategory>()
+      this.catalogItemsWithCategory = new Array<CatalogItemsWithCategory>();
       return;
     }
-    this.catalogItemsWithCategory = pageData.catalogItems
+    this.catalogItemsWithCategory = pageData.catalogItems;
     this.catalogItemsWithCategory.forEach(element => {
 
     });
-    this.totalProductCount = pageData.totalProductCount
+    this.totalProductCount = pageData.totalProductCount;
     this.pageIndex = pageData.currentPage;
-    console.log(this.catalogItemsWithCategory);
+    //this.catalogItemsWithCategory = new Array<CatalogItemsWithCategory>();
   }
 
   /**
@@ -155,6 +166,7 @@ export class AppCatalogusPageComponent implements OnInit {
     this.apiService.getCatalogEntries(this.pageIndex, this.pageSize).subscribe({
       next: (resp) => {
         this.readCatalogPage(resp.body)
+        this.isLoading = false;
       },
       error: (err) => {
         this.showErrorNotification('CART.NO_FLAT_PRODUCT_RESPONSE');

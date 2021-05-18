@@ -9,10 +9,14 @@
         }
     },
     "CATALOG": {
-        "APPROVAL_TEXT": "Goedkeuring nodig:",
+        "TITLE": "Catalogus",
+        "APPROVAL_TEXT_YES": "Goedkeuring nodig",
+        "APPROVAL_TEXT_NO": "Geen Goedkeuring nodig",
         "ADD_TO_CART": "+ In winkelwagen",
         "EMPTY_DATE": "Voeg een datum toe aan het product",
-        "CART_ADD_SUCCESSFUL": "is toegevoegd aan winkelmandje"
+        "CART_ADD_SUCCESSFUL": "is toegevoegd aan winkelmandje",
+        "NO_PRODUCTS": "Er zijn huidig geen producten aanwezig in de catalogus",
+        "LOADING": "Laden van catalogus"
     },
     "INVENTORY": {
         "TITLE": "Inventaris",
@@ -85,7 +89,7 @@
         "INFO": "Info",
         "RESERVE": "Reserveren",
         "FIX_ERRORS": "Graag de fouten oplossen voordat u reserveert",
-        "NO_PRODUCTS": "Je hebt nog geen producten in je winkelmandje! Ga naar de inventaris pagina om één of meerdere producten toe te voegen.",
+        "NO_PRODUCTS": "Je hebt nog geen producten in je winkelmandje! Ga naar de catalogus pagina om één of meerdere producten toe te voegen.",
         "RESERVE_SUCCESSFUL": "Reservering is succesvol toegevoegd!",
         "NO_FLAT_PRODUCT_RESPONSE": "Er is iets misgegaan met het ophalen van de producten. Probeer het later opnieuw of contacteer een administrator.",
         "RESERVING_PRODUCTS": "Producten aan het reserveren...",

@@ -1,3 +1,14 @@
+.empty-catalog-card {
+  max-width: 80%;
+  margin: auto;
+}
+
+.loading-spinner{
+  margin:auto;
+  max-width: 40%;
+  padding-top: 20px;
+}
+
 .main-container {
     display: flex;
     justify-content: center;
@@ -7,19 +18,14 @@
         flex-direction: column;
         width: 80%;
         margin-top: 20px;
-
-        
-
         .catalog-content {
             display: flex;
             flex-direction: column;
-
-            
-
             .catalogItemBox{
                 display: flex;
                 flex-direction: row;
                 margin-bottom: 20px;
+                margin-top: 10px;
 
                 @media (max-width: 500px) { 
                   flex-direction: column;
@@ -28,32 +34,39 @@
                 .catalogItemBox-imgbox{
 
                   .image-button-div{
-                    padding-left: 10px;
+                    text-align: center;
                   }
 
                   .image-div {
                     max-width: 100px;
                     min-width: 100px;
-                    padding-right: 35px;
+                    padding-right: 30px;
                     margin: auto;
+                    display:block;
+                    padding-top: 17px;
   
                     img {
                       max-width: 100px;
                       max-height: 100px;
                       object-fit: contain;
+                      vertical-align: bottom;
                     }
                   }
                 }
 
-                .catalogItemBox-description{
+                .catalogItemBox-middle{
                   padding-right: 20px;
+                  max-width: 600px;
+                }
+
+                .catalogItemBox-description{
                   max-width: 600px;
                 }
 
                 .catalogItemBox-datepicker{
                   margin-left: auto;
-                  
-                  max-width: 350px;
+                  max-width: 300px;
+                  padding-top: 7px;
                 }
 
                 .catalogItemBox-status{
@@ -72,8 +85,6 @@
                     }
                   }
                 }
-
-                
                 
                 .available-status {
                     background-color: #006600;
