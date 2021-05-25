@@ -1,7 +1,6 @@
 import { Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ApiService } from '../api.service';
 import { ICartProduct } from '../models/cart-product.model';
@@ -9,8 +8,8 @@ import { CatalogItemsWithCategory } from '../models/catalog-items-with-catogery.
 import { CatalogPage } from '../models/catalog-page.model';
 import { ICatalogFlat } from '../models/catelog-flat.model';
 import { IDateChangedEvent } from '../models/date-changed-event.model';
-import { IProductFlat } from '../models/product-flat.model';
 
+/* const variables for page sizing and index */
 const PAGE_SIZE_DEFAULT = 5;
 const INDEX_DEFAULT = 0;
 const PRODUCT_COUNT_DEFAULT = 0;
