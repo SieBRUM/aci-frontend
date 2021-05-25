@@ -1,7 +1,7 @@
 <!-- Loading spinner when page is loading -->
 <div class="loading-spinner" *ngIf="isLoading">
     <mat-card style="display: flex; flex-direction: column; align-items: center;">
-        <h2 style="padding-top: 22px; padding-right: 20px;">{{ 'CATALOG.LOADING' | translate }}</h2>
+        <h2 style=" padding-right: 20px;">{{ 'CATALOG.LOADING' | translate }}</h2>
         <mat-spinner diameter="70"></mat-spinner>
     </mat-card>
 </div>
@@ -20,7 +20,6 @@
             <br>
             {{ 'CATALOG.NO_PRODUCTS' | translate }}
         </mat-card-content>
-
     </mat-card>
 </div>
 <!-- Regular generating fields for the catalog-->
@@ -32,7 +31,6 @@
             </mat-card-title>
         </mat-card-header>
         <mat-card-content style="overflow: hidden;" class="catalog-content">
-
             <div *ngFor="let item of catalogItem.catalogItems">
                 <mat-divider></mat-divider>
                 <div class="catalogItemBox">
@@ -83,7 +81,6 @@
                             *ngIf="item.requiresApproval; else elseBlock">
                             Product niet beschikbaar
                         </p>
-
                         <ng-template #elseBlock>
                             <app-product-datepicker name="datepicker" [productId]="item.id" #productdatepicker
                                 (datesChanged)="datepickerDatesChanged(item, $event)">

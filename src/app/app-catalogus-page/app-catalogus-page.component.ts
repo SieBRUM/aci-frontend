@@ -87,6 +87,10 @@ export class AppCatalogusPageComponent implements OnInit {
     imageElement.nativeElement.src = 'data:image/png;base64,' + item.images[item.imageIndex];
   }
 
+  /**
+   * Handles the adding of a item to the cart
+   * @param item item object that should be handled to be added to the cart
+   */
   addItemToCart(item: ICatalogFlat) {
     if (new Date(item.startDate) <= new Date() || new Date(item.endDate!) <= new Date()) {
       this.showErrorNotification("CATALOG.EMPTY_DATE");
@@ -158,8 +162,6 @@ export class AppCatalogusPageComponent implements OnInit {
     this.catalogItemsWithCategory = pageData.catalogItems;
     this.totalProductCount = pageData.totalProductCount;
     this.pageIndex = pageData.currentPage;
-    console.log(this.catalogItemsWithCategory);
-
   }
 
   /**

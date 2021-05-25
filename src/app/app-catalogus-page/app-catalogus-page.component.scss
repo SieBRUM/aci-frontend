@@ -3,6 +3,10 @@
   margin: auto;
 }
 
+.mat-standard-chip {    
+  height: auto !important;
+}
+
 .loading-spinner{
   margin:auto;
   max-width: 40%;
@@ -61,6 +65,8 @@
 
                 .catalogItemBox-description{
                   max-width: 600px;
+
+                  
                 }
 
                 .catalogItemBox-datepicker{
