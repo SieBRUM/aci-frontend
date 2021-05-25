@@ -115,5 +115,13 @@
     "GENERIC": {
         "YES": "Ja",
         "NO": "Nee"
+    },
+    "RESERVATION": {
+        "ACTION": {
+            "TITLE": "Reservering acties",
+            "OUT": "Uitgeven",
+            "RETURN": "Inleveren",
+            "CANCEL": "Annuleren"
+        }
     }
 }

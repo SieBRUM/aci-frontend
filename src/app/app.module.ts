@@ -20,6 +20,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { StatusNameKeyPipe } from './status-name-key.pipe';
 import { StatusNameClassPipe } from './status-name-class.pipe';
 import { AppArchiveDialogComponent } from './app-archive-dialog/app-archive-dialog.component';
+import { AppReservationActionPageComponent } from './app-reservation-action-page/app-reservation-action-page.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -36,7 +37,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     InventoryComponent,
     StatusNameKeyPipe,
     StatusNameClassPipe,
-    AppArchiveDialogComponent
+    AppArchiveDialogComponent,
+    AppReservationActionPageComponent
   ],
   imports: [
     BrowserModule,

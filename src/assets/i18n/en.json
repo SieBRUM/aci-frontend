@@ -115,5 +115,13 @@
     "GENERIC": {
         "YES": "Yes",
         "NO": "No"
+    },
+    "RESERVATION": {
+        "ACTION": {
+            "TITLE": "Reservation actions",
+            "OUT": "Out",
+            "RETURN": "Return",
+            "CANCEL": "Cancel"
+        }
     }
 }
