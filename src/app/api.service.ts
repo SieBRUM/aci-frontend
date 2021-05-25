@@ -10,6 +10,7 @@ import { IReservation } from './models/reservation.model';
 import { CatalogPage } from './models/catalog-page.model';
 import { IInventoryPage } from './models/inventory-page.model';
 import { environment } from '../environments/environment';
+import { IReservationAction } from './models/reservation-action.model';
 
 @Injectable({
   providedIn: 'root'
@@ -62,6 +63,17 @@ export class ApiService {
     return this.http.post<any>(`${this.API_GATEWAY}category`, category, { observe: 'response' });
   }
 
+  cancelReservation(reservationAction: IReservationAction): Observable<HttpResponse<any>> {
+    return this.http.post<any>(`${this.API_GATEWAY}reservation`, reservationAction, { observe: 'response' });
+  }
+
+  returnReservation(reservationAction: IReservationAction): Observable<HttpResponse<any>> {
+    return this.http.post<any>(`${this.API_GATEWAY}reservation`, reservationAction, { observe: 'response' });
+  }
+
+  outReservation(reservationAction: IReservationAction): Observable<HttpResponse<any>> {
+    return this.http.post<any>(`${this.API_GATEWAY}reservation`, reservationAction, { observe: 'response' });
+  }
   /* DELETE calls */
   archiveProduct(productid: number): Observable<HttpResponse<any>> {
     return this.http.delete<any>(`${this.API_GATEWAY}product/` + productid, { observe: 'response' });

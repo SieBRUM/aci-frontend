@@ -22,6 +22,7 @@ import { MatPaginatorIntlFactory } from './factories/paginatorI18n.factory';
 import { HttpLoaderFactory } from './factories/http-loader.factory';
 import { AppInventoryPageComponent } from './app-inventory-page/app-inventory-page.component';
 import { AppReservationsOverviewPageComponent } from './app-reservations-overview-page/app-reservations-overview-page.component';
+import { AppReservationActionPageComponent } from './app-reservation-action-page/app-reservation-action-page.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AppReservationsOverviewPageComponent } from './app-reservations-overvie
     StatusNameClassPipe,
     AppArchiveDialogComponent,
     AppCatalogusPageComponent,
-    AppReservationsOverviewPageComponent
+    AppReservationsOverviewPageComponent,
+    AppReservationActionPageComponent
   ],
   imports: [
     BrowserModule,

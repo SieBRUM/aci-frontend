@@ -1,0 +1,39 @@
+<div class="container">
+    <mat-card class="main-content">
+        <mat-card-header>
+            <mat-card-title name="reservation-title">
+                {{ 'RESERVATION.ACTION.TITLE' | translate }}
+            </mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-content class="card-content">
+            <div class="card-left">
+                name
+                location
+            </div>
+            <div class="card-middle">
+                date start
+                date end
+            </div>
+            <div class="card-right">
+                <img src="/assets/images/no_image_found.png" alt="" width="200vh" height="200vh" id="imagePreview"><br>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-stroked-button class="green" style="float:right;" (click)="CancelReservation()"
+                *ngIf="!isLoading" name="cancel-reservation-button">
+                {{ 'RESERVATION.ACTION.CANCEL' | translate }}
+            </button>
+            <button mat-stroked-button class="green" style="float:right;" (click)="CancelReservation()"
+                *ngIf="!isLoading" name="return-reservation-button">
+                {{ 'RESERVATION.ACTION.RETURN' | translate }}
+            </button>
+            <button mat-stroked-button class="green" style="float:right;" (click)="CancelReservation()"
+                *ngIf="!isLoading" name="out-reservation-button">
+                {{ 'RESERVATION.ACTION.OUT' | translate }}
+            </button>
+            <mat-spinner *ngIf="isLoading" diameter="35" style="margin:auto; padding-bottom: 10px;"
+                name="reservation-loading-spinner"></mat-spinner>
+        </mat-card-actions>
+    </mat-card>
+</div>
