@@ -21,25 +21,29 @@ const PRODUCT_COUNT_DEFAULT = 0;
   styleUrls: ['./app-catalogus-page.component.scss']
 })
 export class AppCatalogusPageComponent implements OnInit {
-  // MatPaginator Inputs
+  /* MatPaginator Inputs */
   totalProductCount = PRODUCT_COUNT_DEFAULT;
+  /* Standard pageSize */
   pageSize = PAGE_SIZE_DEFAULT;
+  /* Standard pageIndex */
   pageIndex = INDEX_DEFAULT;
+  /* Page sizing options */
   pageSizeOptions: number[] = [1, 2, 3, 4, 5, 100];
+  /* Index of the image that is being swapped */
   imageIndexx: number = 0;
-
+  /* All cart items */
   cartItems: Array<ICartProduct> = [];
-
-  // MatPaginator Output
+  /* MatPaginator Output */
   pageEvent: PageEvent | undefined;
-
+  /* Paginator child */
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  /* Image element */
   @ViewChildren('previewimage') previewImageElement!: QueryList<ElementRef>;
   /* Is true when loading products has failed */
   hasLoadingError = false;
-
+  /* Is loading boolean */
   isLoading = true;
-
+  /* All catalog items with their category */
   catalogItemsWithCategory: Array<CatalogItemsWithCategory>;
 
   constructor(
@@ -50,6 +54,10 @@ export class AppCatalogusPageComponent implements OnInit {
     this.catalogItemsWithCategory = new Array<CatalogItemsWithCategory>();
   }
 
+  /*
+    Gets inventory page options when loading the page.
+    See https://angular.io/guide/lifecycle-hooks for more information.
+  */
   ngOnInit(): void {
     let inventoryPageOptions = localStorage.getItem('inventoryPageOptions');
 
@@ -57,10 +65,16 @@ export class AppCatalogusPageComponent implements OnInit {
       this.pageSize = JSON.parse(inventoryPageOptions);
   }
 
+  /*
+    After view has loaded get all catalog items.
+  */
   ngAfterViewInit(): void {
     this.getCatalogItems();
   }
 
+  /*
+    Go back to previous image in the index.
+  */
   public onClickPreviousImage(item: ICatalogFlat) {
     if (item.imageIndex <= 0) {
       item.imageIndex = item.images.length - 1;
@@ -71,6 +85,9 @@ export class AppCatalogusPageComponent implements OnInit {
     this.onChangeSelectedImageIndex(item);
   }
 
+  /*
+    Go to the next image in the index.
+  */
   public onClickNextImage(item: ICatalogFlat) {
     if (item.imageIndex >= item.images.length - 1) {
       item.imageIndex = 0;
@@ -81,6 +98,9 @@ export class AppCatalogusPageComponent implements OnInit {
     this.onChangeSelectedImageIndex(item);
   }
 
+  /*
+    Changes the image after changing the index.
+  */
   onChangeSelectedImageIndex(item: ICatalogFlat) {
     var imageElement = this.previewImageElement.filter((element, index) => element.nativeElement.id == "image-" + item.id)[0];
     imageElement.nativeElement.src = 'data:image/png;base64,' + item.images[item.imageIndex];
