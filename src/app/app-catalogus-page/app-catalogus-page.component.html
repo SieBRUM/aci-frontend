@@ -67,9 +67,6 @@
                                     </mat-chip>
                                 </mat-chip-list>
                             </div>
-                            <div *ngIf="item.status == 1" class="catalogItemBox-status-product">
-
-                            </div>
                         </div>
                         <div class="catalogItemBox-description">
                             {{item.description}}
@@ -78,7 +75,7 @@
                     <div class="catalogItemBox-datepicker">
                         <p name="datepicker-not-available"
                             style="width: 100%; padding-top: 40px; padding-right: 20px; margin:auto"
-                            *ngIf="item.requiresApproval; else elseBlock">
+                            *ngIf="item.status == 1; else elseBlock">
                             Product niet beschikbaar
                         </p>
                         <ng-template #elseBlock>
@@ -86,7 +83,7 @@
                                 (datesChanged)="datepickerDatesChanged(item, $event)">
                             </app-product-datepicker>
                         </ng-template>
-                        <button name="add-to-cart-button" *ngIf="!item.requiresApproval" mat-flat-button color="primary"
+                        <button name="add-to-cart-button" *ngIf="item.status != 1" mat-flat-button color="primary"
                             (click)="addItemToCart(item)"> {{ 'CATALOG.ADD_TO_CART'
                             | translate }} </button>
                     </div>
