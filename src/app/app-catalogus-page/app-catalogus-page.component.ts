@@ -46,7 +46,6 @@ export class AppCatalogusPageComponent implements OnInit {
     private apiService: ApiService,
     private translateService: TranslateService,
     private notificationService: MatSnackBar,
-    private router: Router
   ) {
     this.catalogItemsWithCategory = new Array<CatalogItemsWithCategory>();
   }
