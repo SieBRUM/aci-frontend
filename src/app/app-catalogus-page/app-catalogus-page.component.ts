@@ -84,7 +84,7 @@ export class AppCatalogusPageComponent implements OnInit {
 
   onChangeSelectedImageIndex(item: ICatalogFlat) {
     var imageElement = this.previewImageElement.filter((element, index) => element.nativeElement.id == "image-" + item.id)[0];
-    imageElement.nativeElement.src = 'data:image/png;base64,' + item.images[item.imageIndex]
+    imageElement.nativeElement.src = 'data:image/png;base64,' + item.images[item.imageIndex];
   }
 
   addItemToCart(item: ICatalogFlat) {
@@ -96,7 +96,7 @@ export class AppCatalogusPageComponent implements OnInit {
       modal.endDate = item.endDate;
       modal.startDate = item.startDate;
       modal.id = item.id;
-      this.cartItems.push(modal)
+      this.cartItems.push(modal);
 
       localStorage.setItem('cart', JSON.stringify(this.cartItems));
 
@@ -107,6 +107,10 @@ export class AppCatalogusPageComponent implements OnInit {
     }
   }
 
+  /**
+   * Handles the checking of amount of images with a received item
+   * @param images images object that should be handled
+   */
   checkAmountOfImages(images: Array<string>) {
     if (images.length <= 1) {
       return false;
@@ -116,6 +120,11 @@ export class AppCatalogusPageComponent implements OnInit {
     }
   }
 
+  /**
+   * Handles datepicker date changed event
+   * @param item item object that should be handled
+   * @param event event object that should be handled
+   */
   datepickerDatesChanged(item: ICatalogFlat, event: IDateChangedEvent): void {
     item.startDate = event.startDate;
     item.endDate = event.endDate;
@@ -127,9 +136,9 @@ export class AppCatalogusPageComponent implements OnInit {
    * @returns same event object that got sent as parameter
    */
   public handlePageEvent(event?: PageEvent): PageEvent | undefined {
-    this.pageIndex = event?.pageIndex ?? INDEX_DEFAULT
+    this.pageIndex = event?.pageIndex ?? INDEX_DEFAULT;
     if (this.pageSize != event?.pageSize) {
-      this.pageSize = event?.pageSize ?? PAGE_SIZE_DEFAULT
+      this.pageSize = event?.pageSize ?? PAGE_SIZE_DEFAULT;
       localStorage.setItem('inventoryPageOptions', JSON.stringify(this.pageSize));
     }
     this.getCatalogItems();
@@ -147,12 +156,10 @@ export class AppCatalogusPageComponent implements OnInit {
       return;
     }
     this.catalogItemsWithCategory = pageData.catalogItems;
-    this.catalogItemsWithCategory.forEach(element => {
-
-    });
     this.totalProductCount = pageData.totalProductCount;
     this.pageIndex = pageData.currentPage;
-    //this.catalogItemsWithCategory = new Array<CatalogItemsWithCategory>();
+    console.log(this.catalogItemsWithCategory);
+
   }
 
   /**
@@ -162,10 +169,13 @@ export class AppCatalogusPageComponent implements OnInit {
     this.paginator.pageIndex = INDEX_DEFAULT;
   }
 
+  /**
+   * Gets all the catalog objects
+   */
   private getCatalogItems(): void {
     this.apiService.getCatalogEntries(this.pageIndex, this.pageSize).subscribe({
       next: (resp) => {
-        this.readCatalogPage(resp.body)
+        this.readCatalogPage(resp.body);
         this.isLoading = false;
       },
       error: (err) => {
@@ -174,7 +184,6 @@ export class AppCatalogusPageComponent implements OnInit {
       }
     });
   }
-
 
   /**
    * Show error notification

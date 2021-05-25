@@ -6,7 +6,8 @@
     </mat-card>
 </div>
 <!-- Display box if there are no catalog items to be found -->
-<div *ngIf="catalogItemsWithCategory.length < 1 && !isLoading" style="text-align: center; margin-top: 10px;">
+<div *ngIf="!isLoading && catalogItemsWithCategory !== null && catalogItemsWithCategory.length < 1 "
+    style="text-align: center; margin-top: 10px;">
     <mat-card class="empty-catalog-card">
         <mat-card-header>
             <mat-card-title name="cart-title">
@@ -56,7 +57,7 @@
                     </div>
                     <div class="catalogItemBox-middle">
                         <div class="catalogItemBox-status">
-                            <h2 style="padding-right: 10px;">{{item.name}}</h2>
+                            <h2 name="item-name" style="padding-right: 10px;">{{item.name}}</h2>
                             <div>
                                 <mat-chip-list *ngIf="item.requiresApproval" style="margin-top: 5px;"
                                     class="mat-chip-list-stacked" aria-label="Color selection">
@@ -77,17 +78,18 @@
                         </div>
                     </div>
                     <div class="catalogItemBox-datepicker">
-                        <p style="width: 100%; padding-top: 40px; padding-right: 20px; margin:auto"
+                        <p name="datepicker-not-available"
+                            style="width: 100%; padding-top: 40px; padding-right: 20px; margin:auto"
                             *ngIf="item.requiresApproval; else elseBlock">
                             Product niet beschikbaar
                         </p>
 
                         <ng-template #elseBlock>
-                            <app-product-datepicker [productId]="item.id" #productdatepicker
+                            <app-product-datepicker name="datepicker" [productId]="item.id" #productdatepicker
                                 (datesChanged)="datepickerDatesChanged(item, $event)">
                             </app-product-datepicker>
                         </ng-template>
-                        <button *ngIf="!item.requiresApproval" mat-flat-button color="primary"
+                        <button name="add-to-cart-button" *ngIf="!item.requiresApproval" mat-flat-button color="primary"
                             (click)="addItemToCart(item)"> {{ 'CATALOG.ADD_TO_CART'
                             | translate }} </button>
                     </div>
@@ -96,6 +98,6 @@
         </mat-card-content>
     </mat-card>
 </div>
-<mat-paginator *ngIf="catalogItemsWithCategory.length > 0" style="margin-top: 30px;" [length]="totalProductCount"
-    [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" [pageIndex]="pageIndex"
-    (page)="pageEvent = handlePageEvent($event)" showFirstLastButtons></mat-paginator>
+<mat-paginator *ngIf="catalogItemsWithCategory !== null && !isLoading && catalogItemsWithCategory.length > 0"
+    style="margin-top: 30px;" [length]="totalProductCount" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+    [pageIndex]="pageIndex" (page)="pageEvent = handlePageEvent($event)" showFirstLastButtons></mat-paginator>
