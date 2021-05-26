@@ -41,7 +41,7 @@ export class ApiService {
   }
 
   getCatalogEntries(pageNumber: number, pageSize: number): Observable<HttpResponse<CatalogPage>> {
-    return this.http.get<CatalogPage>(`${this.API_GATEWAY}product/catalogEntries/${pageNumber}/${pageSize}`, { observe: 'response' });
+    return this.http.get<CatalogPage>(`${this.API_GATEWAY}product/catalogentries/${pageNumber}/${pageSize}`, { observe: 'response' });
   }
 
   /* POST calls */
