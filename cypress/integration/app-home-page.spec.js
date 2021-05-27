@@ -2,7 +2,7 @@
 
 describe('Home page tests', () => {
     beforeEach(() => {
-        cy.visit('http://localhost:4200')
+        cy.visit('http://localhost:4200');
     });
 
     it('Should show hello message in English', () => {

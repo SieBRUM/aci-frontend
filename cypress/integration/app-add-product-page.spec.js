@@ -8,7 +8,7 @@ describe('Add product menu tests', () => {
     it('Should show initial page setup in English', () => {
         cy.intercept('GET', '/api/product/lastcatalog', '5');
         cy.intercept('GET', '/api/category', [{ id: 1, name: 'TestCategory' }]);
-        cy.visit('http://localhost:4200/products/add')
+        cy.visit('http://localhost:4200/products/add');
 
         cy.changeLanguage('en');
 
@@ -62,7 +62,7 @@ describe('Add product menu tests', () => {
     it('Should show initial page setup in Dutch', () => {
         cy.intercept('GET', '/api/product/lastcatalog', '5');
         cy.intercept('GET', '/api/category', [{ id: 1, name: 'TestCategory' }]);
-        cy.visit('http://localhost:4200/products/add')
+        cy.visit('http://localhost:4200/products/add');
 
         cy.changeLanguage('nl');
 
@@ -120,11 +120,11 @@ describe('Add product menu tests', () => {
             statusCode: 200,
             body: '2',
           });
-        cy.visit('http://localhost:4200/products/add')
+        cy.visit('http://localhost:4200/products/add');
         cy.changeLanguage('nl');
 
-        cy.get('mat-select[name=category-id-select]').click({ force: true })
-        cy.get("mat-option").contains("Nieuwe categorie").click()
+        cy.get('mat-select[name=category-id-select]').click({ force: true });
+        cy.get("mat-option").contains("Nieuwe categorie").click();
 
         cy.get("input[name=newcategory-input]").type('nieuwe categorie test toegevoegd');
         cy.get("button[name=category-save-button]").click();
@@ -144,11 +144,11 @@ describe('Add product menu tests', () => {
             body: '2',
           });
 
-        cy.visit('http://localhost:4200/products/add')
+        cy.visit('http://localhost:4200/products/add');
         cy.changeLanguage('en');
 
-        cy.get('mat-select[name=category-id-select]').click({ force: true })
-        cy.get("mat-option").contains("New category").click()
+        cy.get('mat-select[name=category-id-select]').click({ force: true });
+        cy.get("mat-option").contains("New category").click();
 
         cy.get("input[name=newcategory-input]").type('new added categorytest');
         cy.get("button[name=category-save-button]").click();
@@ -161,7 +161,7 @@ describe('Add product menu tests', () => {
     });
 
     it('Should show error {no product name} in English', () => {
-        cy.visit('http://localhost:4200/products/add')
+        cy.visit('http://localhost:4200/products/add');
 
         cy.changeLanguage('en');
         cy.get("button[name=save-product-button]").click();
@@ -170,7 +170,7 @@ describe('Add product menu tests', () => {
     });
 
     it('Should show error {no product name} in Dutch', () => {
-        cy.visit('http://localhost:4200/products/add')
+        cy.visit('http://localhost:4200/products/add');
 
         cy.changeLanguage('nl');
         cy.get("button[name=save-product-button]").click();
@@ -181,7 +181,7 @@ describe('Add product menu tests', () => {
     it('Should show error {catalog error} in English', () => {
         cy.intercept('GET', '/api/product/lastcatalog', '9');
         cy.intercept('GET', '/api/category', [{ id: 1, name: 'TestCategory' }]);
-        cy.visit('http://localhost:4200/products/add')
+        cy.visit('http://localhost:4200/products/add');
 
         cy.changeLanguage('en');
         cy.get("input[name=product-name-input]").type('Bla bla bla');
@@ -194,7 +194,7 @@ describe('Add product menu tests', () => {
     it('Should show error {catalog error} in Dutch', () => {
         cy.intercept('GET', '/api/product/lastcatalog', '9');
         cy.intercept('GET', '/api/category', [{ id: 1, name: 'TestCategory' }]);
-        cy.visit('http://localhost:4200/products/add')
+        cy.visit('http://localhost:4200/products/add');
 
         cy.changeLanguage('nl');
         cy.get("input[name=product-name-input]").type('Bla bla bla');
@@ -208,7 +208,7 @@ describe('Add product menu tests', () => {
     it('Should show error {category error} in English', () => {
         cy.intercept('GET', '/api/product/lastcatalog', '9');
         cy.intercept('GET', '/api/category', [{ id: 1, name: 'TestCategory' }]);
-        cy.visit('http://localhost:4200/products/add')
+        cy.visit('http://localhost:4200/products/add');
 
         cy.changeLanguage('en');
         cy.get("input[name=product-name-input]").type('Bla bla bla');
@@ -220,7 +220,7 @@ describe('Add product menu tests', () => {
     it('Should show error {category error} in Dutch', () => {
         cy.intercept('GET', '/api/product/lastcatalog', '9');
         cy.intercept('GET', '/api/category', [{ id: 1, name: 'TestCategory' }]);
-        cy.visit('http://localhost:4200/products/add')
+        cy.visit('http://localhost:4200/products/add');
 
         cy.changeLanguage('nl');
         cy.get("input[name=product-name-input]").type('Bla bla bla');
@@ -232,7 +232,7 @@ describe('Add product menu tests', () => {
     it('Should show error {description error} in English', () => {
         cy.intercept('GET', '/api/product/lastcatalog', '9');
         cy.intercept('GET', '/api/category', [{ id: 1, name: 'TestCategory' }]);
-        cy.visit('http://localhost:4200/products/add')
+        cy.visit('http://localhost:4200/products/add');
 
         cy.changeLanguage('en');
         cy.get("input[name=product-name-input]").type('Bla bla bla');
@@ -245,7 +245,7 @@ describe('Add product menu tests', () => {
     it('Should show error {description error} in Dutch', () => {
         cy.intercept('GET', '/api/product/lastcatalog', '9');
         cy.intercept('GET', '/api/category', [{ id: 1, name: 'TestCategory' }]);
-        cy.visit('http://localhost:4200/products/add')
+        cy.visit('http://localhost:4200/products/add');
 
         cy.changeLanguage('nl');
         cy.get("input[name=product-name-input]").type('Bla bla bla');
@@ -258,7 +258,7 @@ describe('Add product menu tests', () => {
     it('Should set catalog number to 10', () => {
         cy.intercept('GET', '/api/product/lastcatalog', '9');
         cy.intercept('GET', '/api/category', [{ id: 1, name: 'TestCategory' }]);
-        cy.visit('http://localhost:4200/products/add')
+        cy.visit('http://localhost:4200/products/add');
 
         cy.get("input[name=catalog-number-input]").should('have.value', '10');
     });
@@ -266,9 +266,9 @@ describe('Add product menu tests', () => {
     it('Should have two categories', () => {
         cy.intercept('GET', '/api/product/lastcatalog', '9');
         cy.intercept('GET', '/api/category', [{ id: 1, name: 'TestCategory' }, { id: 2, name: 'TestCategory2' }]);
-        cy.visit('http://localhost:4200/products/add')
+        cy.visit('http://localhost:4200/products/add');
 
-        cy.get('mat-select[name=category-id-select]').click({ force: true })
+        cy.get('mat-select[name=category-id-select]').click({ force: true });
 
         cy.get("mat-option").should('have.length', '3');
     });
@@ -276,13 +276,13 @@ describe('Add product menu tests', () => {
     it('Should show error {no new category added}, dutch', () => {
         cy.intercept('GET', '/api/product/lastcatalog', '9');
         cy.intercept('GET', '/api/category', [{ id: 1, name: 'TestCategory' }, { id: 2, name: 'TestCategory2' }]);
-        cy.visit('http://localhost:4200/products/add')
+        cy.visit('http://localhost:4200/products/add');
         cy.changeLanguage('nl');
 
-        cy.get('mat-select[name=category-id-select]').click({ force: true })
+        cy.get('mat-select[name=category-id-select]').click({ force: true });
 
-        cy.get("mat-option").contains("Nieuwe categorie")
-        cy.get("mat-option").contains("Nieuwe categorie").click()
+        cy.get("mat-option").contains("Nieuwe categorie");
+        cy.get("mat-option").contains("Nieuwe categorie").click();
 
         cy.get("mat-label[name=category-id-input-label]").contains('Voeg nieuwe categorie toe');
         cy.get("button[name=category-save-button]").contains('Sla de nieuwe categorie op');
@@ -295,13 +295,13 @@ describe('Add product menu tests', () => {
     it('Should show error {no new category added}, english', () => {
         cy.intercept('GET', '/api/product/lastcatalog', '9');
         cy.intercept('GET', '/api/category', [{ id: 1, name: 'TestCategory' }, { id: 2, name: 'TestCategory2' }]);
-        cy.visit('http://localhost:4200/products/add')
+        cy.visit('http://localhost:4200/products/add');
         cy.changeLanguage('en');
 
-        cy.get('mat-select[name=category-id-select]').click({ force: true })
+        cy.get('mat-select[name=category-id-select]').click({ force: true });
 
-        cy.get("mat-option").contains("New category")
-        cy.get("mat-option").contains("New category").click()
+        cy.get("mat-option").contains("New category");
+        cy.get("mat-option").contains("New category").click();
 
         cy.get("mat-label[name=category-id-input-label]").contains('Add new category');
         cy.get("button[name=category-save-button]").contains('Save the new category');

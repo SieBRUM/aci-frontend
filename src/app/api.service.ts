@@ -7,7 +7,7 @@ import { IAddReservation } from './models/add-reservation.model';
 import { ICategory } from './models/category.model';
 import { IProductFlat } from './models/product-flat.model';
 import { IReservation } from './models/reservation.model';
-import { InventoryPage } from './models/InventoryPage.model';
+import { IInventoryPage } from './models/inventory-page.model';
 
 @Injectable({
   providedIn: 'root'
@@ -35,8 +35,8 @@ export class ApiService {
     return this.http.get<IProductFlat>(`${this.API_GATEWAY}product/flat/${productId}`, { observe: 'response' });
   }
 
-  getInventoryProducts(pageNumber: number, pageSize: number): Observable<HttpResponse<InventoryPage>> {
-    return this.http.get<InventoryPage>(`${this.API_GATEWAY}product/page/${pageNumber}/${pageSize}`, { observe: 'response' });
+  getInventoryProducts(pageNumber: number, pageSize: number): Observable<HttpResponse<IInventoryPage>> {
+    return this.http.get<IInventoryPage>(`${this.API_GATEWAY}product/page/${pageNumber}/${pageSize}`, { observe: 'response' });
   }
 
   /* POST calls */

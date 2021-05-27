@@ -1,15 +1,14 @@
-import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ApiService } from '../api.service';
-import { AppProductDatepickerComponent } from '../app-product-datepicker/app-product-datepicker.component';
 import { IAddReservation } from '../models/add-reservation.model';
 import { ICartProduct } from '../models/cart-product.model';
 import { IDateChangedEvent } from '../models/date-changed-event.model';
 import { IDatePickerError } from '../models/datepicker-error.model';
 import { IProductFlat } from '../models/product-flat.model';
-import { ProductStatus } from '../models/ProductStatus.enum';
+import { ProductStatus } from '../models/product-status.enum';
 
 @Component({
   selector: 'app-shopping-cart-page',

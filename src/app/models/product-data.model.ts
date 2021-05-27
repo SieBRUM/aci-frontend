@@ -1,9 +1,9 @@
-import { ProductStatus } from './ProductStatus.enum';
+import { ProductStatus } from './product-status.enum';
 
 /**
  * Defines data that is used in the inventory table
  */
-export interface ProductData {
+export interface IProductData {
   // The name of the product
   name: string;
   // The physical location of the product
