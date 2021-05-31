@@ -3,8 +3,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ApiService } from '../api.service';
+import { ProductStatus } from '../models/ProductStatus.enum';
 import { IProductData } from '../models/product-data.model';
 import { IReservationAction } from '../models/reservation-action.model';
+import { IReservationProduct } from '../models/reservation-product.model';
+import { IReservation } from '../models/reservation.model';
 
 @Component({
   selector: 'app-app-reservation-action-page',
@@ -13,7 +16,9 @@ import { IReservationAction } from '../models/reservation-action.model';
 })
 export class AppReservationActionPageComponent implements OnInit {
 
-  products: Array<IProductData> = [];
+  reservations: Array<IReservationProduct> = [
+    { id: 1, startDate: new Date, endDate: new Date, returnDate: null, product: { id: 1, name: "asd", description: "", image: "", productState: ProductStatus.Available } },
+  ];
 
   ngOnInit(): void {
   }
