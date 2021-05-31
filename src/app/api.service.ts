@@ -8,13 +8,14 @@ import { ICategory } from './models/category.model';
 import { IProductFlat } from './models/product-flat.model';
 import { IReservation } from './models/reservation.model';
 import { IInventoryPage } from './models/inventory-page.model';
+import { environment } from "../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  API_GATEWAY = 'https://localhost:44372/api/';
+  API_GATEWAY = environment.url;
 
   constructor(private http: HttpClient) { }
 
