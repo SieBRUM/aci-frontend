@@ -1,0 +1,13 @@
+[
+    {
+        "id": 1,
+        "state": 0,
+        "startDate": "2021-6-23",
+        "endDate": "2021-6-26",
+        "returnDate": null,
+        "renterId": 1,
+        "reviewerId": 1,
+        "isApproved": true,
+        "productId": 3
+    }
+]

@@ -1,0 +1,36 @@
+{
+    "totalProductCount": 6,
+    "currentPage": 0,
+    "products": [
+        {
+            "name": "DJ set",
+            "location": "A3.3",
+            "requiresApproval": 0,
+            "status": 0
+        },
+        {
+            "name": "CANON R5",
+            "location": "Die ene plank",
+            "requiresApproval": 0,
+            "status": 1
+        },
+        {
+            "name": "CANON R4",
+            "location": "Balie",
+            "requiresApproval": 0,
+            "status": 2
+        },
+        {
+            "name": "CANON R3",
+            "location": "Balie",
+            "requiresApproval": 1,
+            "status": 1
+        },
+        {
+            "name": "CANON R2",
+            "location": "Balie",
+            "requiresApproval": 1,
+            "status": 0
+        }
+    ]
+}

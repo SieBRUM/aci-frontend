@@ -1,0 +1,129 @@
+{
+    "APP": {
+        "ROUTE": {
+            "HOME": "Home",
+            "ADD_PRODUCT": "Add product",
+            "PRODUCTS": "Inventory",
+            "CART": "Shopping cart"
+        }
+    },
+    "INVENTORY": {
+        "TITLE": "Inventory",
+        "INVENTORY_EMPTY": "No products found",
+        "AVAILABLE": "Available",
+        "UNAVAILABLE": "Unavailable",
+        "ARCHIVED": "Archived",
+        "NO_INVENTORY_RESPONSE": "Something went wrong, please try again later",
+        "LOADING": "Loading the inventory"
+    },
+    "SIDE_BAR": {
+        "LOGOUT": "Log out",
+        "UNPIN_MENU": "Unpin menu",
+        "PIN_MENU": "Pin menu",
+        "HOME": "Home",
+        "INVENTORY": "Inventory",
+        "ADD_PRODUCT": "Add product",
+        "SHOPPING_CART": "Shopping cart",
+        "LANGUAGE": "Language",
+        "LANGUAGES": {
+            "NL": "Dutch",
+            "EN": "English"
+        }
+    },
+    "HOME": {
+        "TITLE": "Welcome home"
+    },
+    "PRODUCT": {
+        "ADD": {
+            "TITLE": "Add product",
+            "NAME": "Product name",
+            "CATALOG_NUMBER": "Catalog number",
+            "CATEGORY": "Category",
+            "LOCATION": "Location",
+            "DESCRIPTION": "Description",
+            "REQUIRES_APPROVAL": "Requires approval",
+            "SAVE": "Add product",
+            "LEFT": "Previous image",
+            "RIGHT": "Next image",
+            "ADD_IMAGE": "Add image(s)",
+            "REMOVE_IMAGE": "Remove image",
+            "CANCEL": "Cancel",
+            "NO_NAME": "Product name is required",
+            "NO_CATEGORY": "Product category is required",
+            "NO_DESCRIPTION": "Description is required",
+            "SAVING_IMAGES_FAILED": "Something went wrong with saving the image(s). Please try again later of contact an administrator",
+            "CATALOG_NUMBER_INCORRECT": "Incorrect catalog number",
+            "CATALOG_BETWEEN": "Catalog number should be between 0 and ",
+            "NAME_ALREADY_EXISTS": "Product name is already in use",
+            "NO_CATEGORIES_RESPONSE": "Something went wrong with receiving the category data. Please try again later or contact an administrator",
+            "NO_CATALOG_NUMBER_RESPONSE": "Something went wrong with receiving the catalog data. Please try again later or contact an administrator",
+            "NO_DATA": "Something went wrong with saving your data. Please try again later or contact an administrator",
+            "ADD_SUCCESSFUL": "Product has been added!"
+        },
+        "ARCHIVE": {
+            "DIALOG_TITLE": "Confirm",
+            "DIALOG_MESSAGE": "You are about to archive the following product:",
+            "DIALOG_ARCHIVE_BUTTON": "Archive",
+            "DIALOG_CANCEL_BUTTON": "Cancel",
+            "NO_VALID_ID": "The given product can not be archived",
+            "NO_PRODUCT_FOUND": "The product to archive was not found",
+            "PRODUCT_ALREADY_ARCHIVED": "This product is already archived",
+            "ARCHIVE_SUCCESFULL": "The product has been archived!"
+        }
+    },
+    "CART": {
+        "TITLE": "Shopping cart",
+        "LOADING_PRODUCT": "Loading product...",
+        "REMOVE_PRODUCT": "Remove product",
+        "INFO": "Info",
+        "RESERVE": "Reserve",
+        "FIX_ERRORS": "Please fix the errors before reserving products",
+        "NO_PRODUCTS": "You do not have anything added to your shopping cart yet! Head over to the inventory page add one or more products.",
+        "RESERVE_SUCCESSFUL": "Reservation has been successfully added!",
+        "NO_FLAT_PRODUCT_RESPONSE": "Something went wrong with receiving the products. Please try again later or contact an administrator.",
+        "RESERVING_PRODUCTS": "Reserving products...",
+        "REMOVED_UNAVAILABLE_PRODUCTS": "One or more products have been removed from your shoppingcart because they are unavailable."
+    },
+    "PRODUCT_DATEPICKER": {
+        "LABEL": "Choose a date period",
+        "ERROR": {
+            "START_DATE_WEEKEND": "Start date cannot be in the weekend",
+            "END_DATE_WEEKEND": "End date cannot be in the weekend",
+            "DATE_ALREADY_RESERVED": "Product is already reserved on this date",
+            "TOO_MANY_DAYS": "Reservation exceeds five days",
+            "START_DATE_NULL": "No start date selected",
+            "END_DATE_BEFORE_START_DATE": "End date cannot be before start date",
+            "START_DATE_CANNOT_BE_PAST": "Start date cannot be in the past"
+        }
+    },
+    "CATEGORY": {
+        "ADD": {
+            "ADD_NEW_CATEGORY": "New category",
+            "ADD_NEW_CATEGORY_INPUT": "Add new category",
+            "SAVE_NEW_CATEGORY": "Save the new category",
+            "ADD_CATEGORY_SUCCESFUL": "New category has been added",
+            "ADD_NEW_CATEGORY_BUTTON": "Add new category",
+            "ADD_CATEGORY_UNSUCCESFUL": "Add a name to the category"
+        }
+    },
+    "ATTRIBUTES": {
+        "NAME": "Name",
+        "STATUS": "Status",
+        "LOCATION": "Location",
+        "REQUIRES_APPROVAL": "Requires approval",
+        "OPTIONS": "Options"
+    },
+    "GENERIC": {
+        "YES": "Yes",
+        "NO": "No"
+    },
+    "PAGINATOR": {
+        "ITEMS_PER_PAGE": "Items per page",
+        "NEXT_PAGE": "Next page",
+        "PREVIOUS_PAGE": "Previous page",
+        "FIRST_PAGE": "First page",
+        "LAST_PAGE": "Last Page",
+        "RANGE_PAGE_LABEL_1": "0 of {{length}}",
+        "RANGE_PAGE_LABEL_2": "{{startIndex}} - {{endIndex}} of {{length}}"
+    }
+}
