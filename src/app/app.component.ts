@@ -111,8 +111,10 @@ export class AppComponent {
     } else if (this.router.url.endsWith('products')) {
       textToTranslate = 'APP.ROUTE.PRODUCTS';
     } else if (this.router.url.endsWith('cart')) {
-      textToTranslate = 'APP.ROUTE.CART';
-    }
+        textToTranslate = 'APP.ROUTE.CART';
+      } else if (this.router.url.endsWith('reservation')) {
+        textToTranslate = 'APP.ROUTE.RESERVATION';
+      }
 
     return this.translate.instant(textToTranslate);
   }

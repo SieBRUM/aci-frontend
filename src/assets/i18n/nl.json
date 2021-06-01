@@ -4,7 +4,8 @@
             "HOME": "Home",
             "ADD_PRODUCT": "Product toevoegen",
             "PRODUCTS": "Inventaris",
-            "CART": "Winkelmandje"
+            "CART": "Winkelmandje",
+            "RESERVATION": "Reservering"
         }
     },
     "INVENTORY": {
@@ -122,6 +123,12 @@
             "OUT": "Uitgeven",
             "RETURN": "Inleveren",
             "CANCEL": "Annuleren"
-        }
+        },
+        "DATE": {
+            "TERM": "Datum",
+            "PICKUP": "Opgehaald",
+            "RETURN": "Teruggebracht"
+        },
+        "LOCATION": "Locatie"
     }
 }

@@ -4,7 +4,8 @@
             "HOME": "Home",
             "ADD_PRODUCT": "Add product",
             "PRODUCTS": "Inventory",
-            "CART": "Shopping cart"
+            "CART": "Shopping cart",
+            "RESERVATION": "Reservation"
         }
     },
     "INVENTORY": {
@@ -122,6 +123,12 @@
             "OUT": "Out",
             "RETURN": "Return",
             "CANCEL": "Cancel"
-        }
+        },
+        "DATE": {
+            "TERM": "Date",
+            "PICKUP": "Pickup",
+            "RETURN": "Return"
+        },
+        "LOCATION": "Location"
     }
 }

@@ -4,7 +4,8 @@ export interface IReservationProduct {
     id: number;
     startDate: Date;
     endDate: Date;
-    returnDate: Date | null;
+    returnDate?: Date | null;
+    pickupDate?: Date | null;
     reviewerId?: number;
     isApproved?: boolean;
     product: IProductFlat;
