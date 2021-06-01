@@ -151,6 +151,12 @@
         "TITLE": "Reservering acties",
         "RETURN": "Inleveren",
         "CANCEL": "Annuleren"
-        }
+        },
+        "DATE": {
+            "TERM": "Datum",
+            "PICKUP": "Opgehaald",
+            "RETURN": "Teruggebracht"
+        },
+        "LOCATION": "Locatie"
     }
 }

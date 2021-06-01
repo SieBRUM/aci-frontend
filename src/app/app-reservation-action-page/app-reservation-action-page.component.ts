@@ -17,8 +17,16 @@ import { IReservation } from '../models/reservation.model';
 export class AppReservationActionPageComponent implements OnInit {
 
   reservations: Array<IReservationProduct> = [
-    { id: 1, startDate: new Date, endDate: new Date, returnDate: null, product: { id: 1, name: "asd", description: "", image: "", productState: ProductStatus.Available } },
-  ];
+    { id: 1, startDate: new Date, endDate: new Date, pickupDate: new Date, product: { id: 1, name: "asd", description: "", image: "R0lGODlhDAAMAKIFAF5LAP/zxAAAANyuAP/gaP///wAAAAAAACH5BAEAAAUALAAAAAAMAAwAAAMlWLPcGjDKFYi9lxKBOaGcF35DhWHamZUW0K4mAbiwWtuf0uxFAgA7", productState: ProductStatus.Available } },
+    { id: 1, startDate: new Date, endDate: new Date, product: { id: 2, name: "asd", description: "", image: "R0lGODlhDAAMAKIFAF5LAP/zxAAAANyuAP/gaP///wAAAAAAACH5BAEAAAUALAAAAAAMAAwAAAMlWLPcGjDKFYi9lxKBOaGcF35DhWHamZUW0K4mAbiwWtuf0uxFAgA7", productState: ProductStatus.Available } },
+    { id: 1, startDate: new Date, endDate: new Date, product: { id: 2, name: "asd", description: "", image: "R0lGODlhDAAMAKIFAF5LAP/zxAAAANyuAP/gaP///wAAAAAAACH5BAEAAAUALAAAAAAMAAwAAAMlWLPcGjDKFYi9lxKBOaGcF35DhWHamZUW0K4mAbiwWtuf0uxFAgA7", productState: ProductStatus.Available } },
+    { id: 1, startDate: new Date, endDate: new Date, pickupDate: new Date, returnDate: new Date, product: { id: 2, name: "asd", description: "", image: "R0lGODlhDAAMAKIFAF5LAP/zxAAAANyuAP/gaP///wAAAAAAACH5BAEAAAUALAAAAAAMAAwAAAMlWLPcGjDKFYi9lxKBOaGcF35DhWHamZUW0K4mAbiwWtuf0uxFAgA7", productState: ProductStatus.Available } },
+    { id: 1, startDate: new Date, endDate: new Date, product: { id: 2, name: "asd", description: "", image: "R0lGODlhDAAMAKIFAF5LAP/zxAAAANyuAP/gaP///wAAAAAAACH5BAEAAAUALAAAAAAMAAwAAAMlWLPcGjDKFYi9lxKBOaGcF35DhWHamZUW0K4mAbiwWtuf0uxFAgA7", productState: ProductStatus.Available } },
+    { id: 1, startDate: new Date, endDate: new Date, pickupDate: new Date, product: { id: 2, name: "asd", description: "", image: "R0lGODlhDAAMAKIFAF5LAP/zxAAAANyuAP/gaP///wAAAAAAACH5BAEAAAUALAAAAAAMAAwAAAMlWLPcGjDKFYi9lxKBOaGcF35DhWHamZUW0K4mAbiwWtuf0uxFAgA7", productState: ProductStatus.Available } },
+    { id: 1, startDate: new Date, endDate: new Date, product: { id: 2, name: "asd", description: "", image: "R0lGODlhDAAMAKIFAF5LAP/zxAAAANyuAP/gaP///wAAAAAAACH5BAEAAAUALAAAAAAMAAwAAAMlWLPcGjDKFYi9lxKBOaGcF35DhWHamZUW0K4mAbiwWtuf0uxFAgA7", productState: ProductStatus.Available } },
+    { id: 1, startDate: new Date, endDate: new Date, pickupDate: new Date, returnDate: new Date, product: { id: 2, name: "asd", description: "", image: "R0lGODlhDAAMAKIFAF5LAP/zxAAAANyuAP/gaP///wAAAAAAACH5BAEAAAUALAAAAAAMAAwAAAMlWLPcGjDKFYi9lxKBOaGcF35DhWHamZUW0K4mAbiwWtuf0uxFAgA7", productState: ProductStatus.Available } },
+    { id: 1, startDate: new Date, endDate: new Date, pickupDate: new Date, returnDate: new Date, product: { id: 2, name: "asd", description: "", image: "R0lGODlhDAAMAKIFAF5LAP/zxAAAANyuAP/gaP///wAAAAAAACH5BAEAAAUALAAAAAAMAAwAAAMlWLPcGjDKFYi9lxKBOaGcF35DhWHamZUW0K4mAbiwWtuf0uxFAgA7", productState: ProductStatus.Available } }
+];
 
   ngOnInit(): void {
   }
@@ -35,11 +43,11 @@ export class AppReservationActionPageComponent implements OnInit {
     private router: Router
   ) { }
 
-  CancelReservation() {
-    const reservationAction: IReservationAction = { reservationId: 0 }
-    //check ID
-    if (true) {
-      this.apiService.cancelReservation(reservationAction).subscribe({
+  ReservationAction(action: number, id: number) {
+    this.isLoading = true;
+    const reservationAction: IReservationAction = { reservationId: id, action: action }
+    if (id > 0) {
+      this.apiService.reservationAction(reservationAction).subscribe({
         next: (resp) => {
           this.isLoading = false;
           this.snackbarService.open(this.translate.instant('RESERVATION.ACTION.SUCCESS'), undefined, {

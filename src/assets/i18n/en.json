@@ -151,6 +151,12 @@
       "OUT": "Out",
       "RETURN": "Return",
       "CANCEL": "Cancel"
-    }
+    },
+      "DATE": {
+        "TERM": "Date",
+        "PICKUP": "Pickup",
+        "RETURN": "Return"
+      },
+      "LOCATION": "Location"
   }
 }

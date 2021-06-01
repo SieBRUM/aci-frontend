@@ -63,15 +63,7 @@ export class ApiService {
     return this.http.post<any>(`${this.API_GATEWAY}category`, category, { observe: 'response' });
   }
 
-  cancelReservation(reservationAction: IReservationAction): Observable<HttpResponse<any>> {
-    return this.http.post<any>(`${this.API_GATEWAY}reservation`, reservationAction, { observe: 'response' });
-  }
-
-  returnReservation(reservationAction: IReservationAction): Observable<HttpResponse<any>> {
-    return this.http.post<any>(`${this.API_GATEWAY}reservation`, reservationAction, { observe: 'response' });
-  }
-
-  outReservation(reservationAction: IReservationAction): Observable<HttpResponse<any>> {
+  reservationAction(reservationAction: IReservationAction): Observable<HttpResponse<any>> {
     return this.http.post<any>(`${this.API_GATEWAY}reservation`, reservationAction, { observe: 'response' });
   }
   /* DELETE calls */
