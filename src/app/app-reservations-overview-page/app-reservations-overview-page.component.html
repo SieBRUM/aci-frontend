@@ -23,7 +23,7 @@
         </div>
         <mat-divider></mat-divider>
         <!-- Loop with all the reservations  -->
-        <div *ngFor="let reservation of reservations">
+        <div *ngFor="let reservation of reservations; let i = index">
           <div class="reservation-list" name="reservation-list">
             <div class="reservation-list-info-item reservation-date">
               {{ reservation[0].startDate | date }}
@@ -44,7 +44,7 @@
             </div>
           </div>
           <div></div>
-          <mat-divider></mat-divider>
+          <mat-divider *ngIf="i !== reservations.length - 1"></mat-divider>
         </div>
       </div>
 
