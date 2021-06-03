@@ -3,13 +3,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ApiService } from '../api.service';
-import { ProductStatus } from '../models/ProductStatus.enum';
-import { IProductData } from '../models/product-data.model';
+import { ProductStatus } from '../models/product-status.enum';
 import { IReservationAction } from '../models/reservation-action.model';
 import { IReservationProduct } from '../models/reservation-product.model';
-import { IReservation } from '../models/reservation.model';
 import { ActivatedRoute } from '@angular/router';
-import { TOUCH_BUFFER_MS } from '@angular/cdk/a11y';
 import { IProductFlat } from '../models/product-flat.model';
 
 @Component({
@@ -24,9 +21,6 @@ export class AppReservationActionPageComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    //Get ID from URL
-    // CALL TO LOAD RESERVATIONS
-    //FILL RESERVATIONS
     const id = this.route.snapshot.paramMap.get('id');
     if (id && parseInt(id))
       this.LoadReservations(parseInt(id));
