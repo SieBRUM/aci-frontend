@@ -15,13 +15,13 @@ import { AppShoppingCartPageComponent } from './app-shopping-cart-page/app-shopp
 const routes: Routes = [
   { path: 'cart', component: AppShoppingCartPageComponent },
   { path: 'products/add', component: AppAddProductPageComponent },
-  { path: 'reservation', component: AppReservationActionPageComponent },
   { path: 'catalog', component: AppCatalogusPageComponent },
   { path: 'products', component: AppInventoryPageComponent },
   { path: 'reservations', component: AppReservationsOverviewPageComponent },
-  { path: '**', redirectTo: 'catalog', pathMatch: 'full' },
-  { path: '', redirectTo: 'catalog', pathMatch: 'full' },
+  { path: 'reservation', component: AppReservationActionPageComponent },
   { path: 'reservation/:id', component: AppReservationActionPageComponent },
+  { path: '**', redirectTo: 'catalog', pathMatch: 'full' },
+  { path: '', redirectTo: 'catalog', pathMatch: 'full' }
 ];
 
 @NgModule({
