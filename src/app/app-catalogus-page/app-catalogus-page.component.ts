@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
@@ -6,7 +6,7 @@ import { ApiService } from '../api.service';
 import { ICartProduct } from '../models/cart-product.model';
 import { CatalogItemsWithCategory } from '../models/catalog-items-with-catogery.model';
 import { CatalogPage } from '../models/catalog-page.model';
-import { ICatalogFlat } from '../models/catelog-flat.model';
+import { ICatalogFlat } from '../models/catalog-flat.model';
 import { IDateChangedEvent } from '../models/date-changed-event.model';
 
 /* const variables for page sizing and index */
@@ -19,7 +19,7 @@ const PRODUCT_COUNT_DEFAULT = 0;
   templateUrl: './app-catalogus-page.component.html',
   styleUrls: ['./app-catalogus-page.component.scss']
 })
-export class AppCatalogusPageComponent implements OnInit {
+export class AppCatalogusPageComponent implements OnInit, AfterViewInit {
   /* MatPaginator Inputs */
   totalProductCount = PRODUCT_COUNT_DEFAULT;
   /* Standard pageSize */
@@ -29,7 +29,7 @@ export class AppCatalogusPageComponent implements OnInit {
   /* Page sizing options */
   pageSizeOptions: number[] = [1, 2, 3, 4, 5, 100];
   /* Index of the image that is being swapped */
-  imageIndexx: number = 0;
+  imageIndexx = 0;
   /* All cart items */
   cartItems: Array<ICartProduct> = [];
   /* MatPaginator Output */
@@ -58,10 +58,11 @@ export class AppCatalogusPageComponent implements OnInit {
     See https://angular.io/guide/lifecycle-hooks for more information.
   */
   ngOnInit(): void {
-    let inventoryPageOptions = localStorage.getItem('inventoryPageOptions');
+    const inventoryPageOptions = localStorage.getItem('inventoryPageOptions');
 
-    if (inventoryPageOptions != null)
+    if (inventoryPageOptions != null) {
       this.pageSize = JSON.parse(inventoryPageOptions);
+    }
   }
 
   /*
@@ -74,7 +75,7 @@ export class AppCatalogusPageComponent implements OnInit {
   /*
     Go back to previous image in the index.
   */
-  public onClickPreviousImage(item: ICatalogFlat) {
+  public onClickPreviousImage(item: ICatalogFlat): void {
     if (item.imageIndex <= 0) {
       item.imageIndex = item.images.length - 1;
     }
@@ -87,7 +88,7 @@ export class AppCatalogusPageComponent implements OnInit {
   /*
     Go to the next image in the index.
   */
-  public onClickNextImage(item: ICatalogFlat) {
+  public onClickNextImage(item: ICatalogFlat): void {
     if (item.imageIndex >= item.images.length - 1) {
       item.imageIndex = 0;
     }
@@ -100,8 +101,8 @@ export class AppCatalogusPageComponent implements OnInit {
   /*
     Changes the image after changing the index.
   */
-  onChangeSelectedImageIndex(item: ICatalogFlat) {
-    var imageElement = this.previewImageElement.filter((element, index) => element.nativeElement.id == "image-" + item.id)[0];
+  onChangeSelectedImageIndex(item: ICatalogFlat): void {
+    const imageElement = this.previewImageElement.filter((element, index) => element.nativeElement.id === 'image-' + item.id)[0];
     imageElement.nativeElement.src = 'data:image/png;base64,' + item.images[item.imageIndex];
   }
 
@@ -109,12 +110,12 @@ export class AppCatalogusPageComponent implements OnInit {
    * Handles the adding of a item to the cart
    * @param item item object that should be handled to be added to the cart
    */
-  addItemToCart(item: ICatalogFlat) {
-    if (new Date(item.startDate) <= new Date() || new Date(item.endDate!) <= new Date()) {
-      this.showErrorNotification("CATALOG.EMPTY_DATE");
+  addItemToCart(item: ICatalogFlat): void {
+    if (new Date(item.startDate) <= new Date() || new Date(item.endDate as Date) <= new Date()) {
+      this.showErrorNotification('CATALOG.EMPTY_DATE');
     }
     else {
-      var modal = <ICartProduct>{};
+      const modal = {} as ICartProduct;
       modal.endDate = item.endDate;
       modal.startDate = item.startDate;
       modal.id = item.id;
@@ -122,7 +123,7 @@ export class AppCatalogusPageComponent implements OnInit {
 
       localStorage.setItem('cart', JSON.stringify(this.cartItems));
 
-      this.notificationService.open(item.name + " " + this.translateService.instant('CATALOG.CART_ADD_SUCCESSFUL'), undefined, {
+      this.notificationService.open(item.name + ' ' + this.translateService.instant('CATALOG.CART_ADD_SUCCESSFUL'), undefined, {
         panelClass: 'success-snack',
         duration: 2500
       });
@@ -133,7 +134,7 @@ export class AppCatalogusPageComponent implements OnInit {
    * Handles the checking of amount of images with a received item
    * @param images images object that should be handled
    */
-  checkAmountOfImages(images: Array<string>) {
+  checkAmountOfImages(images: Array<string>): boolean {
     if (images.length <= 1) {
       return false;
     }
@@ -159,7 +160,7 @@ export class AppCatalogusPageComponent implements OnInit {
    */
   public handlePageEvent(event?: PageEvent): PageEvent | undefined {
     this.pageIndex = event?.pageIndex ?? INDEX_DEFAULT;
-    if (this.pageSize != event?.pageSize) {
+    if (this.pageSize !== event?.pageSize) {
       this.pageSize = event?.pageSize ?? PAGE_SIZE_DEFAULT;
       localStorage.setItem('inventoryPageOptions', JSON.stringify(this.pageSize));
     }

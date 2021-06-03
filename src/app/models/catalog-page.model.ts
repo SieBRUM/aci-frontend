@@ -1,4 +1,4 @@
-import { CatalogItemsWithCategory } from "./catalog-items-with-catogery.model";
+import { CatalogItemsWithCategory } from './catalog-items-with-catogery.model';
 
 /**
  * Defines data that is used in the catalog table

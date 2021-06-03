@@ -1,4 +1,4 @@
-import { ICatalogFlat } from "./catelog-flat.model";
+import { ICatalogFlat } from './catalog-flat.model';
 
 export interface CatalogItemsWithCategory {
     catalogItems: ICatalogFlat[];

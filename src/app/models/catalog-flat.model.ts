@@ -1,5 +1,5 @@
-import { ICategory } from "./category.model";
-import { ProductStatus } from "./ProductStatus.enum";
+import { ICategory } from './category.model';
+import { ProductStatus } from './product-status.enum';
 
 export interface ICatalogFlat {
     id: number;

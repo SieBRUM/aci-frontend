@@ -96,7 +96,7 @@ export class AppSideMenuBarComponent {
   }
 
   /*
-    Reverses the pin state of the menu and emit this value.   
+    Reverses the pin state of the menu and emit this value.
   */
   onClickPinMenu(): void {
     this.pinned = !this.pinned;

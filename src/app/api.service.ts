@@ -9,7 +9,7 @@ import { IProductFlat } from './models/product-flat.model';
 import { IReservation } from './models/reservation.model';
 import { CatalogPage } from './models/catalog-page.model';
 import { IInventoryPage } from './models/inventory-page.model';
-import { environment } from "../environments/environment";
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
