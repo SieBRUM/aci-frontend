@@ -7,8 +7,9 @@ import { IAddReservation } from './models/add-reservation.model';
 import { ICategory } from './models/category.model';
 import { IProductFlat } from './models/product-flat.model';
 import { IReservation } from './models/reservation.model';
+import { CatalogPage } from './models/catalog-page.model';
 import { IInventoryPage } from './models/inventory-page.model';
-import { environment } from "../environments/environment";
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +39,10 @@ export class ApiService {
 
   getInventoryProducts(pageNumber: number, pageSize: number): Observable<HttpResponse<IInventoryPage>> {
     return this.http.get<IInventoryPage>(`${this.API_GATEWAY}product/page/${pageNumber}/${pageSize}`, { observe: 'response' });
+  }
+
+  getCatalogEntries(pageNumber: number, pageSize: number): Observable<HttpResponse<CatalogPage>> {
+    return this.http.get<CatalogPage>(`${this.API_GATEWAY}product/catalogentries/${pageNumber}/${pageSize}`, { observe: 'response' });
   }
 
   /* POST calls */

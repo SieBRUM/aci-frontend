@@ -79,6 +79,9 @@ export class AppSideMenuBarComponent {
       case 'products':
         this.router.navigate(['products']);
         break;
+      case 'catalog':
+        this.router.navigate(['catalog']);
+        break;
       default:
         break;
     }
@@ -93,7 +96,7 @@ export class AppSideMenuBarComponent {
   }
 
   /*
-    Reverses the pin state of the menu and emit this value.   
+    Reverses the pin state of the menu and emit this value.
   */
   onClickPinMenu(): void {
     this.pinned = !this.pinned;

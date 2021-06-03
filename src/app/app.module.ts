@@ -15,6 +15,7 @@ import { AppProductDatepickerComponent } from './app-product-datepicker/app-prod
 import { AppShoppingCartPageComponent } from './app-shopping-cart-page/app-shopping-cart-page.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { AppArchiveDialogComponent } from './app-archive-dialog/app-archive-dialog.component';
+import { AppCatalogusPageComponent } from './app-catalogus-page/app-catalogus-page.component';
 import { StatusNameKeyPipe } from './pipes/status-name-key.pipe';
 import { StatusNameClassPipe } from './pipes/status-name-class.pipe';
 import { MatPaginatorIntl } from '@angular/material/paginator';
@@ -33,7 +34,8 @@ import { AppInventoryPageComponent } from './app-inventory-page/app-inventory-pa
     AppInventoryPageComponent,
     StatusNameKeyPipe,
     StatusNameClassPipe,
-    AppArchiveDialogComponent
+    AppArchiveDialogComponent,
+    AppCatalogusPageComponent
   ],
   imports: [
     BrowserModule,

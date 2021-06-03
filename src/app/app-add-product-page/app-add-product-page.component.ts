@@ -15,11 +15,11 @@ import { ICategory } from '../models/category.model';
 })
 export class AppAddProductPageComponent implements OnInit {
   /* Contains the value for the succes of retrieving the categories */
-  succesfullCategoriesBool: boolean = false;
+  succesfullCategoriesBool = false;
   /* Contains the value for the new category field */
   newCategory: IAddCategoryObject = {} as IAddCategoryObject;
   /* Contains the boolean value if a new category should be created  */
-  addNewCategory: boolean = false;
+  addNewCategory = false;
   /* Contains the values for the new product. */
   product: IAddProductObject = {} as IAddProductObject;
   /* Contains all (temp) image objects  */
@@ -97,16 +97,15 @@ export class AppAddProductPageComponent implements OnInit {
   /*
     Handles the functionality when the new category gets selected
   */
-  onChange(event:any) {
-    //console.log(event.source.value, event.source.selected);
-      this.addNewCategory = event.source.selected;
+  onChange(event: any): void {
+    this.addNewCategory = event.source.selected;
   }
 
   /*
     Handles saving the category and resetting the page to get the new category
   */
-  onClickSaveCategory() {
-    if(this.newCategory.name){
+  onClickSaveCategory(): void {
+    if (this.newCategory.name) {
       this.apiService.addCategory(this.newCategory).subscribe({
         next: (resp) => {
           this.isLoading = false;
@@ -114,7 +113,7 @@ export class AppAddProductPageComponent implements OnInit {
             panelClass: 'success-snack',
             duration: 2500
           });
-          this.getAllCategories()
+          this.getAllCategories();
           this.product.categoryId = resp.body;
           this.addNewCategory = false;
         },
@@ -135,7 +134,7 @@ export class AppAddProductPageComponent implements OnInit {
   /*
     Gets all categories
   */
-  getAllCategories() {
+  getAllCategories(): void {
     this.apiService.getAllCategories().subscribe({
       next: (resp) => {
         this.categories = resp.body;
@@ -250,7 +249,6 @@ export class AppAddProductPageComponent implements OnInit {
     }
     this.selectedImageIndex = this.images.length;
     this.onChangeSelectedImageIndex();
-    return;
   }
 
   /*

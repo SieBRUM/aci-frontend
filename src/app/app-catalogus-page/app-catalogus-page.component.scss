@@ -1,0 +1,113 @@
+.empty-catalog-card {
+  max-width: 80%;
+  margin: auto;
+}
+
+.mat-standard-chip {    
+  height: auto !important;
+}
+
+.loading-spinner{
+  margin:auto;
+  max-width: 40%;
+  padding-top: 20px;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+
+    .catalog-card {
+        display:flex;
+        flex-direction: column;
+        width: 80%;
+        margin-top: 20px;
+        .catalog-content {
+            display: flex;
+            flex-direction: column;
+            .catalogItemBox{
+                display: flex;
+                flex-direction: row;
+                margin-bottom: 20px;
+                margin-top: 10px;
+
+                @media (max-width: 500px) { 
+                  flex-direction: column;
+                }
+
+                .catalogItemBox-imgbox{
+
+                  .image-button-div{
+                    text-align: center;
+                  }
+
+                  .image-div {
+                    max-width: 100px;
+                    min-width: 100px;
+                    padding-right: 30px;
+                    margin: auto;
+                    display:block;
+                    padding-top: 17px;
+  
+                    img {
+                      max-width: 100px;
+                      max-height: 100px;
+                      object-fit: contain;
+                      vertical-align: bottom;
+                    }
+                  }
+                }
+
+                .catalogItemBox-middle{
+                  padding-right: 20px;
+                  max-width: 600px;
+                }
+
+                .catalogItemBox-description{
+                  max-width: 600px;
+
+                  
+                }
+
+                .catalogItemBox-datepicker{
+                  margin-left: auto;
+                  max-width: 300px;
+                  padding-top: 7px;
+                }
+
+                .catalogItemBox-status{
+                  display: flex;
+                  flex-direction: row;
+                  padding-top: 20px;
+
+                  .catalogItemBox-status-product{
+                    display: flex;
+                    flex-direction: row;
+                    padding-left: 20px;
+
+                    .catalogItemBox-status-product-text {
+                      margin-right: 5px;
+                      margin-top: 5px;
+                    }
+                  }
+                }
+                
+                .available-status {
+                    background-color: #006600;
+                  }
+                  
+                  .requires-approval-status {
+                    background-color: rgb(152, 79, 241);
+                  }
+                  
+                  .unavailable-status {
+                    background-color: #FF8000;
+                  }
+                  
+                  .archived-status {
+                    background-color: red;
+                  }
+            }
+        }
+    }
+}

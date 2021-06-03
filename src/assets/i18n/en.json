@@ -4,8 +4,19 @@
             "HOME": "Home",
             "ADD_PRODUCT": "Add product",
             "PRODUCTS": "Inventory",
-            "CART": "Shopping cart"
+            "CART": "Shopping cart",
+            "CATALOG": "Catalog"
         }
+    },
+    "CATALOG": {
+        "TITLE": "Catalog",
+        "APPROVAL_TEXT_YES": "Approval necessary",
+        "APPROVAL_TEXT_NO": "No Approval necessary",
+        "ADD_TO_CART": "+ Add to cart",
+        "EMPTY_DATE": "Add a date to the product",
+        "CART_ADD_SUCCESSFUL": "has been added to the shopping cart",
+        "NO_PRODUCTS": "Currently there are no products in the catalog",
+        "LOADING": "Loading catalog"
     },
     "INVENTORY": {
         "TITLE": "Inventory",
@@ -21,6 +32,7 @@
         "UNPIN_MENU": "Unpin menu",
         "PIN_MENU": "Pin menu",
         "HOME": "Home",
+        "CATALOG": "Catalog",
         "INVENTORY": "Inventory",
         "ADD_PRODUCT": "Add product",
         "SHOPPING_CART": "Shopping cart",
@@ -78,7 +90,7 @@
         "INFO": "Info",
         "RESERVE": "Reserve",
         "FIX_ERRORS": "Please fix the errors before reserving products",
-        "NO_PRODUCTS": "You do not have anything added to your shopping cart yet! Head over to the inventory page add one or more products.",
+        "NO_PRODUCTS": "You do not have anything added to your shopping cart yet! Head over to the catalogus page add one or more products.",
         "RESERVE_SUCCESSFUL": "Reservation has been successfully added!",
         "NO_FLAT_PRODUCT_RESPONSE": "Something went wrong with receiving the products. Please try again later or contact an administrator.",
         "RESERVING_PRODUCTS": "Reserving products...",
