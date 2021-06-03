@@ -1,0 +1,63 @@
+<div class="container">
+  <mat-card class="main-content">
+    <mat-card-header>
+      <mat-card-title name="cart-title">
+        {{ 'RESERVATIONS.TITLE' | translate }}
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content style="overflow: hidden; padding-top: 10px;">
+      <div *ngIf="reservations.length > 0 && !isLoading">
+        <div class="reservation-list" name="reservation-list">
+          <div class="reservation-list-info-item reservation-date">
+            {{ 'RESERVATIONS.START_DATE' | translate }}
+          </div>
+          <div class="reservation-list-info-item reservation-renter">
+            {{ 'RESERVATIONS.RENTER' | translate }}
+          </div>
+          <div class="reservation-list-info-item products">
+            {{ 'RESERVATIONS.PRODUCTS' | translate }}
+          </div>
+          <div class="reservation-list-info-item reservation-actions">
+            <div class="delete-entry-button"></div>
+          </div>
+        </div>
+        <mat-divider></mat-divider>
+        <!-- Loop with all the cart reservations  -->
+        <div *ngFor="let reservation of reservations">
+          <div class="reservation-list" name="reservation-list">
+            <div class="reservation-list-info-item reservation-date">
+              {{ reservation[0].startDate | date }}
+            </div>
+            <div class="reservation-list-info-item reservation-renter">
+              Siebren Kraak <br>
+              i408742
+            </div>
+            <div class="reservation-list-info-item products">
+              <p style="line-height: 10px;" *ngFor="let reservationProduct of reservation">
+                {{ hasLoadedProduct(reservationProduct.id) ? getProductName(reservationProduct.id) : 'RESERVATIONS.LOADING' | translate }}
+              </p>
+            </div>
+            <div class="reservation-list-info-item reservation-actions">
+              <button mat-stroked-button color="accent" class="delete-entry-button">
+                {{ 'RESERVATIONS.OPEN_RESERVATION' | translate }}
+              </button>
+            </div>
+          </div>
+          <div></div>
+          <mat-divider></mat-divider>
+        </div>
+      </div>
+
+      <div *ngIf="isLoading" style="text-align: center; margin-top: 10px;">
+        <mat-spinner diameter="50" style="margin:0 auto"></mat-spinner>
+        <br>
+        {{ 'RESERVATIONS.LOADING' | translate }}
+      </div>
+      <div *ngIf="reservations.length < 1 && !isLoading" style="text-align: center; margin-top: 10px;">
+        <mat-icon>sentiment_dissatisfied</mat-icon>
+        <br>
+        {{ 'RESERVATIONS.NO_RESERVATIONS' | translate }}
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

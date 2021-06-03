@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+
+  .main-content {
+    flex: 1;
+    max-width: 1000px;
+    padding: 16px 0px;
+
+    .reservation-list {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 15px 16px 0px 16px;
+
+      .reservation-list-info-item {
+        flex: 1;
+      }
+
+      .reservation-text {
+        flex: 3;
+        margin-right: 30px;
+        min-width: 200px;
+      }
+
+      .reservation-date {
+        padding-right: 35px;
+        max-width: 100px;
+        margin: auto;
+      }
+
+      .reservation-renter {
+        margin: auto;
+      }
+
+      .reservation-actions {
+        max-width: 200px;
+        margin: auto;
+      }
+
+      .products {
+        flex: 3;
+      }
+
+      .delete-entry-button {
+        margin: auto;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

@@ -67,9 +67,6 @@ export class AppSideMenuBarComponent {
   */
   onClickNavigate(route: string): void {
     switch (route) {
-      case 'home':
-        this.router.navigate(['home']);
-        break;
       case 'addproduct':
         this.router.navigate(['products/add']);
         break;
@@ -81,6 +78,9 @@ export class AppSideMenuBarComponent {
         break;
       case 'catalog':
         this.router.navigate(['catalog']);
+        break;
+      case 'reservations':
+        this.router.navigate(['reservations']);
         break;
       default:
         break;
