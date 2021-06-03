@@ -32,6 +32,10 @@ export class ApiService {
     return this.http.get<Array<IReservation>>(`${this.API_GATEWAY}reservation/${productId}`, { observe: 'response' });
   }
 
+  getReservationsSimilar(productId: number): Observable<HttpResponse<Array<IReservation>>> {
+    return this.http.get<Array<IReservation>>(`${this.API_GATEWAY}reservation/similar/${productId}`, { observe: 'response' });
+  }
+
   getProductFlatById(productId: number): Observable<HttpResponse<IProductFlat>> {
     return this.http.get<IProductFlat>(`${this.API_GATEWAY}product/flat/${productId}`, { observe: 'response' });
   }

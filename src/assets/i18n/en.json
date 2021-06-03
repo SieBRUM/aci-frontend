@@ -122,7 +122,8 @@
             "TITLE": "Reservation actions",
             "OUT": "Out",
             "RETURN": "Return",
-            "CANCEL": "Cancel"
+            "CANCEL": "Cancel",
+            "LOADING": "Loading the reservation"
         },
         "DATE": {
             "TERM": "Date",

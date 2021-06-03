@@ -122,7 +122,8 @@
             "TITLE": "Reservering acties",
             "OUT": "Uitgeven",
             "RETURN": "Inleveren",
-            "CANCEL": "Annuleren"
+            "CANCEL": "Annuleren",
+            "LOADING": "Laden van reservering"
         },
         "DATE": {
             "TERM": "Datum",

@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'cart', component: AppShoppingCartPageComponent },
   { path: 'products/add', component: AppAddProductPageComponent },
   { path: 'products', component: InventoryComponent },
-  { path: 'reservation', component: AppReservationActionPageComponent },
+  { path: 'reservation/:id', component: AppReservationActionPageComponent },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
