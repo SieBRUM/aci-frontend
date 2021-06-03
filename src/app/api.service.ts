@@ -45,6 +45,10 @@ export class ApiService {
     return this.http.get<CatalogPage>(`${this.API_GATEWAY}product/catalogentries/${pageNumber}/${pageSize}`, { observe: 'response' });
   }
 
+  getSimilarReservations(): Observable<HttpResponse<Array<Array<IReservation>>>> {
+    return this.http.get<Array<Array<IReservation>>>(`${this.API_GATEWAY}reservation/similar`, { observe: 'response' });
+  }
+
   /* POST calls */
   addProduct(product: IAddProductObject): Observable<HttpResponse<any>> {
     return this.http.post<any>(`${this.API_GATEWAY}product`, product, { observe: 'response' });

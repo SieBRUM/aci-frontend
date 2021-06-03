@@ -1,141 +1,148 @@
 {
-    "APP": {
-        "ROUTE": {
-            "HOME": "Home",
-            "ADD_PRODUCT": "Product toevoegen",
-            "PRODUCTS": "Inventaris",
-            "CART": "Winkelmandje",
-            "CATALOG": "Catalogus"
-        }
-    },
-    "CATALOG": {
-        "TITLE": "Catalogus",
-        "APPROVAL_TEXT_YES": "Goedkeuring nodig",
-        "APPROVAL_TEXT_NO": "Geen Goedkeuring nodig",
-        "ADD_TO_CART": "+ In winkelwagen",
-        "EMPTY_DATE": "Voeg een datum toe aan het product",
-        "CART_ADD_SUCCESSFUL": "is toegevoegd aan winkelmandje",
-        "NO_PRODUCTS": "Er zijn huidig geen producten aanwezig in de catalogus",
-        "LOADING": "Laden van catalogus"
-    },
-    "INVENTORY": {
-        "TITLE": "Inventaris",
-        "INVENTORY_EMPTY": "Geen producten gevonden",
-        "AVAILABLE": "Beschikbaar",
-        "UNAVAILABLE": "Niet beschikbaar",
-        "ARCHIVED": "Gearchiveerd",
-        "NO_INVENTORY_RESPONSE": "Er is iets misgegaan, probeer later opnieuw",
-        "LOADING": "Laden van inventaris"
-    },
-    "SIDE_BAR": {
-        "LOGOUT": "Log uit",
-        "UNPIN_MENU": "Ontgrendel menu",
-        "PIN_MENU": "Vergrendel menu",
-        "HOME": "Home",
-        "CATALOG": "Catalogus",
-        "INVENTORY": "Inventaris",
-        "ADD_PRODUCT": "Product toevoegen",
-        "SHOPPING_CART": "Winkelmandje",
-        "LANGUAGE": "Taal",
-        "LANGUAGES": {
-            "NL": "Nederlands",
-            "EN": "Engels"
-        }
-    },
-    "HOME": {
-        "TITLE": "Welkom thuis"
-    },
-    "PRODUCT": {
-        "ADD": {
-            "TITLE": "Product toevoegen",
-            "NAME": "Productnaam",
-            "CATALOG_NUMBER": "Catalogusnummer",
-            "CATEGORY": "Categorie",
-            "LOCATION": "Locatie",
-            "DESCRIPTION": "Beschrijving",
-            "REQUIRES_APPROVAL": "Vereist goedkeuring",
-            "SAVE": "Product toevoegen",
-            "LEFT": "Vorige foto",
-            "RIGHT": "Volgende foto",
-            "ADD_IMAGE": "Foto(s) toevoegen",
-            "REMOVE_IMAGE": "Foto verwijderen",
-            "CANCEL": "Annuleren",
-            "NO_NAME": "Productnaam is verplicht",
-            "NO_CATEGORY": "Product categorie is verplicht",
-            "NO_DESCRIPTION": "Beschrijving is verplicht",
-            "SAVING_IMAGES_FAILED": "Er is iets misgegaan met het opslaan van de afbeelding(en). Probeer het later opnieuw of contacteer een administrator",
-            "CATALOG_NUMBER_INCORRECT": "Incorrect catalogusnummer",
-            "CATALOG_BETWEEN": "Catalogusnummer moet tussen 0 en ",
-            "NAME_ALREADY_EXISTS": "Deze productnaam bestaat al",
-            "NO_CATEGORIES_RESPONSE": "Er is iets misgegaan met het ophalen van de categorieën. Probeer het later opnieuw of contacteer een administrator",
-            "NO_CATALOG_NUMBER_RESPONSE": "Er is iets misgegaan met het ophalen van de catalogusnummers. Probeer het later opnieuw of contacteer een administrator",
-            "NO_DATA": "Er is iets misgegaan met het opslaan van de gegevens. Probeer het later opnieuw of contacteer een administrator",
-            "ADD_SUCCESSFUL": "Product is toegevoegd!"
-        },
-        "ARCHIVE": {
-            "DIALOG_TITLE": "Bevestig",
-            "DIALOG_MESSAGE": "U staat op het punt het volgende product te archiveren:",
-            "DIALOG_ARCHIVE_BUTTON": "Archiveren",
-            "DIALOG_CANCEL_BUTTON": "Annuleren",
-            "NO_VALID_ID": "Het opgegeven product kan niet gearchiveerd worden",
-            "NO_PRODUCT_FOUND": "Het product dat gearchiveerd moet worden is niet gevonden",
-            "PRODUCT_ALREADY_ARCHIVED": "Dit product is al gearchiveerd",
-            "ARCHIVE_SUCCESFULL": "Het product is succesvol gearchiveerd!"
-        }
-    },
-    "CART": {
-        "TITLE": "Winkelmandje",
-        "LOADING_PRODUCT": "Product laden...",
-        "REMOVE_PRODUCT": "Product verwijderen",
-        "INFO": "Info",
-        "RESERVE": "Reserveren",
-        "FIX_ERRORS": "Graag de fouten oplossen voordat u reserveert",
-        "NO_PRODUCTS": "Je hebt nog geen producten in je winkelmandje! Ga naar de catalogus pagina om één of meerdere producten toe te voegen.",
-        "RESERVE_SUCCESSFUL": "Reservering is succesvol toegevoegd!",
-        "NO_FLAT_PRODUCT_RESPONSE": "Er is iets misgegaan met het ophalen van de producten. Probeer het later opnieuw of contacteer een administrator.",
-        "RESERVING_PRODUCTS": "Producten aan het reserveren...",
-        "REMOVED_UNAVAILABLE_PRODUCTS": "Er zijn één of meerdere producten uit je winkelwagentje verwijderd omdat deze niet meer beschikbaar zijn."
-    },
-    "PRODUCT_DATEPICKER": {
-        "LABEL": "Kies een periode",
-        "ERROR": {
-            "START_DATE_WEEKEND": "Startdatum kan niet in het weekend zijn",
-            "END_DATE_WEEKEND": "Einddatum kan niet in het weekend zijn",
-            "DATE_ALREADY_RESERVED": "De geselecteerde datum is al gereserveerd",
-            "TOO_MANY_DAYS": "Reservering is langer dan vijf dagen",
-            "START_DATE_NULL": "Geen startdatum geselecteerd",
-            "END_DATE_BEFORE_START_DATE": "Einddatum kan niet voor startdatum zijn",
-            "START_DATE_CANNOT_BE_PAST": "Startdatum kan niet in het verleden zijn"
-        }
-    },
-    "CATEGORY": {
-        "ADD": {
-            "ADD_NEW_CATEGORY": "Nieuwe categorie",
-            "ADD_NEW_CATEGORY_INPUT": "Voeg nieuwe categorie toe",
-            "SAVE_NEW_CATEGORY": "Sla de nieuwe categorie op",
-            "ADD_CATEGORY_SUCCESFUL": "Nieuwe categorie toegevoegd",
-            "ADD_NEW_CATEGORY_BUTTON": "Voeg nieuwe categorie toe",
-            "ADD_CATEGORY_UNSUCCESFUL": "Voeg een naam in voor de categorie"
-        }
-    },
-    "ATTRIBUTES": {
-        "NAME": "Naam",
-        "STATUS": "Status",
-        "LOCATION": "Locatie",
-        "REQUIRES_APPROVAL": "Goedkeuring vereist",
-        "OPTIONS": "Opties"
-    },
-    "GENERIC": {
-        "YES": "Ja",
-        "NO": "Nee"
-    },
-    "PAGINATOR": {
-        "ITEMS_PER_PAGE": "Artikelen per pagina",
-        "NEXT_PAGE": "Volgende pagina",
-        "PREVIOUS_PAGE": "Vorige pagina",
-        "FIRST_PAGE": "Eerste pagina",
-        "LAST_PAGE": "Laatste pagina",
-        "RANGE_PAGE_LABEL_1": "0 van {{length}}",
-        "RANGE_PAGE_LABEL_2": "{{startIndex}} - {{endIndex}} van {{length}}"
+  "APP": {
+    "ROUTE": {
+      "ADD_PRODUCT": "Product toevoegen",
+      "PRODUCTS": "Inventaris",
+      "CART": "Winkelmandje",
+      "CATALOG": "Catalogus",
+      "RESERVATIONS": "Reserveringen"
     }
+  },
+  "CATALOG": {
+    "TITLE": "Catalogus",
+    "APPROVAL_TEXT_YES": "Goedkeuring nodig",
+    "APPROVAL_TEXT_NO": "Geen Goedkeuring nodig",
+    "ADD_TO_CART": "+ In winkelwagen",
+    "EMPTY_DATE": "Voeg een datum toe aan het product",
+    "CART_ADD_SUCCESSFUL": "is toegevoegd aan winkelmandje",
+    "NO_PRODUCTS": "Er zijn huidig geen producten aanwezig in de catalogus",
+    "LOADING": "Laden van catalogus"
+  },
+  "INVENTORY": {
+    "TITLE": "Inventaris",
+    "INVENTORY_EMPTY": "Geen producten gevonden",
+    "AVAILABLE": "Beschikbaar",
+    "UNAVAILABLE": "Niet beschikbaar",
+    "ARCHIVED": "Gearchiveerd",
+    "NO_INVENTORY_RESPONSE": "Er is iets misgegaan, probeer later opnieuw",
+    "LOADING": "Laden van inventaris"
+  },
+  "SIDE_BAR": {
+    "LOGOUT": "Log uit",
+    "UNPIN_MENU": "Ontgrendel menu",
+    "PIN_MENU": "Vergrendel menu",
+    "HOME": "Home",
+    "CATALOG": "Catalogus",
+    "INVENTORY": "Inventaris",
+    "ADD_PRODUCT": "Product toevoegen",
+    "SHOPPING_CART": "Winkelmandje",
+    "RESERVATIONS": "Reserveringen",
+    "LANGUAGE": "Taal",
+    "LANGUAGES": {
+      "NL": "Nederlands",
+      "EN": "Engels"
+    }
+  },
+  "PRODUCT": {
+    "ADD": {
+      "TITLE": "Product toevoegen",
+      "NAME": "Productnaam",
+      "CATALOG_NUMBER": "Catalogusnummer",
+      "CATEGORY": "Categorie",
+      "LOCATION": "Locatie",
+      "DESCRIPTION": "Beschrijving",
+      "REQUIRES_APPROVAL": "Vereist goedkeuring",
+      "SAVE": "Product toevoegen",
+      "LEFT": "Vorige foto",
+      "RIGHT": "Volgende foto",
+      "ADD_IMAGE": "Foto(s) toevoegen",
+      "REMOVE_IMAGE": "Foto verwijderen",
+      "CANCEL": "Annuleren",
+      "NO_NAME": "Productnaam is verplicht",
+      "NO_CATEGORY": "Product categorie is verplicht",
+      "NO_DESCRIPTION": "Beschrijving is verplicht",
+      "SAVING_IMAGES_FAILED": "Er is iets misgegaan met het opslaan van de afbeelding(en). Probeer het later opnieuw of contacteer een administrator",
+      "CATALOG_NUMBER_INCORRECT": "Incorrect catalogusnummer",
+      "CATALOG_BETWEEN": "Catalogusnummer moet tussen 0 en ",
+      "NAME_ALREADY_EXISTS": "Deze productnaam bestaat al",
+      "NO_CATEGORIES_RESPONSE": "Er is iets misgegaan met het ophalen van de categorieën. Probeer het later opnieuw of contacteer een administrator",
+      "NO_CATALOG_NUMBER_RESPONSE": "Er is iets misgegaan met het ophalen van de catalogusnummers. Probeer het later opnieuw of contacteer een administrator",
+      "NO_DATA": "Er is iets misgegaan met het opslaan van de gegevens. Probeer het later opnieuw of contacteer een administrator",
+      "ADD_SUCCESSFUL": "Product is toegevoegd!"
+    },
+    "ARCHIVE": {
+      "DIALOG_TITLE": "Bevestig",
+      "DIALOG_MESSAGE": "U staat op het punt het volgende product te archiveren:",
+      "DIALOG_ARCHIVE_BUTTON": "Archiveren",
+      "DIALOG_CANCEL_BUTTON": "Annuleren",
+      "NO_VALID_ID": "Het opgegeven product kan niet gearchiveerd worden",
+      "NO_PRODUCT_FOUND": "Het product dat gearchiveerd moet worden is niet gevonden",
+      "PRODUCT_ALREADY_ARCHIVED": "Dit product is al gearchiveerd",
+      "ARCHIVE_SUCCESFULL": "Het product is succesvol gearchiveerd!"
+    }
+  },
+  "CART": {
+    "TITLE": "Winkelmandje",
+    "LOADING_PRODUCT": "Product laden...",
+    "REMOVE_PRODUCT": "Product verwijderen",
+    "INFO": "Info",
+    "RESERVE": "Reserveren",
+    "FIX_ERRORS": "Graag de fouten oplossen voordat u reserveert",
+    "NO_PRODUCTS": "Je hebt nog geen producten in je winkelmandje! Ga naar de catalogus pagina om één of meerdere producten toe te voegen.",
+    "RESERVE_SUCCESSFUL": "Reservering is succesvol toegevoegd!",
+    "NO_FLAT_PRODUCT_RESPONSE": "Er is iets misgegaan met het ophalen van de producten. Probeer het later opnieuw of contacteer een administrator.",
+    "RESERVING_PRODUCTS": "Producten aan het reserveren...",
+    "REMOVED_UNAVAILABLE_PRODUCTS": "Er zijn één of meerdere producten uit je winkelwagentje verwijderd omdat deze niet meer beschikbaar zijn."
+  },
+  "PRODUCT_DATEPICKER": {
+    "LABEL": "Kies een periode",
+    "ERROR": {
+      "START_DATE_WEEKEND": "Startdatum kan niet in het weekend zijn",
+      "END_DATE_WEEKEND": "Einddatum kan niet in het weekend zijn",
+      "DATE_ALREADY_RESERVED": "De geselecteerde datum is al gereserveerd",
+      "TOO_MANY_DAYS": "Reservering is langer dan vijf dagen",
+      "START_DATE_NULL": "Geen startdatum geselecteerd",
+      "END_DATE_BEFORE_START_DATE": "Einddatum kan niet voor startdatum zijn",
+      "START_DATE_CANNOT_BE_PAST": "Startdatum kan niet in het verleden zijn"
+    }
+  },
+  "CATEGORY": {
+    "ADD": {
+      "ADD_NEW_CATEGORY": "Nieuwe categorie",
+      "ADD_NEW_CATEGORY_INPUT": "Voeg nieuwe categorie toe",
+      "SAVE_NEW_CATEGORY": "Sla de nieuwe categorie op",
+      "ADD_CATEGORY_SUCCESFUL": "Nieuwe categorie toegevoegd",
+      "ADD_NEW_CATEGORY_BUTTON": "Voeg nieuwe categorie toe",
+      "ADD_CATEGORY_UNSUCCESFUL": "Voeg een naam in voor de categorie"
+    }
+  },
+  "RESERVATIONS": {
+    "TITLE": "Reserveringen",
+    "START_DATE": "Start datum",
+    "RENTER": "Lener",
+    "PRODUCTS": "Producten",
+    "OPEN_RESERVATION": "Reservering openen",
+    "LOADING": "Laden...",
+    "NO_RESERVATIONS": "Geen reserveringen gevonden"
+  },
+  "ATTRIBUTES": {
+    "NAME": "Naam",
+    "STATUS": "Status",
+    "LOCATION": "Locatie",
+    "REQUIRES_APPROVAL": "Goedkeuring vereist",
+    "OPTIONS": "Opties"
+  },
+  "GENERIC": {
+    "YES": "Ja",
+    "NO": "Nee"
+  },
+  "PAGINATOR": {
+    "ITEMS_PER_PAGE": "Artikelen per pagina",
+    "NEXT_PAGE": "Volgende pagina",
+    "PREVIOUS_PAGE": "Vorige pagina",
+    "FIRST_PAGE": "Eerste pagina",
+    "LAST_PAGE": "Laatste pagina",
+    "RANGE_PAGE_LABEL_1": "0 van {{length}}",
+    "RANGE_PAGE_LABEL_2": "{{startIndex}} - {{endIndex}} van {{length}}"
+  }
 }

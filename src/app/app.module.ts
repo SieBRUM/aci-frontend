@@ -8,7 +8,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslateLoader } from '@ngx-translate/core';
-import { AppHomePageComponent } from './app-home-page/app-home-page.component';
 import { AppSideMenuBarComponent } from './app-side-menu-bar/app-side-menu-bar.component';
 import { AppAddProductPageComponent } from './app-add-product-page/app-add-product-page.component';
 import { AppProductDatepickerComponent } from './app-product-datepicker/app-product-datepicker.component';
@@ -22,11 +21,11 @@ import { MatPaginatorIntl } from '@angular/material/paginator';
 import { MatPaginatorIntlFactory } from './factories/paginatorI18n.factory';
 import { HttpLoaderFactory } from './factories/http-loader.factory';
 import { AppInventoryPageComponent } from './app-inventory-page/app-inventory-page.component';
+import { AppReservationsOverviewPageComponent } from './app-reservations-overview-page/app-reservations-overview-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AppHomePageComponent,
     AppSideMenuBarComponent,
     AppAddProductPageComponent,
     AppProductDatepickerComponent,
@@ -35,7 +34,8 @@ import { AppInventoryPageComponent } from './app-inventory-page/app-inventory-pa
     StatusNameKeyPipe,
     StatusNameClassPipe,
     AppArchiveDialogComponent,
-    AppCatalogusPageComponent
+    AppCatalogusPageComponent,
+    AppReservationsOverviewPageComponent
   ],
   imports: [
     BrowserModule,

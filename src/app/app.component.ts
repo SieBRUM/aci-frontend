@@ -104,9 +104,7 @@ export class AppComponent {
   */
   getTranslatedRoute(): string {
     let textToTranslate = 'APP.ROUTE.UNKNOWN_ROUTE';
-    if (this.router.url.endsWith('home')) {
-      textToTranslate = 'APP.ROUTE.HOME';
-    } else if (this.router.url.endsWith('products/add')) {
+    if (this.router.url.endsWith('products/add')) {
       textToTranslate = 'APP.ROUTE.ADD_PRODUCT';
     } else if (this.router.url.endsWith('products')) {
       textToTranslate = 'APP.ROUTE.PRODUCTS';
@@ -114,6 +112,8 @@ export class AppComponent {
       textToTranslate = 'APP.ROUTE.CART';
     } else if (this.router.url.endsWith('catalog')) {
       textToTranslate = 'APP.ROUTE.CATALOG';
+    } else if (this.router.url.endsWith('reservations')) {
+      textToTranslate = 'APP.ROUTE.RESERVATIONS';
     }
 
     return this.translate.instant(textToTranslate);
