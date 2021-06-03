@@ -1,7 +1,7 @@
 <div class="container">
   <mat-card class="main-content">
     <mat-card-header>
-      <mat-card-title name="cart-title">
+      <mat-card-title name="reservations-title">
         {{ 'RESERVATIONS.TITLE' | translate }}
       </mat-card-title>
     </mat-card-header>
@@ -22,7 +22,7 @@
           </div>
         </div>
         <mat-divider></mat-divider>
-        <!-- Loop with all the cart reservations  -->
+        <!-- Loop with all the reservations  -->
         <div *ngFor="let reservation of reservations">
           <div class="reservation-list" name="reservation-list">
             <div class="reservation-list-info-item reservation-date">

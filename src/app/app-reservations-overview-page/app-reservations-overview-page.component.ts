@@ -86,11 +86,9 @@ export class AppReservationsOverviewPageComponent {
       }));
     });
 
-    let hasRan = 0;
     filteredProducts.forEach(async product => {
       this.apiService.getProductFlatById(product.id).subscribe({
         next: (resp) => {
-          hasRan++;
           if (resp.body === null) {
             return;
           }
