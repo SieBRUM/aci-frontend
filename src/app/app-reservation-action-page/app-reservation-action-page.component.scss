@@ -105,5 +105,10 @@
                 margin-bottom: 16px;
                 margin-top: 0;
             }
+
+            .return{
+                display: flex;
+                flex-direction: column;
+            }
         }
     }

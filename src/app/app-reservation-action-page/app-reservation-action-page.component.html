@@ -30,18 +30,17 @@
             </mat-card-content>
             <mat-card-actions class="card-actions">
                 <div *ngIf="!reservation.pickedUpDate">
-                    <button mat-stroked-button class="red action-button" style="float:right;"
-                        (click)="ReservationAction(0, reservation.id)" *ngIf="!isLoading"
-                        name="cancel-reservation-button" disabled>
-                        {{ 'RESERVATION.ACTION.CANCEL' | translate }}
-                    </button>
-                    <button mat-stroked-button class="green action-button" style="float:right;"
+                    <button mat-stroked-button class="green action-button"
                         (click)="ReservationAction(1, reservation.id)" *ngIf="!isLoading" name="out-reservation-button">
                         {{ 'RESERVATION.ACTION.OUT' | translate }}
                     </button>
+                    <button mat-stroked-button class="red action-button" (click)="ReservationAction(0, reservation.id)"
+                        *ngIf="!isLoading" name="cancel-reservation-button" disabled>
+                        {{ 'RESERVATION.ACTION.CANCEL' | translate }}
+                    </button>
                 </div>
                 <div *ngIf="reservation.pickedUpDate && !reservation.returnDate">
-                    <button mat-stroked-button class="green action-button" style="float:right;"
+                    <button mat-stroked-button class="green action-button return"
                         (click)="ReservationAction(2, reservation.id)" *ngIf="!isLoading"
                         name="return-reservation-button">
                         {{ 'RESERVATION.ACTION.RETURN' | translate }}
