@@ -5,7 +5,8 @@
       "PRODUCTS": "Inventory",
       "CART": "Shopping cart",
       "CATALOG": "Catalog",
-      "RESERVATIONS": "Reservations"
+      "RESERVATIONS": "Reservations",
+      "RESERVATION": "Reservation"
     }
   },
   "CATALOG": {
@@ -150,13 +151,14 @@
       "TITLE": "Reservation actions",
       "OUT": "Out",
       "RETURN": "Return",
-      "CANCEL": "Cancel"
+      "CANCEL": "Cancel",
+      "LOADING": "Loading reservation"
     },
-      "DATE": {
-        "TERM": "Date",
-        "PICKUP": "Pickup",
-        "RETURN": "Return"
-      },
-      "LOCATION": "Location"
+    "DATE": {
+      "TERM": "Date",
+      "PICKUP": "Pickup",
+      "RETURN": "Return"
+    },
+    "LOCATION": "Location"
   }
 }
