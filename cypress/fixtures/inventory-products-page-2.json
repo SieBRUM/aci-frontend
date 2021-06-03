@@ -2,6 +2,10 @@
     "totalProductCount": 6,
     "currentPage": 1,
     "products": [
-        { "name": "CANON R5", "location": "Balie", "status": 1}
+        {
+            "name": "CANON R5",
+            "location": "Balie",
+            "status": 1
+        }
     ]
 }

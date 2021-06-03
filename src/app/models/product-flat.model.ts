@@ -1,4 +1,4 @@
-import { ProductStatus } from './ProductStatus.enum';
+import { ProductStatus } from './product-status.enum';
 
 /* The backend DTO for the shopping cart product data */
 export interface IProductFlat {

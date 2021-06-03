@@ -24,7 +24,8 @@
         "AVAILABLE": "Available",
         "UNAVAILABLE": "Unavailable",
         "ARCHIVED": "Archived",
-        "NO_INVENTORY_RESPONSE": "Something went wrong, please try again later"
+        "NO_INVENTORY_RESPONSE": "Something went wrong, please try again later",
+        "LOADING": "Loading the inventory"
     },
     "SIDE_BAR": {
         "LOGOUT": "Log out",
@@ -127,5 +128,14 @@
     "GENERIC": {
         "YES": "Yes",
         "NO": "No"
+    },
+    "PAGINATOR": {
+        "ITEMS_PER_PAGE": "Items per page",
+        "NEXT_PAGE": "Next page",
+        "PREVIOUS_PAGE": "Previous page",
+        "FIRST_PAGE": "First page",
+        "LAST_PAGE": "Last Page",
+        "RANGE_PAGE_LABEL_1": "0 of {{length}}",
+        "RANGE_PAGE_LABEL_2": "{{startIndex}} - {{endIndex}} of {{length}}"
     }
 }

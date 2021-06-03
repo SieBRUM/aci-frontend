@@ -24,7 +24,8 @@
         "AVAILABLE": "Beschikbaar",
         "UNAVAILABLE": "Niet beschikbaar",
         "ARCHIVED": "Gearchiveerd",
-        "NO_INVENTORY_RESPONSE": "Er is iets misgegaan, probeer later opnieuw"
+        "NO_INVENTORY_RESPONSE": "Er is iets misgegaan, probeer later opnieuw",
+        "LOADING": "Laden van inventaris"
     },
     "SIDE_BAR": {
         "LOGOUT": "Log uit",
@@ -100,7 +101,7 @@
         "ERROR": {
             "START_DATE_WEEKEND": "Startdatum kan niet in het weekend zijn",
             "END_DATE_WEEKEND": "Einddatum kan niet in het weekend zijn",
-            "DATE_ALREADY_RESERVED": "De geselecteerde datum al gereserveerd",
+            "DATE_ALREADY_RESERVED": "De geselecteerde datum is al gereserveerd",
             "TOO_MANY_DAYS": "Reservering is langer dan vijf dagen",
             "START_DATE_NULL": "Geen startdatum geselecteerd",
             "END_DATE_BEFORE_START_DATE": "Einddatum kan niet voor startdatum zijn",
@@ -127,5 +128,14 @@
     "GENERIC": {
         "YES": "Ja",
         "NO": "Nee"
+    },
+    "PAGINATOR": {
+        "ITEMS_PER_PAGE": "Artikelen per pagina",
+        "NEXT_PAGE": "Volgende pagina",
+        "PREVIOUS_PAGE": "Vorige pagina",
+        "FIRST_PAGE": "Eerste pagina",
+        "LAST_PAGE": "Laatste pagina",
+        "RANGE_PAGE_LABEL_1": "0 van {{length}}",
+        "RANGE_PAGE_LABEL_2": "{{startIndex}} - {{endIndex}} van {{length}}"
     }
 }

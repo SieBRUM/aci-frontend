@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "localId": 1,
+        "startDate": "2021-6-20",
+        "endDate": "2021-5-30"
+    },
+    {
+        "id": 2,
+        "localId": 2,
+        "startDate": "2021-6-20",
+        "endDate": "2021-6-26"
+    },
+    {
+        "id": 3,
+        "localId": 3,
+        "startDate": "2021-6-20",
+        "endDate": "2021-6-26"
+    }
+]
