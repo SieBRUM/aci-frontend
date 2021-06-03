@@ -4,6 +4,7 @@ export interface IReservation {
     state: number;
     startDate: Date;
     endDate: Date;
+    pickedUpDate: Date | null;
     returnDate: Date | null;
     renterId: number;
     reviewerId: number;

@@ -21,6 +21,7 @@ const routes: Routes = [
   { path: 'reservations', component: AppReservationsOverviewPageComponent },
   { path: '**', redirectTo: 'catalog', pathMatch: 'full' },
   { path: '', redirectTo: 'catalog', pathMatch: 'full' },
+  { path: 'reservation/:id', component: AppReservationActionPageComponent },
 ];
 
 @NgModule({

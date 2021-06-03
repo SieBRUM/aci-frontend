@@ -7,4 +7,5 @@ export interface IProductFlat {
     description: string;
     image: string;
     productState: ProductStatus;
+    inventoryLocation: string;
 }

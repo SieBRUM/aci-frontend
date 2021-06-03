@@ -5,7 +5,7 @@ export interface IReservationProduct {
     startDate: Date;
     endDate: Date;
     returnDate?: Date | null;
-    pickupDate?: Date | null;
+    pickedUpDate?: Date | null;
     reviewerId?: number;
     isApproved?: boolean;
     product: IProductFlat;
