@@ -1,0 +1,71 @@
+<div class="container">
+    <mat-card class="main-content" *ngIf="!isLoadingPage">
+        <mat-card-header>
+            <mat-card-title name="reservation-title">
+                {{ 'RESERVATION.ACTION.TITLE' | translate }}
+            </mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <div *ngFor="let reservation of reservations" class="main-container-reservations">
+            <mat-divider></mat-divider>
+            <mat-card-content class="card-content">
+                <div class="itemBox-imgbox">
+                    <img *ngIf="reservation.product?.image; else elseImageBlock" class="image-div"
+                        src="data:image/png;base64,{{reservation.product?.image}}" #previewimage
+                        id="image-{{reservation.id}}">
+                    <ng-template #elseImageBlock>
+                        <img class="image-div" src="/assets/images/no_image_found.png">
+                    </ng-template>
+                </div>
+                <div class="itemBox-middle">
+                    <div class="itemBox-description col">
+                        <div>{{reservation.product ? reservation.product.name : 'RESERVATION.ACTION.LOADING' |
+                            translate}}</div>
+                        {{ 'RESERVATION.LOCATION' | translate }}
+                        {{ reservation.product ? reservation.product.inventoryLocation : 'RESERVATION.ACTION.LOADING' |
+                        translate}}
+                    </div>
+                    <div class="itemBox-reservation col">
+                        {{ 'RESERVATION.DATE.TERM' | translate }} {{reservation.startDate | date}} /
+                        {{reservation.endDate | date}}
+                    </div>
+                </div>
+            </mat-card-content>
+            <mat-card-actions class="card-actions">
+                <div *ngIf="!reservation.pickedUpDate">
+                    <button mat-stroked-button class="green action-button"
+                        (click)="ReservationAction(1, reservation.id)" *ngIf="!isLoading" name="out-reservation-button">
+                        {{ 'RESERVATION.ACTION.OUT' | translate }}
+                    </button>
+                    <button mat-stroked-button class="red action-button" (click)="ReservationAction(0, reservation.id)"
+                        *ngIf="!isLoading" name="cancel-reservation-button" disabled>
+                        {{ 'RESERVATION.ACTION.CANCEL' | translate }}
+                    </button>
+                </div>
+                <div *ngIf="reservation.pickedUpDate && !reservation.returnDate">
+                    <button mat-stroked-button class="green action-button return"
+                        (click)="ReservationAction(2, reservation.id)" *ngIf="!isLoading"
+                        name="return-reservation-button">
+                        {{ 'RESERVATION.ACTION.RETURN' | translate }}
+                    </button>
+                    {{ 'RESERVATION.DATE.PICKUP' | translate }} {{reservation.pickedUpDate | date}}
+                </div>
+                <div *ngIf="reservation.pickedUpDate && reservation.returnDate">
+                    <div>{{ 'RESERVATION.DATE.PICKUP' | translate }} {{reservation.pickedUpDate | date}}</div>
+                    <div>{{ 'RESERVATION.DATE.RETURN' | translate }} {{reservation.pickedUpDate | date}}</div>
+                </div>
+                <mat-spinner *ngIf="isLoading" diameter="35" style="margin:auto; padding-bottom: 10px;"
+                    name="reservation-loading-spinner"></mat-spinner>
+            </mat-card-actions>
+        </div>
+    </mat-card>
+    <div *ngIf="isLoadingPage">
+        <mat-card class="spinner-container">
+            <mat-card-header>
+                <mat-card-title>{{ 'RESERVATION.ACTION.LOADING' | translate }}</mat-card-title>
+            </mat-card-header>
+            <mat-progress-spinner color="primary" mode="indeterminate">
+            </mat-progress-spinner>
+        </mat-card>
+    </div>
+</div>

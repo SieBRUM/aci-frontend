@@ -34,11 +34,13 @@
             </div>
             <div class="reservation-list-info-item products">
               <p style="line-height: 10px;" *ngFor="let reservationProduct of reservation">
-                {{ hasLoadedProduct(reservationProduct.id) ? getProductName(reservationProduct.id) : 'RESERVATIONS.LOADING' | translate }}
+                {{ hasLoadedProduct(reservationProduct.productId) ? getProductName(reservationProduct.productId) :
+                'RESERVATIONS.LOADING' | translate }}
               </p>
             </div>
             <div class="reservation-list-info-item reservation-actions">
-              <button mat-stroked-button color="accent" class="delete-entry-button">
+              <button mat-stroked-button color="accent" class="delete-entry-button"
+                [routerLink]="'/reservation/' + reservation[0].id">
                 {{ 'RESERVATIONS.OPEN_RESERVATION' | translate }}
               </button>
             </div>

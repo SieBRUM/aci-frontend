@@ -4,6 +4,7 @@ import { AppAddProductPageComponent } from './app-add-product-page/app-add-produ
 import { AppCatalogusPageComponent } from './app-catalogus-page/app-catalogus-page.component';
 import { AppInventoryPageComponent } from './app-inventory-page/app-inventory-page.component';
 import { AppReservationsOverviewPageComponent } from './app-reservations-overview-page/app-reservations-overview-page.component';
+import { AppReservationActionPageComponent } from './app-reservation-action-page/app-reservation-action-page.component';
 import { AppShoppingCartPageComponent } from './app-shopping-cart-page/app-shopping-cart-page.component';
 
 
@@ -17,8 +18,10 @@ const routes: Routes = [
   { path: 'catalog', component: AppCatalogusPageComponent },
   { path: 'products', component: AppInventoryPageComponent },
   { path: 'reservations', component: AppReservationsOverviewPageComponent },
+  { path: 'reservation', component: AppReservationActionPageComponent },
+  { path: 'reservation/:id', component: AppReservationActionPageComponent },
   { path: '**', redirectTo: 'catalog', pathMatch: 'full' },
-  { path: '', redirectTo: 'catalog', pathMatch: 'full' },
+  { path: '', redirectTo: 'catalog', pathMatch: 'full' }
 ];
 
 @NgModule({

@@ -5,7 +5,8 @@
       "PRODUCTS": "Inventaris",
       "CART": "Winkelmandje",
       "CATALOG": "Catalogus",
-      "RESERVATIONS": "Reserveringen"
+      "RESERVATIONS": "Reserveringen",
+      "RESERVATION": "Reservering"
     }
   },
   "CATALOG": {
@@ -144,5 +145,20 @@
     "LAST_PAGE": "Laatste pagina",
     "RANGE_PAGE_LABEL_1": "0 van {{length}}",
     "RANGE_PAGE_LABEL_2": "{{startIndex}} - {{endIndex}} van {{length}}"
+  },
+  "RESERVATION": {
+    "ACTION": {
+      "OUT": "Uitgeven",
+      "TITLE": "Reservering acties",
+      "RETURN": "Inleveren",
+      "CANCEL": "Annuleren",
+      "LOADING": "Laden..."
+    },
+    "DATE": {
+      "TERM": "Datum",
+      "PICKUP": "Opgehaald",
+      "RETURN": "Teruggebracht"
+    },
+    "LOCATION": "Locatie"
   }
 }

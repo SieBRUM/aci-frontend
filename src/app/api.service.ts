@@ -10,6 +10,7 @@ import { IReservation } from './models/reservation.model';
 import { CatalogPage } from './models/catalog-page.model';
 import { IInventoryPage } from './models/inventory-page.model';
 import { environment } from '../environments/environment';
+import { IReservationAction } from './models/reservation-action.model';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +32,10 @@ export class ApiService {
 
   getReservationsByProductId(productId: number): Observable<HttpResponse<Array<IReservation>>> {
     return this.http.get<Array<IReservation>>(`${this.API_GATEWAY}reservation/${productId}`, { observe: 'response' });
+  }
+
+  getReservationsSimilar(productId: number): Observable<HttpResponse<Array<IReservation>>> {
+    return this.http.get<Array<IReservation>>(`${this.API_GATEWAY}reservation/similar/${productId}`, { observe: 'response' });
   }
 
   getProductFlatById(productId: number): Observable<HttpResponse<IProductFlat>> {
@@ -62,6 +67,9 @@ export class ApiService {
     return this.http.post<any>(`${this.API_GATEWAY}category`, category, { observe: 'response' });
   }
 
+  reservationAction(reservationAction: IReservationAction): Observable<HttpResponse<any>> {
+    return this.http.post<any>(`${this.API_GATEWAY}reservation`, reservationAction, { observe: 'response' });
+  }
   /* DELETE calls */
   archiveProduct(productid: number): Observable<HttpResponse<any>> {
     return this.http.delete<any>(`${this.API_GATEWAY}product/` + productid, { observe: 'response' });
