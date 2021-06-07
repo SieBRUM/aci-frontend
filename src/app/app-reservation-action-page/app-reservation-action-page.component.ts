@@ -39,7 +39,10 @@ export class AppReservationActionPageComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute
   ) { }
-
+  /**
+   * Load all reservations similiar to given Id
+   * @param id given id of reservation
+   */
   LoadReservations(id: number) {
     var similarReservations;
     this.isLoadingPage = true;
@@ -70,7 +73,9 @@ export class AppReservationActionPageComponent implements OnInit {
         }
       });
   }
-
+  /**
+     * Loads products for reservations
+   */
   LoadProductData() {
     this.reservations.forEach(reservation => {
       this.apiService.getProductFlatById(reservation.productId)
@@ -90,6 +95,11 @@ export class AppReservationActionPageComponent implements OnInit {
     })
   }
 
+  /**
+   * Action function to delete / out / in a reservation
+   * @param action number, 0 delete, 1 out, 2 in
+   * @param id number the id of the reservation
+   */
   ReservationAction(action: number, id: number) {
     this.isLoading = true;
     const reservationAction: IReservationAction = { reservationId: id, actionNumber: action }
@@ -101,6 +111,7 @@ export class AppReservationActionPageComponent implements OnInit {
             panelClass: 'success-snack',
             duration: 2500
           });
+          this.updateReservation(action, id)
         },
         error: (err) => {
           this.isLoading = false;
@@ -114,6 +125,38 @@ export class AppReservationActionPageComponent implements OnInit {
         duration: 2500
       });
     }
+  }
+  /**
+  * Updates the currect list
+  * @param action number, 0 delete, 1 out, 2 in
+  * @param id number the id of the reservation
+   */
+  private updateReservation(action: number, id: number): void {
+    this.reservations.forEach(reservation => {
+      if (reservation.id == id) {
+        switch (action) {
+          case 0: {
+            const index = this.reservations.indexOf(reservation, 0);
+            if (index > -1) {
+              this.reservations.splice(index, 1);
+            }
+            break;
+          }
+          case 1: {
+            reservation.pickedUpDate = new Date();
+            break;
+          }
+          case 2: {
+            reservation.returnDate = new Date();
+            break;
+          }
+          default: {
+            //statements; 
+            break;
+          }
+        }
+      }
+    })
   }
   /*
     Show error notification

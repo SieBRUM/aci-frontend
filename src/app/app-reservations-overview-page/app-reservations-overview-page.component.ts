@@ -25,8 +25,7 @@ export class AppReservationsOverviewPageComponent {
   isLoading = true;
 
   constructor(
-    private apiService: ApiService,
-    private route: Router) {
+    private apiService: ApiService) {
     this.isLoading = true;
     this.apiService.getSimilarReservations().subscribe({
       next: (resp) => {
@@ -40,14 +39,6 @@ export class AppReservationsOverviewPageComponent {
         this.getProducts();
       }
     });
-  }
-
-  /**
-   * Navigate to the detailed reservation page
-   * @param reservationId the id of the reservation to navigate to
-   */
-  onClickNavigateToReservation(reservationId: number): void {
-    this.route.navigate(['reservation', reservationId]);
   }
 
   /**
@@ -80,14 +71,14 @@ export class AppReservationsOverviewPageComponent {
 
     this.reservations.forEach(reservation => {
       filteredProducts = filteredProducts.concat(reservation.filter(el => {
-        const duplicate = seen.has(el.id);
-        seen.add(el.id);
+        const duplicate = seen.has(el.productId);
+        seen.add(el.productId);
         return !duplicate;
       }));
     });
 
     filteredProducts.forEach(async product => {
-      this.apiService.getProductFlatById(product.id).subscribe({
+      this.apiService.getProductFlatById(product.productId).subscribe({
         next: (resp) => {
           if (resp.body === null) {
             return;
