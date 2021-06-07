@@ -8,5 +8,6 @@ export interface IReservationProduct {
     pickedUpDate?: Date | null;
     reviewerId?: number;
     isApproved?: boolean;
-    product: IProductFlat;
+    productId: number;
+    product: IProductFlat | null;
 }

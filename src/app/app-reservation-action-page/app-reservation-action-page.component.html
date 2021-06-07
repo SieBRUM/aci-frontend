@@ -10,8 +10,8 @@
             <mat-divider></mat-divider>
             <mat-card-content class="card-content">
                 <div class="itemBox-imgbox">
-                    <img *ngIf="reservation.product.image; else elseImageBlock" class="image-div"
-                        src="data:image/png;base64,{{reservation.product.image}}" #previewimage
+                    <img *ngIf="reservation.product?.image; else elseImageBlock" class="image-div"
+                        src="data:image/png;base64,{{reservation.product?.image}}" #previewimage
                         id="image-{{reservation.id}}">
                     <ng-template #elseImageBlock>
                         <img class="image-div" src="/assets/images/no_image_found.png">
@@ -19,8 +19,11 @@
                 </div>
                 <div class="itemBox-middle">
                     <div class="itemBox-description col">
-                        <div>{{reservation.product.name}}</div>
-                        {{ 'RESERVATION.LOCATION' | translate }} {{reservation.product.inventoryLocation}}
+                        <div>{{reservation.product ? reservation.product.name : 'RESERVATION.ACTION.LOADING' |
+                            translate}}</div>
+                        {{ 'RESERVATION.LOCATION' | translate }}
+                        {{ reservation.product ? reservation.product.inventoryLocation : 'RESERVATION.ACTION.LOADING' |
+                        translate}}
                     </div>
                     <div class="itemBox-reservation col">
                         {{ 'RESERVATION.DATE.TERM' | translate }} {{reservation.startDate | date}} /

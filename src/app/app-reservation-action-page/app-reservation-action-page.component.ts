@@ -17,7 +17,7 @@ import { IProductFlat } from '../models/product-flat.model';
 export class AppReservationActionPageComponent implements OnInit {
 
   reservations: Array<IReservationProduct> = [
-    { id: 1, startDate: new Date, endDate: new Date, pickedUpDate: new Date, product: { id: 1, name: "Testdata", description: "", image: "R0lGODlhDAAMAKIFAF5LAP/zxAAAANyuAP/gaP///wAAAAAAACH5BAEAAAUALAAAAAAMAAwAAAMlWLPcGjDKFYi9lxKBOaGcF35DhWHamZUW0K4mAbiwWtuf0uxFAgA7", productState: ProductStatus.Available, inventoryLocation: "" } },
+    { id: 1, startDate: new Date, endDate: new Date, pickedUpDate: new Date, productId: 1, product: { id: 1, name: "Testdata", description: "", image: "R0lGODlhDAAMAKIFAF5LAP/zxAAAANyuAP/gaP///wAAAAAAACH5BAEAAAUALAAAAAAMAAwAAAMlWLPcGjDKFYi9lxKBOaGcF35DhWHamZUW0K4mAbiwWtuf0uxFAgA7", productState: ProductStatus.Available, inventoryLocation: "" } },
   ];
 
   ngOnInit(): void {
@@ -47,41 +47,47 @@ export class AppReservationActionPageComponent implements OnInit {
       .subscribe({
         next: (response) => {
           this.reservations = new Array<IReservationProduct>();
-          if (response.body == null) {
+          if (response.body === null) {
             return;
           }
           response.body.forEach(reservation => {
-            this.apiService.getProductFlatById(reservation.productId)
-              .subscribe({
-                next: (response) => {
-                  this.isLoadingPage = true;
-                  if (response.body == null) {
-                    return;
-                  }
-                  if (response.body) {
-                    this.reservations.push({
-                      id: reservation.id,
-                      startDate: reservation.startDate,
-                      endDate: reservation.endDate,
-                      returnDate: reservation.returnDate,
-                      pickedUpDate: reservation.pickedUpDate,
-                      product: response.body
-                    })
-                  }
-                  this.isLoadingPage = false;
-                },
-                error: (_err: any) => {
-                  this.showErrorNotification('RESERVATION.PRODUCT.ERROR');
-                }
-              })
+            this.reservations.push({
+              id: reservation.id,
+              startDate: reservation.startDate,
+              endDate: reservation.endDate,
+              returnDate: reservation.returnDate,
+              pickedUpDate: reservation.pickedUpDate,
+              productId: reservation.productId,
+              product: null
+            })
           });
+          this.LoadProductData();
+          this.isLoadingPage = false;
         },
         error: (_err: any) => {
           this.showErrorNotification('RESERVATION.NO_RESPONSE_DATA');
           this.isLoadingPage = false;
         }
       });
-    console.log()
+  }
+
+  LoadProductData() {
+    this.reservations.forEach(reservation => {
+      this.apiService.getProductFlatById(reservation.productId)
+        .subscribe({
+          next: (response) => {
+            if (response.body == null) {
+              return;
+            }
+            if (response.body) {
+              reservation.product = response.body;
+            }
+          },
+          error: (_err: any) => {
+            this.showErrorNotification('RESERVATION.PRODUCT.ERROR');
+          }
+        })
+    })
   }
 
   ReservationAction(action: number, id: number) {

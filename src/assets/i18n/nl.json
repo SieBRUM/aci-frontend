@@ -152,7 +152,7 @@
       "TITLE": "Reservering acties",
       "RETURN": "Inleveren",
       "CANCEL": "Annuleren",
-      "LOADING": "Laden van reservering"
+      "LOADING": "Laden..."
     },
     "DATE": {
       "TERM": "Datum",
